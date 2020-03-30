@@ -18,6 +18,7 @@ if(isset($_SESSION['user_id']))
 if(isset($_POST["register"]))
 {
 	$username = trim($_POST["username"]);
+	$name = trim($_POST["name"]);
 	$password = trim($_POST["password"]);
 	$check_query = "
 	SELECT * FROM login 
@@ -41,13 +42,13 @@ if(isset($_POST["register"]))
 			}
 			if(empty($password))
 			{
-				$message .= '<p>Contrase«Ğa es requerida</p>';
+				$message .= '<p>Contraseï¿½ï¿½ï¿½a es requerida</p>';
 			}
 			else
 			{
 				if($password != $_POST['confirm_password'])
 				{
-					$message .= '<p>Las contrase«Ğas no coinciden</p>';
+					$message .= '<p>Las contraseï¿½ï¿½ï¿½as no coinciden</p>';
 				}
 			}
 			
@@ -57,18 +58,19 @@ if(isset($_POST["register"]))
 			{
 				$data = array(
 					':username'		=>	$username,
+					':name'		=>	$name,
 					':password'		=>	password_hash($password, PASSWORD_DEFAULT)
 				);
 
 				$query = "
 				INSERT INTO login
-				(username, password) 
-				VALUES (:username, :password)
+				(username, name, password) 
+				VALUES (:username,:name, :password)
 				";
 				$statement = $connect->prepare($query);
 				if($statement->execute($data))
 				{
-					$message = "<label>Registration Completed</label>";
+					$message = "<p>Registro Exitoso!</p>";
 				}
 			}
 		}
@@ -129,6 +131,12 @@ IMAGEN
                     <label for="password">Tel&eacute;fono</label>
                    <span class="lbl-error"></span>
 
+				   </div>
+				   <div class="input-field col s12">
+                    <input id="password" type="text" name="name" class="validate" required="required" class="form-control" minlength="5" maxlength="30">
+                    <label for="password">Nombres</label>
+                   <span class="lbl-error"></span>
+
                    </div>
                    
 					<div class="input-field col s12">
@@ -148,7 +156,7 @@ IMAGEN
 
                    </div>
 			<br>
-			<span class="text-danger" style="color:#8E7B00;font-size: 12px;"><?php echo $message; ?></span>
+			<span class="text-danger" style="color:#8E7B00;font-size: 15px;"><?php echo $message; ?></span>
 						<div class="form-group" align="center">
 							<input type="submit" name="register" class="btn btn-info" value="Registrarme"  />
 						</div>

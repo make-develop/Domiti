@@ -44,7 +44,7 @@ if(!isset($_SESSION['user_id']))
 					<button type="button" name="group_chat" id="group_chat" class="btn btn-warning btn-xs">Group Chat</button>
 				</div>
 				<div class="col-md-2 col-sm-3">
-					<p align="right">Hola! - <?php echo $_SESSION['username']; ?> - <a href="logout.php">Salir</a></p>
+					<p align="right">Hola! - <?php echo $_SESSION['name']; ?> - <a href="logout.php">Salir</a></p>
 				</div>
 			</div>
 			<div class="table-responsive">
