@@ -19,6 +19,8 @@ if(isset($_POST["register"]))
 {
 	$username = trim($_POST["username"]);
 	$name = trim($_POST["name"]);
+	$address = trim($_POST["address"]);
+	$addressAditional = trim($_POST["addressAditional"]);
 	$password = trim($_POST["password"]);
 	$check_query = "
 	SELECT * FROM login 
@@ -59,13 +61,15 @@ if(isset($_POST["register"]))
 				$data = array(
 					':username'		=>	$username,
 					':name'		=>	$name,
+					':address'		=>	$address,
+					':addressAditional'		=>	$addressAditional,
 					':password'		=>	password_hash($password, PASSWORD_DEFAULT)
 				);
 
 				$query = "
 				INSERT INTO login
-				(username, name, password) 
-				VALUES (:username,:name, :password)
+				(username, name, address, addressAditional, password) 
+				VALUES (:username,:name,:address,:addressAditional, :password)
 				";
 				$statement = $connect->prepare($query);
 				if($statement->execute($data))
@@ -118,7 +122,7 @@ IMAGEN
         <div class="container">
 			<br />
 			
-			<h3 align="center">Domiti</a></h3><br />
+			<h3 align="center">Domiti</a></h3>
 			<br />
 			<div class="panel panel-default">
   				<div class="panel-heading">Registrarse</div>
@@ -135,6 +139,19 @@ IMAGEN
 				   <div class="input-field col s12">
                     <input id="password" type="text" name="name" class="validate" required="required" class="form-control" minlength="5" maxlength="30">
                     <label for="password">Nombres</label>
+                   <span class="lbl-error"></span>
+
+				   </div>
+				   
+				   <div class="input-field col s12">
+                    <input id="password" type="text" name="address" class="validate"  class="form-control" minlength="5" maxlength="30">
+                    <label for="password">Direccion de entrega</label>
+                   <span class="lbl-error"></span>
+
+				   </div>
+				   <div class="input-field col s12">
+                    <input id="password" type="text" name="addressAditional" class="validate"  class="form-control" minlength="5" maxlength="30" >
+                    <label for="password">Direccion Adicional: Barrio, Piso, Apto</label>
                    <span class="lbl-error"></span>
 
                    </div>
