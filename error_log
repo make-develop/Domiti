@@ -1,0 +1,133 @@
+[29-Mar-2020 21:49:51 America/Bogota] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home1/makedeve/gym.makedevelop.com.co/domi/database_connection.php:5
+Stack trace:
+#0 /home1/makedeve/gym.makedevelop.com.co/domi/database_connection.php(5): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 /home1/makedeve/gym.makedevelop.com.co/domi/index.php(7): include('/home1/makedeve...')
+#2 {main}
+  thrown in /home1/makedeve/gym.makedevelop.com.co/domi/database_connection.php on line 5
+[29-Mar-2020 21:51:00 America/Bogota] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home1/makedeve/gym.makedevelop.com.co/domi/database_connection.php:5
+Stack trace:
+#0 /home1/makedeve/gym.makedevelop.com.co/domi/database_connection.php(5): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 /home1/makedeve/gym.makedevelop.com.co/domi/index.php(7): include('/home1/makedeve...')
+#2 {main}
+  thrown in /home1/makedeve/gym.makedevelop.com.co/domi/database_connection.php on line 5
+[29-Mar-2020 21:52:07 America/Bogota] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in /home1/makedeve/gym.makedevelop.com.co/domi/database_connection.php:5
+Stack trace:
+#0 /home1/makedeve/gym.makedevelop.com.co/domi/database_connection.php(5): PDO->__construct('mysql:host=loca...', 'root', 'Proyectox1116')
+#1 /home1/makedeve/gym.makedevelop.com.co/domi/index.php(7): include('/home1/makedeve...')
+#2 {main}
+  thrown in /home1/makedeve/gym.makedevelop.com.co/domi/database_connection.php on line 5
+[30-Mar-2020 08:23:24 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/index.php on line 9
+[30-Mar-2020 08:23:24 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/index.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/index.php on line 13
+[30-Mar-2020 08:23:49 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:26:45 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:27:09 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:27:09 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[30-Mar-2020 08:27:17 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/register.php on line 9
+[30-Mar-2020 08:27:23 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/register.php on line 9
+[30-Mar-2020 08:27:31 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/register.php on line 9
+[30-Mar-2020 08:27:42 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/register.php on line 9
+[30-Mar-2020 08:27:45 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:27:48 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:28:03 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:28:03 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[30-Mar-2020 08:28:04 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:28:04 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[30-Mar-2020 08:28:11 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:28:12 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[29-Mar-2020 21:59:40 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/register.php on line 9
+[29-Mar-2020 21:59:43 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/register.php on line 9
+[29-Mar-2020 21:59:47 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[29-Mar-2020 21:59:50 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[29-Mar-2020 21:59:50 America/Bogota] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[29-Mar-2020 21:59:52 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/register.php on line 9
+[29-Mar-2020 21:59:55 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/register.php on line 9
+[29-Mar-2020 21:59:59 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[29-Mar-2020 22:03:19 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[29-Mar-2020 22:03:23 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[29-Mar-2020 22:03:23 America/Bogota] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[29-Mar-2020 22:04:07 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[29-Mar-2020 22:04:07 America/Bogota] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[29-Mar-2020 22:04:10 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[29-Mar-2020 22:04:10 America/Bogota] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[29-Mar-2020 22:05:27 America/Bogota] PHP Fatal error:  Uncaught TypeError: PDO::__construct() expects parameter 4 to be array, string given in /home1/makedeve/gym.makedevelop.com.co/domi/database_connection.php:5
+Stack trace:
+#0 /home1/makedeve/gym.makedevelop.com.co/domi/database_connection.php(5): PDO->__construct('mysql:host=loca...', 'makedeve_mike', 'Proyectox1116', '127.0.0.1')
+#1 /home1/makedeve/gym.makedevelop.com.co/domi/login.php(7): include('/home1/makedeve...')
+#2 {main}
+  thrown in /home1/makedeve/gym.makedevelop.com.co/domi/database_connection.php on line 5
+[29-Mar-2020 22:05:39 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[29-Mar-2020 22:05:40 America/Bogota] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[29-Mar-2020 22:05:56 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[29-Mar-2020 22:05:56 America/Bogota] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[29-Mar-2020 22:08:19 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[29-Mar-2020 22:08:19 America/Bogota] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[29-Mar-2020 22:08:24 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[29-Mar-2020 22:08:24 America/Bogota] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[29-Mar-2020 22:10:02 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[29-Mar-2020 22:10:02 America/Bogota] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[29-Mar-2020 22:10:03 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/register.php on line 9
+[29-Mar-2020 22:10:06 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/register.php on line 9
+[29-Mar-2020 22:10:08 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[29-Mar-2020 22:10:11 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/register.php on line 9
+[29-Mar-2020 22:10:13 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[29-Mar-2020 22:10:16 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[29-Mar-2020 22:10:16 America/Bogota] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[29-Mar-2020 22:18:37 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[29-Mar-2020 22:18:37 America/Bogota] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[29-Mar-2020 22:18:44 America/Bogota] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[29-Mar-2020 22:18:44 America/Bogota] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[30-Mar-2020 08:50:26 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:50:26 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[30-Mar-2020 08:50:29 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:50:29 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[30-Mar-2020 08:50:32 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:50:32 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[30-Mar-2020 08:50:35 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:50:40 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:53:06 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:53:12 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:53:12 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[30-Mar-2020 08:53:15 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:53:15 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[30-Mar-2020 08:59:38 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:59:38 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[30-Mar-2020 08:59:42 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 08:59:42 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[29-Mar-2020 22:35:31 America/Bogota] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'makedeve_mike'@'ns16.hostgator.co' (using password: YES) in /home1/makedeve/gym.makedevelop.com.co/domi/database_connection.php:5
+Stack trace:
+#0 /home1/makedeve/gym.makedevelop.com.co/domi/database_connection.php(5): PDO->__construct('mysql:host=162....', 'makedeve_mike', 'Proyectox1116')
+#1 /home1/makedeve/gym.makedevelop.com.co/domi/login.php(7): include('/home1/makedeve...')
+#2 {main}
+  thrown in /home1/makedeve/gym.makedevelop.com.co/domi/database_connection.php on line 5
+[30-Mar-2020 09:05:40 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 09:05:40 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[30-Mar-2020 09:05:43 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 09:05:43 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/gym.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/gym.makedevelop.com.co/domi/login.php on line 48
+[30-Mar-2020 09:07:33 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/abogatti.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 09:07:52 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/abogatti.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 09:07:54 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/abogatti.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 09:07:57 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/abogatti.makedevelop.com.co/domi/register.php on line 9
+[30-Mar-2020 09:08:00 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/abogatti.makedevelop.com.co/domi/register.php on line 9
+[30-Mar-2020 09:08:03 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/abogatti.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 09:08:06 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/abogatti.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 09:08:06 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/abogatti.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/abogatti.makedevelop.com.co/domi/login.php on line 48
+[30-Mar-2020 09:15:43 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/abogatti.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 09:15:43 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/abogatti.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/abogatti.makedevelop.com.co/domi/login.php on line 48
+[30-Mar-2020 09:15:47 Asia/Kolkata] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/makedeve/abogatti.makedevelop.com.co/domi/login.php on line 9
+[30-Mar-2020 09:15:47 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/makedeve/abogatti.makedevelop.com.co/domi/login.php:1) in /home1/makedeve/abogatti.makedevelop.com.co/domi/login.php on line 48
+[30-Mar-2020 22:28:04 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function existsError() in /home1/makedeve/abogatti.makedevelop.com.co/domi/register.php:114
+Stack trace:
+#0 {main}
+  thrown in /home1/makedeve/abogatti.makedevelop.com.co/domi/register.php on line 114
+[30-Mar-2020 22:58:18 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function makeError() in /home1/makedeve/abogatti.makedevelop.com.co/domi/register.php:58
+Stack trace:
+#0 {main}
+  thrown in /home1/makedeve/abogatti.makedevelop.com.co/domi/register.php on line 58
+[30-Mar-2020 22:59:37 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function existsError() in /home1/makedeve/abogatti.makedevelop.com.co/domi/register.php:122
+Stack trace:
+#0 {main}
+  thrown in /home1/makedeve/abogatti.makedevelop.com.co/domi/register.php on line 122
+[30-Mar-2020 23:04:24 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function makeError() in /home1/makedeve/abogatti.makedevelop.com.co/domi/register.php:57
+Stack trace:
+#0 {main}
+  thrown in /home1/makedeve/abogatti.makedevelop.com.co/domi/register.php on line 57
