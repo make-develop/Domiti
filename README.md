@@ -1,2 +1,0 @@
-# Domiti
-Domiti Web
