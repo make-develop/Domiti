@@ -105,6 +105,33 @@ ul.menu ul li a {
     border: none;
     border-bottom: 0px solid #353539;
 }
+/*FOOTER*/
+
+/*contendores Varios  footer*/
+footer{
+    width: 100%;
+    background: #202020;
+    color: white;    
+    
+}
+
+.contenedor-total-footer{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px;
+}
+
+.contenedor-body{
+    display: flex;
+    justify-content: space-between;
+}
+.titulo_boton{
+    width: 100%;
+}
+
+
+
 /*fin*/
 
 /*Imagen en movimiento*/

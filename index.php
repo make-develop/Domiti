@@ -222,25 +222,24 @@ prettyPrint();
 <!--fin valor-->
 
 
-<!--OCULTAR-->
-<input type="button" value="Mostrar" onClick="mostrar()">
-<input type="button" value="Ocultar" onClick="ocultar()">
-	<div id="mostrarOcultar" style="width:100%; height:auto; background-color:#57429A">
 
 
-	<div class="container">
-			<br />			
+		  <!---PRUEBA DE FOOTER-->
+
+		  <footer>
+		<div class="contenedor-total-footer">
+
+			<div class="contenedor-body">
+
+			<!--OCULTAR-->
+			<div class="titulo_boton">
+			<button class="btnhelp"  onClick="muestra_oculta('mostrarOcultar')">👇Chats👇</button>
+</div>
+	<div id="mostrarOcultar" style="width:100%; background-color:#57429A">
+
+
+	<div class="container">	
 			<br />
-			<div class="row">
-				<div class="col-md-8 col-sm-6">
-					<h4>Chats</h4>
-				</div>
-				<div class="col-md-2 col-sm-3">
-					<input type="hidden" id="is_active_group_chat_window" value="no" />
-					<button type="button" name="group_chat" id="group_chat" class="btn btn-warning btn-xs">Group Chat</button>
-				</div>
-		
-			</div>
 			<div class="table-responsive">
 				
 				<div id="user_details"></div>
@@ -253,6 +252,15 @@ prettyPrint();
 
 
 </div>
+
+	</div>
+			</div>
+</footer>
+
+
+
+
+
 
 <script type="text/javascript" src="./assets/js/ocultar.js"></script>
 <!--fIN-->
