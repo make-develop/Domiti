@@ -13,9 +13,9 @@ function suma(){
     var mitad = 2;
     var valor = document.getElementById("valor").value;
     var propina = document.getElementById("propina").value;
-    var domi = parseInt(valor)/parseInt(mitad)
-    document.getElementById("domi").innerHTML= domi ;
+    var domi = parseInt(valor)/parseInt(mitad);
+    document.getElementById("domi").innerHTML="$"+domi ;
 
     var resultado = parseInt(valor) + parseInt(propina)+ parseInt(domi);
-    document.getElementById("total").innerHTML = resultado;   
+    document.getElementById("total").innerHTML ="$"+resultado;   
 }
