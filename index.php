@@ -20,30 +20,134 @@ if(!isset($_SESSION['user_id']))
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <title>Domiti</title>  
+		<title>Domiti</title>  
+		<link rel="stylesheet" href="./assets/css/materialize.min.css">
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.rawgit.com/mervick/emojionearea/master/dist/emojionearea.min.css">
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-		<script src="./assets/js/ocultar.js"></script>
 		<link rel="stylesheet" href="./assets/css/divocultar.css">
   		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   		<script src="https://cdn.rawgit.com/mervick/emojionearea/master/dist/emojionearea.min.js"></script>
-  		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
+		  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
+		  
+  <script src="./assets/js/jquery.bootstrap-touchspin.js"></script>
+  <script src="./assets/js/summary.js"></script>
+  <link rel="stylesheet" href="./assets/css/caja.css">
     </head>  
     <body>  
-
-	<div id="auto" onclick="divAuto()">
-Mostrar/Ocultar
+	<h3 align="center">Domiti</h3><br />
+	<div class="col-md-2 col-sm-3">
+					<p align="right">Hola! - <?php echo $_SESSION['name']; ?> - <a href="logout.php">Salir</a></p>
+				</div>
+<!--PEDIDO-->
+<div class="contenedor">
+	<h2>Pide tu favor!</h2>
+	<form class="go-bottom" id="formulario">
+		<div>
+		  <textarea id="message" name="phone" required></textarea>
+		  <label for="message">¿Qué necesitas? Pidenos el favor
+			que desees.</label>
+		</div>	
 </div>
-<div id="div-mostrar">
-DIV a mostrar
-</div>
+<!--Inicio Valor-->
+<div class="valor">
+	<span>Valor Aproximado
+<div class="col-md-5">
+	<form class="form-horizontal" role="form">
+	  <div class="form-group">
+		<input id="valor" type="text" value="0" step="500" data-decimals="0" name="demo2" class="col-md-7 form-control" required="required" Onchange ="recibir('valor');suma('valor')">
+	</span>
+	  </div>
+	  <div class="input-field col s12">
+                    <input id="password" type="text" name="address" class="validate"  class="form-control" minlength="5" maxlength="30">
+                    <label for="password">Direccion de entrega</label>
+                   <span class="lbl-error"></span>
+				   </div>
+				   <div class="input-field col s12">
+                    <input id="password" type="text" name="addressAditional" class="validate"  class="form-control" minlength="5" maxlength="30" >
+                    <label for="password">Metodo de pago</label>
+                   <span class="lbl-error"></span>
 
-        <div class="container">
-			<br />
-			
-			<h3 align="center">Domiti</h3><br />
+				   </div>
+				   <div class="input-field col s12">
+                    <input id="password" type="text" name="addressAditional" class="validate"  class="form-control" minlength="5" maxlength="30" >
+                    <label for="password">Cupon</label>
+                   <span class="lbl-error"></span>
+
+				   </div>
+<!--Inicio Valor-->
+	<div class="valor">
+	<span>Propina
+	<div class="col-md-5">
+	<form class="form-horizontal" role="form">
+	  <div class="form-group">
+		<input id="propina" type="text" value="0" step="500" data-decimals="0" name="demo2" class="col-md-7 form-control" required="required" Onchange ="recibir('propina');suma('propina')">
+		</span>
+	  </div>
+	  <!--Summary-->
+
+	  <table>
+	  <tr>
+
+<td>Productos</td>
+
+<td><div id="product" >0</div></td>
+
+</tr>
+
+<tr>
+
+<td>Domicilio</td>
+
+<td><div id="domi">0</td>
+
+</tr>
+<tr>
+
+<td>Propina</td>
+
+<td><div id="tip">0</div></td>
+
+</tr>
+<tr>
+	<td>TOTAL.....<span id="total">0</span></td>
+</tr>
+	  </table>
+
+
+
+
+				   <div class="form-group" align="center">
+							<input type="submit" name="register" class="btn btn-info" value="PEDIR AHORA!"  />
+						</div>
+	</form>
+  <div class="col-md-7">
+	<script>
+	  $("input[name='demo2']").TouchSpin({
+
+		min: 0,
+		max: 1000000,
+		maxboostedstep: 10000000,
+		prefix: '$'
+	  });
+	</script>
+</div>
+<script>
+prettyPrint();
+</script>
+</div>
+<!--fin valor-->
+
+
+<!--OCULTAR-->
+<input type="button" value="Mostrar" onClick="mostrar()">
+<input type="button" value="Ocultar" onClick="ocultar()">
+	<div id="mostrarOcultar" style="width:100%; height:auto; background-color:#57429A">
+
+
+	<div class="container">
+			<br />			
 			<br />
 			<div class="row">
 				<div class="col-md-8 col-sm-6">
@@ -53,9 +157,7 @@ DIV a mostrar
 					<input type="hidden" id="is_active_group_chat_window" value="no" />
 					<button type="button" name="group_chat" id="group_chat" class="btn btn-warning btn-xs">Group Chat</button>
 				</div>
-				<div class="col-md-2 col-sm-3">
-					<p align="right">Hola! - <?php echo $_SESSION['name']; ?> - <a href="logout.php">Salir</a></p>
-				</div>
+		
 			</div>
 			<div class="table-responsive">
 				
@@ -66,7 +168,15 @@ DIV a mostrar
 			<br />
 			
 		</div>
-		
+
+
+</div>
+
+<script type="text/javascript" src="./assets/js/ocultar.js"></script>
+<!--fIN-->
+
+
+
     </body>  
 </html>
 

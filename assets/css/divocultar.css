@@ -28,5 +28,5 @@
 	opacity: .8;
 }
 #auto:hover + #div-mostrar{
-	height: 100px;
+	height: 500px;
 }
