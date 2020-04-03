@@ -15,82 +15,11 @@ if(!isset($_SESSION['user_id']))
 	header("location:login.php");
 }
 
-//INICIO ENVIO FORM
+$valor = ($_GET["valor"]);
+$propina = ($_GET["propina"]);
+$domicilio = ($_GET["domicilio"]);
+$total = ($_GET["total"]);
 
-if(isset($_POST["register"]))
-{
-	$id = trim($_POST["id"]);
-	$favor = trim($_POST["favor"]);
-	$valor = trim($_POST["valor"]);
-	$address = trim($_POST["address"]);
-	$addressAditional = trim($_POST["addressAditional"]);
-	$propina = trim($_POST["propina"]);
-	$metodopago = trim($_POST["metodopago"]);
-	$domicilio = trim($_POST["domicilio"]);
-	$total = trim($_POST["total"]);
-	$user_id = trim($_POST["user_id"]);
-	$check_query = "
-	SELECT * FROM orders 
-	WHERE id = :id
-	";
-	$statement = $connect->prepare($check_query);
-	$check_data = array(
-		':id'		=>	$id
-	);
-	if($statement->execute($check_data))
-	{
-		if($statement->rowCount() > 0)
-		{
-			$message .= '<p>Tel&eacute;fono ya esta registrado</p>';
-		}
-		else
-		{
-			if(empty($favor))
-			{
-				$message .= '<p>Tel&eacute;fono es requerido</p>';
-			}
-			if(empty($valor))
-			{
-				$message .= '<p>Contrase���a es requerida</p>';
-			}
-		
-		}
-			
-	
-			
-			if($message == '')
-			{
-				$data = array(
-					':id'		=>	$_POST['id'],
-					':favor'		=>	$_POST['favor'],
-					':valor'		=>	$_POST['valor'],
-					':address'		=>	$_POST['address'],
-					':addressAditional'		=>	$_POST['addressAditional'],
-					':propina'		=>	$_POST['propina'],
-					':metodopago'		=>	$_POST['metodopago'],
-					':domicilio'		=>	$_POST['domicilio'],
-					':total'		=>	$_POST['total'],
-					':user_id'		=>	$_SESSION['user_id']
-				);
-	
-	$query = "
-	INSERT INTO orders 
-	(id, favor, valor, address, addressAditional, propina, metodopago, domicilio, total, user_id) 
-	VALUES (:id, :favor, :valor, :address, :addressAditional, :propina, :metodopago, :domicilio, :total, :user_id)
-	";
-
-	$statement = $connect->prepare($query);
-	
-	if($statement->execute($data))
-	{
-		$message = "<p>Registro Exitoso!</p>";
-		header('Location: indexfrom.php');
-	}
-}
-}
-}
-
-//FIN ENVIO
 
 ?>
 
@@ -123,63 +52,21 @@ if(isset($_POST["register"]))
 				</div>
 <!--PEDIDO-->
 <div class="contenedor">
-	<h2>Pide tu favor!</h2>
-	<form id="formulario" method="post">
+	<h2>Tu pedido se ha realizado con exito!</h2>
+	<form id="formulario">
 	<div class="input-field col s12">
-                    <textarea  id="password" type="text" name="favor" class="validate" required="required" class="form-control" minlength="10" > </textarea>
-                    <label for="password">favor</label>
-                   <span class="lbl-error"></span>
-
-				   </div>
-				   <div class="input-field col s12">
-                    <input id="valor" type="number" name="valor" class="validate" required="required" class="form-control" minlength="5" maxlength="30" Onchange ="recibir('valor');suma('valor')">
-                    <label for="valor">valor</label>
-                   <span class="lbl-error"></span>
-
-				   </div>
-				   
-				   <div class="input-field col s12">
-                    <input id="password" type="text" name="address" class="validate"  class="form-control" minlength="5"  value="<?php echo $_SESSION['address']; ?> " maxlength="30">
-                    <label for="password">Direccion de entrega</label>
-                   <span class="lbl-error"></span>
-
-				   </div>
-				   <div class="input-field col s12">
-                    <input id="password" type="text" value="<?php echo $_SESSION['addressAditional']; ?> " name="addressAditional" class="validate"  class="form-control" minlength="5" maxlength="30" >
-                    <label for="password">Direccion Adicional: Barrio, Piso, Apto</label>
-                   <span class="lbl-error"></span>
-
-                   </div>
-
-                   
-					<div class="input-field col s12">
-                    <input id="propina" type="number" name="propina" class="validate" required="required" class="form-control" Onchange ="recibir('propina');suma('propina')">
-                    <label for="propina">propina</label>
-                   <span class="lbl-error"></span>
-                   </div>
-                   
-				   <div class="input-field col s12">
-				   <select name="metodopago"  class="form-control">
-  					<option value="Efectivo">Efectivo</option> 
- 					 <option value="Nequi" selected>Nequi</option>
- 			 		<option value="Daviplata">Daviplata</option>
-				</select>
-                   </div>
-
-				   <div style="display: none">
-<input id="domi" type="number" name="domicilio" class="form-control" class="validate">
-<input id="total" type="number" name="total" class="form-control" class="validate">
-</div>
+	Este es el resumen de la cuenta:
 			<br>
+
   <!--Summary-->
 <table>
 <tr>
 <td>Productos</td>
-<td><div id="product" >$0</div></td>
+<td><input id="product" name="valor" >$0</div></td>
 </tr>
 <tr>
 <td>Domicilio</td>
-<td><div id="domidiv">$0</td>
+<td><div id="domidiv">$0 <?php echo $_GET['domicilio']; ?></td>
 </tr>
 <tr>
 <td>Propina</td>
@@ -190,12 +77,13 @@ if(isset($_POST["register"]))
 <td><div id="totaldiv"></div></td>
 </tr>
 </table>
-
-
+<div>
+<h3>Recuerda que puedes comunicarte con tu repartidor en la seccion de chats</h3>
+</div>
 
 			<span class="text-danger" style="color:#8E7B00;font-size: 15px;"><?php echo $message; ?></span>
 				   <div class="form-group" align="center">
-							<input type="submit" name="register" class="btn btn-info" value="PEDIR AHORA!"  />
+							<input type="submit" class="btn btn-info" value="Entendido!"  />
 						</div>
 	</form>
   <div class="col-md-7">
