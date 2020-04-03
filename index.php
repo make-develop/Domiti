@@ -8,12 +8,88 @@ include('database_connection.php');
 
 session_start();
 
+$message = '';
+
 if(!isset($_SESSION['user_id']))
 {
 	header("location:login.php");
 }
 
+//INICIO ENVIO FORM
+
+if(isset($_POST["register"]))
+{
+	$id = trim($_POST["id"]);
+	$favor = trim($_POST["favor"]);
+	$valor = trim($_POST["valor"]);
+	$address = trim($_POST["address"]);
+	$addressAditional = trim($_POST["addressAditional"]);
+	$propina = trim($_POST["propina"]);
+	$total = trim($_POST["total"]);
+	$user_id = trim($_POST["user_id"]);
+	$check_query = "
+	SELECT * FROM orders 
+	WHERE id = :id
+	";
+	$statement = $connect->prepare($check_query);
+	$check_data = array(
+		':id'		=>	$id
+	);
+	if($statement->execute($check_data))
+	{
+		if($statement->rowCount() > 0)
+		{
+			$message .= '<p>Tel&eacute;fono ya esta registrado</p>';
+		}
+		else
+		{
+			if(empty($favor))
+			{
+				$message .= '<p>Tel&eacute;fono es requerido</p>';
+			}
+			if(empty($valor))
+			{
+				$message .= '<p>Contrase���a es requerida</p>';
+			}
+		
+		}
+			
+	
+			
+			if($message == '')
+			{
+				$data = array(
+					':id'		=>	$_POST['id'],
+					':favor'		=>	$_POST['favor'],
+					':valor'		=>	$_POST['valor'],
+					':address'		=>	$_POST['address'],
+					':addressAditional'		=>	$_POST['addressAditional'],
+					':propina'		=>	$_POST['propina'],
+					':total'		=>	$_POST['total'],
+					':user_id'		=>	$_SESSION['user_id']
+				);
+	
+	$query = "
+	INSERT INTO orders 
+	(id, favor, valor, address, addressAditional, propina, total, user_id) 
+	VALUES (:id, :favor, :valor, :address, :addressAditional, :propina, :total, :user_id)
+	";
+
+	$statement = $connect->prepare($query);
+	
+	if($statement->execute($data))
+	{
+		$message = "<p>Registro Exitoso!</p>";
+	}
+}
+}
+}
+
+//FIN ENVIO
+
 ?>
+
+
 
 <html>  
     <head>
@@ -34,6 +110,10 @@ if(!isset($_SESSION['user_id']))
   <script src="./assets/js/jquery.bootstrap-touchspin.js"></script>
   <script src="./assets/js/summary.js"></script>
   <link rel="stylesheet" href="./assets/css/caja.css">
+
+  	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="assets/js/materialize.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
     </head>  
     <body>  
 	<h3 align="center">Domiti</h3><br />
@@ -43,163 +123,51 @@ if(!isset($_SESSION['user_id']))
 <!--PEDIDO-->
 <div class="contenedor">
 	<h2>Pide tu favor!</h2>
-	<form class="go-bottom" id="formulario">
-		<div>
-		  <textarea id="message" name="phone" required></textarea>
-		  <label for="message">¿Qué necesitas? Pidenos el favor
-			que desees.</label>
-		</div>	
-</div>
-<!--Inicio Valor-->
-<div class="valor">
-	<span>Valor Aproximado
-<div class="col-md-5">
-	<form class="form-horizontal" role="form">
-	  <div class="form-group">
-		<input id="valor" type="text" value="0" step="500" data-decimals="0" name="demo2" class="col-md-7 form-control" required="required" Onchange ="recibir('valor');suma('valor')">
-	</span>
-	  </div>
-	  <div class="input-field col s12">
+	<form id="formulario" method="post">
+	<div class="input-field col s12">
+                    <input id="password" type="text" name="favor" class="validate" required="required" class="form-control" minlength="10" maxlength="10">
+                    <label for="password">favor</label>
+                   <span class="lbl-error"></span>
+
+				   </div>
+				   <div class="input-field col s12">
+                    <input id="password" type="number" name="valor" class="validate" required="required" class="form-control" minlength="5" maxlength="30">
+                    <label for="password">valor</label>
+                   <span class="lbl-error"></span>
+
+				   </div>
+				   
+				   <div class="input-field col s12">
                     <input id="password" type="text" name="address" class="validate"  class="form-control" minlength="5" maxlength="30">
                     <label for="password">Direccion de entrega</label>
                    <span class="lbl-error"></span>
+
 				   </div>
-		<div class="input-field col s12">
+				   <div class="input-field col s12">
+                    <input id="password" type="text" name="addressAditional" class="validate"  class="form-control" minlength="5" maxlength="30" >
+                    <label for="password">Direccion Adicional: Barrio, Piso, Apto</label>
+                   <span class="lbl-error"></span>
 
-                	<span class="lbl-error"></span>
-					</div>	
+                   </div>
+                   
+					<div class="input-field col s12">
+                    <input id="password" type="number" name="propina" class="validate" required="required" class="form-control">
+                    <label for="password">propina</label>
+                  
+                   <span class="lbl-error"></span>
 
-					<div class="custom-select" style="width:200px;">
-<label for="password">Metodo de pago</label>
-  <select>
-    <option value="0">Metodo de Pago:</option>
-    <option value="1">Efectivo</option>
-    <option value="2">Nequi</option>
-    <option value="3">Daviplata</option>
-  </select>
-</div>
+                   </div>
+                   
+                           
+					<div class="input-field col s12">
+                    <input id="password" type="number" name="total" class="validate" required="required" class="form-control">
+                    <label for="password">total</label>
+                  
+                   <span class="lbl-error"></span>
 
-<script>
-var x, i, j, selElmnt, a, b, c;
-/*look for any elements with the class "custom-select":*/
-x = document.getElementsByClassName("custom-select");
-for (i = 0; i < x.length; i++) {
-  selElmnt = x[i].getElementsByTagName("select")[0];
-  /*for each element, create a new DIV that will act as the selected item:*/
-  a = document.createElement("DIV");
-  a.setAttribute("class", "select-selected");
-  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-  x[i].appendChild(a);
-  /*for each element, create a new DIV that will contain the option list:*/
-  b = document.createElement("DIV");
-  b.setAttribute("class", "select-items select-hide");
-  for (j = 1; j < selElmnt.length; j++) {
-    /*for each option in the original select element,
-    create a new DIV that will act as an option item:*/
-    c = document.createElement("DIV");
-    c.innerHTML = selElmnt.options[j].innerHTML;
-    c.addEventListener("click", function(e) {
-        /*when an item is clicked, update the original select box,
-        and the selected item:*/
-        var y, i, k, s, h;
-        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-        h = this.parentNode.previousSibling;
-        for (i = 0; i < s.length; i++) {
-          if (s.options[i].innerHTML == this.innerHTML) {
-            s.selectedIndex = i;
-            h.innerHTML = this.innerHTML;
-            y = this.parentNode.getElementsByClassName("same-as-selected");
-            for (k = 0; k < y.length; k++) {
-              y[k].removeAttribute("class");
-            }
-            this.setAttribute("class", "same-as-selected");
-            break;
-          }
-        }
-        h.click();
-    });
-    b.appendChild(c);
-  }
-  x[i].appendChild(b);
-  a.addEventListener("click", function(e) {
-      /*when the select box is clicked, close any other select boxes,
-      and open/close the current select box:*/
-      e.stopPropagation();
-      closeAllSelect(this);
-      this.nextSibling.classList.toggle("select-hide");
-      this.classList.toggle("select-arrow-active");
-    });
-}
-function closeAllSelect(elmnt) {
-  /*a function that will close all select boxes in the document,
-  except the current select box:*/
-  var x, y, i, arrNo = [];
-  x = document.getElementsByClassName("select-items");
-  y = document.getElementsByClassName("select-selected");
-  for (i = 0; i < y.length; i++) {
-    if (elmnt == y[i]) {
-      arrNo.push(i)
-    } else {
-      y[i].classList.remove("select-arrow-active");
-    }
-  }
-  for (i = 0; i < x.length; i++) {
-    if (arrNo.indexOf(i)) {
-      x[i].classList.add("select-hide");
-    }
-  }
-}
-/*if the user clicks anywhere outside the select box,
-then close all select boxes:*/
-document.addEventListener("click", closeAllSelect);
-</script>
-
-
-		</div>
-</div>
-<!--Inicio Valor-->
-	<div class="valor">
-	<span>Propina
-	<div class="col-md-5">
-	<form class="form-horizontal" role="form">
-	  <div class="form-group">
-		<input id="propina" type="text" value="0" step="500" data-decimals="0" name="demo2" class="col-md-7 form-control" required="required" Onchange ="recibir('propina');suma('propina')">
-		</span>
-	  </div>
-	  <!--Summary-->
-
-	  <table>
-	  <tr>
-
-<td>Productos</td>
-
-<td><div id="product" >$0</div></td>
-
-</tr>
-
-<tr>
-
-<td>Domicilio</td>
-
-<td><div id="domi">$0</td>
-
-</tr>
-<tr>
-
-<td>Propina</td>
-
-<td><div id="tip">$0</div></td>
-
-</tr>
-<tr>
-	<td>TOTAL.....</td>
-	<td><span id="total">$0</span></td>
-</tr>
-	  </table>
-
-
-
-
+                   </div>
+			<br>
+			<span class="text-danger" style="color:#8E7B00;font-size: 15px;"><?php echo $message; ?></span>
 				   <div class="form-group" align="center">
 							<input type="submit" name="register" class="btn btn-info" value="PEDIR AHORA!"  />
 						</div>
