@@ -25,6 +25,8 @@ if(isset($_POST["register"]))
 	$address = trim($_POST["address"]);
 	$addressAditional = trim($_POST["addressAditional"]);
 	$propina = trim($_POST["propina"]);
+	$metodopago = trim($_POST["metodopago"]);
+	$domicilio = trim($_POST["domicilio"]);
 	$total = trim($_POST["total"]);
 	$user_id = trim($_POST["user_id"]);
 	$check_query = "
@@ -65,14 +67,16 @@ if(isset($_POST["register"]))
 					':address'		=>	$_POST['address'],
 					':addressAditional'		=>	$_POST['addressAditional'],
 					':propina'		=>	$_POST['propina'],
+					':metodopago'		=>	$_POST['metodopago'],
+					':domicilio'		=>	$_POST['domicilio'],
 					':total'		=>	$_POST['total'],
 					':user_id'		=>	$_SESSION['user_id']
 				);
 	
 	$query = "
 	INSERT INTO orders 
-	(id, favor, valor, address, addressAditional, propina, total, user_id) 
-	VALUES (:id, :favor, :valor, :address, :addressAditional, :propina, :total, :user_id)
+	(id, favor, valor, address, addressAditional, propina, metodopago, domicilio, total, user_id) 
+	VALUES (:id, :favor, :valor, :address, :addressAditional, :propina, :metodopago, :domicilio, :total, :user_id)
 	";
 
 	$statement = $connect->prepare($query);
@@ -107,13 +111,9 @@ if(isset($_POST["register"]))
   		<script src="https://cdn.rawgit.com/mervick/emojionearea/master/dist/emojionearea.min.js"></script>
 		  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
 		  
-  <script src="./assets/js/jquery.bootstrap-touchspin.js"></script>
-  <script src="./assets/js/summary.js"></script>
-  <link rel="stylesheet" href="./assets/css/caja.css">
+<!--nuevo-->
+<script src="./assets/js/summary.js"></script>
 
-  	<!--JavaScript at end of body for optimized loading-->
-	<script type="text/javascript" src="assets/js/materialize.min.js"></script>
-<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
     </head>  
     <body>  
 	<h3 align="center">Domiti</h3><br />
@@ -123,50 +123,75 @@ if(isset($_POST["register"]))
 <!--PEDIDO-->
 <div class="contenedor">
 	<h2>Pide tu favor!</h2>
-	<form id="formulario" method="post">
+	<form id="formulario" method="post" >
 	<div class="input-field col s12">
-                    <input id="password" type="text" name="favor" class="validate" required="required" class="form-control" minlength="10" maxlength="10">
+                    <textarea  id="password" type="text" name="favor" class="validate" required="required" class="form-control" minlength="10" > </textarea>
                     <label for="password">favor</label>
                    <span class="lbl-error"></span>
 
 				   </div>
 				   <div class="input-field col s12">
-                    <input id="password" type="number" name="valor" class="validate" required="required" class="form-control" minlength="5" maxlength="30">
-                    <label for="password">valor</label>
+                    <input id="valor" type="number" name="valor" class="validate" required="required" class="form-control" minlength="5" maxlength="30" Onchange ="recibir('valor');suma('valor')">
+                    <label for="valor">valor</label>
                    <span class="lbl-error"></span>
 
 				   </div>
 				   
 				   <div class="input-field col s12">
-                    <input id="password" type="text" name="address" class="validate"  class="form-control" minlength="5" maxlength="30">
+                    <input id="password" type="text" name="address" class="validate"  class="form-control" minlength="5"  value="<?php echo $_SESSION['address']; ?> " maxlength="30">
                     <label for="password">Direccion de entrega</label>
                    <span class="lbl-error"></span>
 
 				   </div>
 				   <div class="input-field col s12">
-                    <input id="password" type="text" name="addressAditional" class="validate"  class="form-control" minlength="5" maxlength="30" >
+                    <input id="password" type="text" value="<?php echo $_SESSION['addressAditional']; ?> " name="addressAditional" class="validate"  class="form-control" minlength="5" maxlength="30" >
                     <label for="password">Direccion Adicional: Barrio, Piso, Apto</label>
                    <span class="lbl-error"></span>
 
                    </div>
+
                    
 					<div class="input-field col s12">
-                    <input id="password" type="number" name="propina" class="validate" required="required" class="form-control">
-                    <label for="password">propina</label>
-                  
+                    <input id="propina" type="number" name="propina" class="validate" required="required" class="form-control" Onchange ="recibir('propina');suma('propina')">
+                    <label for="propina">propina</label>
                    <span class="lbl-error"></span>
-
                    </div>
                    
-                           
-					<div class="input-field col s12">
-                    <input id="password" type="number" name="total" class="validate" required="required" class="form-control">
-                    <label for="password">total</label>
-                  
-                   <span class="lbl-error"></span>
-
+				   <div class="input-field col s12">
+				   <select name="metodopago"  class="form-control">
+  					<option value="Efectivo">Efectivo</option> 
+ 					 <option value="Nequi" selected>Nequi</option>
+ 			 		<option value="Daviplata">Daviplata</option>
+				</select>
                    </div>
+
+				   <div style="display: none">
+<input id="domi" type="number" name="domicilio" class="form-control" class="validate">
+<input id="total" type="number" name="total" class="form-control" class="validate">
+</div>
 			<br>
+  <!--Summary-->
+<table>
+<tr>
+<td>Productos</td>
+<td><div id="product" >$0</div></td>
+</tr>
+<tr>
+<td>Domicilio</td>
+<td><div id="domidiv">$0</td>
+</tr>
+<tr>
+<td>Propina</td>
+<td><div id="tip">$0</div></td>
+</tr>
+<tr>
+<td>TOTAL.....</td>
+<td><div id="totaldiv"></div></td>
+</tr>
+</table>
+
+
+
 			<span class="text-danger" style="color:#8E7B00;font-size: 15px;"><?php echo $message; ?></span>
 				   <div class="form-group" align="center">
 							<input type="submit" name="register" class="btn btn-info" value="PEDIR AHORA!"  />

@@ -14,8 +14,10 @@ function suma(){
     var valor = document.getElementById("valor").value;
     var propina = document.getElementById("propina").value;
     var domi = parseInt(valor)/parseInt(mitad);
-    document.getElementById("domi").innerHTML="$"+domi ;
+    document.getElementById("domidiv").innerHTML= domi;
+    document.getElementById("domi").value= domi;
 
     var resultado = parseInt(valor) + parseInt(propina)+ parseInt(domi);
-    document.getElementById("total").innerHTML ="$"+resultado;   
+    document.getElementById("totaldiv").innerHTML =resultado;   
+    document.getElementById("total").value = resultado;   
 }
