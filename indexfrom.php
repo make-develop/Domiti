@@ -15,10 +15,6 @@ if(!isset($_SESSION['user_id']))
 	header("location:login.php");
 }
 
-$valor = ($_GET["valor"]);
-$propina = ($_GET["propina"]);
-$domicilio = ($_GET["domicilio"]);
-$total = ($_GET["total"]);
 
 
 ?>
@@ -53,39 +49,19 @@ $total = ($_GET["total"]);
 <!--PEDIDO-->
 <div class="contenedor">
 	<h2>Tu pedido se ha realizado con exito!</h2>
-	<form id="formulario">
 	<div class="input-field col s12">
-	Este es el resumen de la cuenta:
+
 			<br>
 
-  <!--Summary-->
-<table>
-<tr>
-<td>Productos</td>
-<td><input id="product" name="valor" >$0</div></td>
-</tr>
-<tr>
-<td>Domicilio</td>
-<td><div id="domidiv">$0 <?php echo $_GET['domicilio']; ?></td>
-</tr>
-<tr>
-<td>Propina</td>
-<td><div id="tip">$0</div></td>
-</tr>
-<tr>
-<td>TOTAL.....</td>
-<td><div id="totaldiv"></div></td>
-</tr>
-</table>
+
 <div>
 <h3>Recuerda que puedes comunicarte con tu repartidor en la seccion de chats</h3>
 </div>
 
 			<span class="text-danger" style="color:#8E7B00;font-size: 15px;"><?php echo $message; ?></span>
 				   <div class="form-group" align="center">
-							<input type="submit" class="btn btn-info" value="Entendido!"  />
+							<input type="submit" class="btn btn-info" value="Entendido!" onclick="location.href='index.php'" />
 						</div>
-	</form>
   <div class="col-md-7">
 	<script>
 	  $("input[name='demo2']").TouchSpin({
@@ -114,9 +90,7 @@ prettyPrint();
 			<div class="contenedor-body">
 
 			<!--OCULTAR-->
-			<div class="titulo_boton">
-			<button class="btnhelp"  onClick="muestra_oculta('mostrarOcultar')">👇Chats👇</button>
-</div>
+		
 	<div id="mostrarOcultar" style="width:100%; background-color:#57429A">
 
 
