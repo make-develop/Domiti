@@ -11,6 +11,23 @@ header{
     background: black;
 }
 
+.button{
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+
+}
+
+.txt{
+    color: #1C1A59;
+}
+
 /*inicio */
 
 
@@ -58,7 +75,9 @@ ul.menu li a {
     transition: color .2s ease-in-out;
 }
  
- 
+.menu{
+    background: black;
+}
 ul.menu li:hover > a { color: #caad16; }
 ul.menu ul {
     position: absolute;
@@ -66,7 +85,7 @@ ul.menu ul {
     left: 0;
  
     opacity: 0;
-    background: rgba(0,0,0,0.67);
+    background: rgba(245,70,26,0.904);
  
     -webkit-border-radius: 0 0 5px 5px;
     -moz-border-radius: 0 0 5px 5px;

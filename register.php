@@ -90,9 +90,8 @@ if(isset($_POST["register"]))
 
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  			<link rel="stylesheet" href="./assets/css/estilos.css">
-  				<link rel="stylesheet" href="./assets/css/caja.css">
-  				<script src="./assets/css/jquery.min.js"></script>
+  		<link rel="stylesheet" href="./assets/css/estilos.css">
+  		<script src="./assets/css/jquery.min.js"></script>
   		
   		<!--nuevo-->
   			<link rel="stylesheet" href="./assets/css/materialize.min.css">
@@ -104,15 +103,14 @@ if(isset($_POST["register"]))
     <!--Inicio cabecera-->	
 <header>
                      <ul class="menu">
-
-
-    
-                      <li><a href="#">&iquest;Tienes un local&#63; Unete a nosotros!</a>
+					 <a href="login.php">
+					 <img src="./assets/img/logo.png" alt="" width="50px" height="50px">
+					 </a>
+                      <li><a href="contact.php">&iquest;Tienes un local&#63; Unete a nosotros!</a>
 
                           <ul>
                           </ul>
                       </li>
-IMAGEN
                   </ul>   
 
 
@@ -123,7 +121,6 @@ IMAGEN
 			<br />
 			
 			<h3 align="center">Domiti</a></h3>
-			<br />
 			<div class="panel panel-default">
   				<div class="panel-heading">Registrarse</div>
 				<div class="panel-body">

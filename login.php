@@ -76,7 +76,6 @@ if(isset($_POST['login']))
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   			<link rel="stylesheet" href="./assets/css/estilos.css">
-  				<link rel="stylesheet" href="./assets/css/caja.css">
   				<script src="./assets/css/jquery.min.js"></script>
   		
   		<!--nuevo-->
@@ -89,15 +88,14 @@ if(isset($_POST['login']))
         <!--Inicio cabecera-->	
 <header>
                      <ul class="menu">
-
-
-    
-                      <li><a href="#">&iquest;Tienes un local&#63; Unete a nosotros!</a>
+					 <a href="login.php">
+					<img src="./assets/img/logo.png" alt="" width="50px" height="50px">
+					</a>
+                      <li><a href="contact.php">&iquest;Tienes un local&#63; Unete a nosotros!</a>
 
                           <ul>
                           </ul>
                       </li>
-IMAGEN
                   </ul>   
 
 
@@ -106,19 +104,17 @@ IMAGEN
     <body>  
         <div class="container">
 			<br />
-			
-			<h3 align="center">Domiti</h3><br />
-			<br />
+			<br>
 			<div class="panel panel-default">
-  				<div class="panel-heading">Iniciar Sesión</div>
+  				<div class="panel-heading"><h2>Ingresar a mi cuenta</h2></div>
 				<div class="panel-body">
 					<form method="post">
-					    
+					    <br>
 					     <div class="input-field col s12">
                     <input id="password" type="tel" name="username" class="validate" required="required" class="form-control" minlength="10" maxlength="10">
                     <label for="password">Tel&eacute;fono</label>
                    <span class="lbl-error"></span>
-
+					<br>
                    </div>
 					<div class="input-field col s12">
                     <input id="password" type="password" name="password" class="validate" required="required" class="form-control">
@@ -133,12 +129,12 @@ IMAGEN
 			<br>
 
 						<div class="form-group" align="center">
-							<input type="submit" name="login" class="btn btn-info" value="Iniciar Sesion"  />
+							<input type="submit" name="login" class="button" value="Iniciar Sesion"  />
 						</div>
 						<br>
 						<br>
 						<div align="center">
-							<a href="register.php">¿Aún no estás registrado? Haz click aquí para registrarte.</a>
+							<a href="register.php" class="txt">¿Aún no estás registrado? Haz click aquí para registrarte.</a>
 						</div>
 					</form>
 					<br />
