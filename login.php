@@ -62,74 +62,64 @@ if(isset($_POST['login']))
 		$message = '<label>Teléfono incorrecto</label>';
 	}
 }
-
-
 ?>
-
 <html>  
-    <head>  
-    
-        <title>Domiti</title>  
-                <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	
-	
-		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<head>  
+		<title>Domiti</title>
+			<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   			<link rel="stylesheet" href="./assets/css/estilos.css">
-  				<script src="./assets/css/jquery.min.js"></script>
-  		
+  			<script src="./assets/css/jquery.min.js"></script>
   		<!--nuevo-->
   			<link rel="stylesheet" href="./assets/css/materialize.min.css">
-	<link rel="stylesheet" href="./assets/css/style.css">
+			<link rel="stylesheet" href="./assets/css/style.css">
 		<!--JavaScript at end of body for optimized loading-->
-	<script type="text/javascript" src="assets/js/materialize.min.js"></script>
-<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+			<script type="text/javascript" src="assets/js/materialize.min.js"></script>
+			<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
     </head> 
         <!--Inicio cabecera-->	
 <header>
-                     <ul class="menu">
-					 <a href="login.php">
-					<img src="./assets/img/logo.png" alt="" width="50px" height="50px">
-					</a>
-                      <li><a href="contact.php">&iquest;Tienes un local&#63; Unete a nosotros!</a>
+	<ul class="menu">
+		<a href="login.php">
+			<img src="./assets/img/logo.png" alt="" width="50px" height="50px">
+		</a>
+		<li>
+			<a href="contact.php">Unete a nosotros!</a>
+			<ul>
 
-                          <ul>
-                          </ul>
-                      </li>
-                  </ul>   
+			</ul>
+		</li>
+	</ul>   
 
 
 </header>
 <!--final cabecera-->
-    <body>  
+	<body>  
         <div class="container">
-			<br />
-			<br>
+		<br/>
+		<br>
 			<div class="panel panel-default">
   				<div class="panel-heading"><h2>Ingresar a mi cuenta</h2></div>
-				<div class="panel-body">
-					<form method="post">
+					<div class="panel-body">
+						<form method="post">
 					    <br>
-					     <div class="input-field col s12">
-                    <input id="password" type="tel" name="username" class="validate" required="required" class="form-control" minlength="10" maxlength="10">
-                    <label for="password">Tel&eacute;fono</label>
-                   <span class="lbl-error"></span>
-					<br>
-                   </div>
-					<div class="input-field col s12">
-                    <input id="password" type="password" name="password" class="validate" required="required" class="form-control">
-                    <label for="password">Contraseña</label>
-                  
-                   <span class="lbl-error"></span>
-
-                   </div>
-                   
+					    <div class="input-field col s12">
+                    		<input id="password" type="tel" name="username" class="validate" required="required" class="form-control" minlength="10" maxlength="10">
+                    		<label for="password">Tel&eacute;fono</label>
+                   			<span class="lbl-error"></span>
+							<br>
+                   		</div>
+						<div class="input-field col s12">
+                    		<input id="password" type="password" name="password" class="validate" required="required" class="form-control">
+                    		<label for="password">Contraseña</label>
+							  <span class="lbl-error"></span>
+						</div>
 						<br>
-			<span class="text-danger" style="color:#8E7B00;font-size: 12px;"><?php echo $message; ?></span>
-			<br>
-
+						<span class="text-danger" style="color:#8E7B00;font-size: 12px;"><?php echo $message; ?></span>
+						<br>
 						<div class="form-group" align="center">
-							<input type="submit" name="login" class="button" value="Iniciar Sesion"  />
+							<input type="submit" name="login" class="button" value="Ingresar"  />
 						</div>
 						<br>
 						<br>
@@ -144,6 +134,5 @@ if(isset($_POST['login']))
 				</div>
 			</div>
 		</div>
-
     </body>  
 </html>
