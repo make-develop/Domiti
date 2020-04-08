@@ -1,22 +1,15 @@
 <!--
 //index.php
 !-->
-
 <?php
-
 include('database_connection.php');
-
 session_start();
-
 $message = '';
-
 if(!isset($_SESSION['user_id']))
 {
 	header("location:login.php");
 }
-
 //INICIO ENVIO FORM
-
 if(isset($_POST["register"]))
 {
 	$id = trim($_POST["id"]);
@@ -53,11 +46,7 @@ if(isset($_POST["register"]))
 			{
 				$message .= '<p>Contrase���a es requerida</p>';
 			}
-		
 		}
-			
-	
-			
 			if($message == '')
 			{
 				$data = array(
@@ -72,15 +61,12 @@ if(isset($_POST["register"]))
 					':total'		=>	$_POST['total'],
 					':user_id'		=>	$_SESSION['user_id']
 				);
-	
 	$query = "
 	INSERT INTO orders 
 	(id, favor, valor, address, addressAditional, propina, metodopago, domicilio, total, user_id) 
 	VALUES (:id, :favor, :valor, :address, :addressAditional, :propina, :metodopago, :domicilio, :total, :user_id)
 	";
-
 	$statement = $connect->prepare($query);
-	
 	if($statement->execute($data))
 	{
 		$message = "<p>Registro Exitoso!</p>";
@@ -89,9 +75,7 @@ if(isset($_POST["register"]))
 }
 }
 }
-
 //FIN ENVIO
-
 ?>
 
 
@@ -100,7 +84,7 @@ if(isset($_POST["register"]))
     <head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<title>Domiti</title>  
 		<link rel="stylesheet" href="./assets/css/materialize.min.css">
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -110,94 +94,100 @@ if(isset($_POST["register"]))
 		<link rel="stylesheet" href="./assets/css/divocultar.css">
   		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   		<script src="https://cdn.rawgit.com/mervick/emojionearea/master/dist/emojionearea.min.js"></script>
-		  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
-		  
-<!--nuevo-->
-<script src="./assets/js/summary.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script> 
+		<!--nuevo-->
+		<script src="./assets/js/summary.js"></script>
+		<link rel="stylesheet" href="./assets/css/index_styles.css">
+	</head>
+	        <!--Inicio cabecera-->	
+<header>
+	<ul class="menu">
+		<a href="login.php">
+			<img src="./assets/img/logo.png" alt="" width="50px" height="50px">
+		</a>
+		<li>
+			<a href="contact.php">Ver mis Pedidos</a>
+			<ul>
 
-    </head>  
-    <body>  
-	<h3 align="center">Domiti</h3><br />
+			</ul>
+		</li>
+	</ul>   
+</header>
+<!--final cabecera-->
+<body>  
 	<div class="col-md-2 col-sm-3">
-					<p align="right">Hola! - <?php echo $_SESSION['name']; ?> - <a href="logout.php">Salir</a></p>
-				</div>
+		<div class="hola">
+		<p align="right">Hola! <?php echo $_SESSION['name']; ?></p>
+		</div>
+		<div class="salir">
+		<a href="logout.php">Salir</a>
+		</div>
+	</div>
 <!--PEDIDO-->
 <div class="contenedor">
-	<h2>Pide tu favor!</h2>
+	<h2>Pide lo que quieras!</h2>
 	<form id="formulario" method="post">
 	<div class="input-field col s12">
-                    <textarea  id="password" type="text" name="favor" class="validate" required="required" class="form-control" minlength="10" > </textarea>
-                    <label for="password">favor</label>
-                   <span class="lbl-error"></span>
-
-				   </div>
-				   <div class="input-field col s12">
-                    <input id="valor" type="number" name="valor" class="validate" required="required" class="form-control" minlength="5" maxlength="30" Onchange ="recibir('valor');suma('valor')">
-                    <label for="valor">valor</label>
-                   <span class="lbl-error"></span>
-
-				   </div>
-				   
-				   <div class="input-field col s12">
-                    <input id="password" type="text" name="address" class="validate"  class="form-control" minlength="5"  value="<?php echo $_SESSION['address']; ?> " maxlength="30">
-                    <label for="password">Direccion de entrega</label>
-                   <span class="lbl-error"></span>
-
-				   </div>
-				   <div class="input-field col s12">
-                    <input id="password" type="text" value="<?php echo $_SESSION['addressAditional']; ?> " name="addressAditional" class="validate"  class="form-control" minlength="5" maxlength="30" >
-                    <label for="password">Direccion Adicional: Barrio, Piso, Apto</label>
-                   <span class="lbl-error"></span>
-
-                   </div>
-
-                   
-					<div class="input-field col s12">
-                    <input id="propina" type="number" name="propina" class="validate" required="required" class="form-control" Onchange ="recibir('propina');suma('propina')">
-                    <label for="propina">propina</label>
-                   <span class="lbl-error"></span>
-                   </div>
-                   
-				   <div class="input-field col s12">
-				   <select name="metodopago"  class="form-control">
-  					<option value="Efectivo">Efectivo</option> 
- 					 <option value="Nequi" selected>Nequi</option>
- 			 		<option value="Daviplata">Daviplata</option>
-				</select>
-                   </div>
-
-				   <div style="display: none">
+    	<textarea  id="password" type="text" name="favor" class="validate" required="required" class="form-control" minlength="10" > </textarea>
+        <label for="password">favor</label>
+        <span class="lbl-error"></span>
+	</div>
+	<div class="input-field col s12">
+    	<input id="valor" type="number" name="valor" class="validate" required="required" class="form-control" minlength="5" maxlength="30" Onchange ="recibir('valor');suma('valor')">
+        <label for="valor">valor</label>
+        <span class="lbl-error"></span>
+	</div> 
+	<div class="input-field col s12">
+        <input id="password" type="text" name="address" class="validate"  class="form-control" minlength="5"  value="<?php echo $_SESSION['address']; ?> " maxlength="30">
+        <label for="password">Direccion de entrega</label>
+        <span class="lbl-error"></span>
+	</div>
+	<div class="input-field col s12">
+    	<input id="password" type="text" value="<?php echo $_SESSION['addressAditional']; ?> " name="addressAditional" class="validate"  class="form-control" minlength="5" maxlength="30" >
+        <label for="password">Direccion Adicional: Barrio, Piso, Apto</label>
+        <span class="lbl-error"></span>
+        </div>
+	<div class="input-field col s12">
+        <input id="propina" type="number" name="propina" class="validate" required="required" class="form-control" Onchange ="recibir('propina');suma('propina')">
+        <label for="propina">propina</label>
+        <span class="lbl-error"></span>
+    </div> 
+	<div class="input-field col s12">
+		<select name="metodopago"  class="form-control">
+  		<option value="Efectivo">Efectivo</option> 
+ 		<option value="Nequi" selected>Nequi</option>
+ 		<option value="Daviplata">Daviplata</option>
+		</select>
+    </div>
+<div style="display: none">
 <input id="domi" type="number" name="domicilio" class="form-control" class="validate">
 <input id="total" type="number" name="total" class="form-control" class="validate">
 </div>
-			<br>
+<br>
   <!--Summary-->
-<table>
-<tr>
-<td>Productos</td>
-<td><div id="product" >$0</div></td>
-</tr>
-<tr>
-<td>Domicilio</td>
-<td><div id="domidiv">$0</td>
-</tr>
-<tr>
-<td>Propina</td>
-<td><div id="tip">$0</div></td>
-</tr>
-<tr>
-<td>TOTAL.....</td>
-<td><div id="totaldiv"></div></td>
-</tr>
-</table>
-
-
-
-			<span class="text-danger" style="color:#8E7B00;font-size: 15px;"><?php echo $message; ?></span>
-				   <div class="form-group" align="center">
-							<input type="submit" name="register" class="btn btn-info" value="PEDIR AHORA!"  />
-						</div>
-	</form>
+	<table>
+		<tr>
+			<td>Productos</td>
+			<td><div id="product" >$0</div></td>
+		</tr>
+		<tr>
+			<td>Domicilio</td>
+			<td><div id="domidiv">$0</td>
+		</tr>
+		<tr>
+			<td>Propina</td>
+			<td><div id="tip">$0</div></td>
+		</tr>
+		<tr>
+			<td>TOTAL.....</td>
+			<td><div id="totaldiv"></div></td>
+		</tr>
+	</table>
+	<span class="text-danger" style="color:#8E7B00;font-size: 15px;"><?php echo $message; ?></span>
+		<div class="form-group" align="center">
+			<input type="submit" name="register" class="btn btn-info" value="PEDIR AHORA!"  />
+		</div>
+</form>
   <div class="col-md-7">
 	<script>
 	  $("input[name='demo2']").TouchSpin({
@@ -208,59 +198,37 @@ if(isset($_POST["register"]))
 		prefix: '$'
 	  });
 	</script>
-</div>
-<script>
-prettyPrint();
-</script>
+	</div>
+	<script>
+	prettyPrint();
+	</script>
 </div>
 <!--fin valor-->
-
-
-
-
 		  <!---PRUEBA DE FOOTER-->
-
 		  <footer>
-		<div class="contenedor-total-footer">
-
+		  <div class="contenedor-total-footer">
 			<div class="contenedor-body">
-
 			<!--OCULTAR-->
 			<div class="titulo_boton">
 			<button class="btnhelp"  onClick="muestra_oculta('mostrarOcultar')">👇Chats👇</button>
-</div>
-	<div id="mostrarOcultar" style="width:100%; background-color:#57429A">
-
-
-	<div class="container">	
+			</div>
+			<div id="mostrarOcultar" style="width:100%; background-color:#57429A">
+			<div class="container">	
 			<br />
 			<div class="table-responsive">
-				
 				<div id="user_details"></div>
 				<div id="user_model_details"></div>
 			</div>
 			<br />
 			<br />
-			
 		</div>
-
-
-</div>
-
 	</div>
-			</div>
+</div>
+</div>
 </footer>
-
-
-
-
-
 
 <script type="text/javascript" src="./assets/js/ocultar.js"></script>
 <!--fIN-->
-
-
-
     </body>  
 </html>
 
@@ -328,11 +296,7 @@ prettyPrint();
 </style>
 
 
-
-
-
 <style>
-
 .chat_message_area
 {
 	position: relative;
@@ -393,7 +357,6 @@ prettyPrint();
 		<button type="button" name="send_group_chat" id="send_group_chat" class="btn btn-info">Send</button>
 	</div>
 </div>
-
 
 <script>  
 $(document).ready(function(){
