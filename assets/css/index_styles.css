@@ -123,3 +123,102 @@ ul.menu ul li a {
     font-size: 16px;
     margin: 4px 2px;
 }
+
+
+.menu {
+    height: inherit;
+}
+
+ol {
+    list-style: none;
+}
+
+#categorias-list a {
+    color: black;
+    list-style: none;
+    text-decoration: none;
+
+}
+#categorias-list {
+    list-style: none;
+    display: flex; 
+    flex-wrap:wrap ; 
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+.categorias li {
+    margin: 10px 20px 10px 20px;
+    flex-shrink: 0;
+}
+
+.subtitle {
+    margin-top: 1px;
+    margin-bottom: 5px;
+
+}
+
+.list13 {
+    margin-left: 65px;
+    margin-right: 60px;
+}
+.list14{        
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.deports{
+    margin-right: 50px;
+}
+.servicios {
+    margin-right: 28px;
+}
+
+
+
+.inscribirse,
+.hero{
+    border-top: 40px solid white;
+    margin-left: 10px;
+    border-bottom: 0px solid white;  
+    margin-right: 10px;
+}
+.categorias{
+    border-top: 10px solid white;
+    border-bottom: 20px solid white;  
+    margin-left: 10px;
+    margin-right: 10px;
+}
+ 
+
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: normal;
+}
+
+
+h1 {
+    font-size: 40px;
+    line-height: 1.5;
+    letter-spacing: -.2px;
+}
+
+
+h1 strong {
+    color: rgba(248, 37, 0, 0.904);
+}
+
+
+h2 strong, h3 strong, h4 strong{
+    color: rgba(248, 37, 0, 0.904);
+}
+
+
+ h2 {
+    font-size: 34px;
+    line-height: 1.5;
+    letter-spacing: -.2px;
+} 
+
