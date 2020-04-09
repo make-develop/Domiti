@@ -8,10 +8,15 @@ header{
     background: black;
 }
 #main-header{
-    
+    position: fixed;
 }
 #foot{
     position: fixed;
+    width: 100%;
+    height: 50px;
+    background: black;
+    left:0px;
+   bottom:0px;
 }
 ul.menu li {
     position: relative;

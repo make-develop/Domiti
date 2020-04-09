@@ -249,14 +249,8 @@ if(isset($_POST["register"]))
 	prettyPrint();
 	</script>
 
-
-
-	
-</div>
-<!--fin valor-->
-		  <!---PRUEBA DE FOOTER-->
-		  <footer>
-		  <div class="contenedor-total-footer">
+<!--CHAT-->
+<div class="contenedor-total-footer">
 			<div class="contenedor-body">
 			<!--OCULTAR-->
 			<div class="titulo_boton">
@@ -275,6 +269,13 @@ if(isset($_POST["register"]))
 	</div>
 </div>
 </div>
+
+	
+</div>
+<!--fin valor-->
+		  <!---PRUEBA DE FOOTER-->
+		  <footer id="foot">
+FOOTER
 </footer>
 
 <script type="text/javascript" src="./assets/js/ocultar.js"></script>
