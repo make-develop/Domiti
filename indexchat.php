@@ -107,7 +107,7 @@ if(!isset($_SESSION['user_id']))
 </a>
 </li>
 <li>
-<a href="logout.php">
+<a href="pedidos.php">
 <img src="./assets/img/pedidos.png" alt="" width="30px" height="40px">
 </a>
 </li>

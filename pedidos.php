@@ -9,73 +9,7 @@ if(!isset($_SESSION['user_id']))
 {
 	header("location:login.php");
 }
-//INICIO ENVIO FORM
-if(isset($_POST["register"]))
-{
-	$id = trim($_POST["id"]);
-	$favor = trim($_POST["favor"]);
-	$valor = trim($_POST["valor"]);
-	$address = trim($_POST["address"]);
-	$addressAditional = trim($_POST["addressAditional"]);
-	$propina = trim($_POST["propina"]);
-	$metodopago = trim($_POST["metodopago"]);
-	$domicilio = trim($_POST["domicilio"]);
-	$total = trim($_POST["total"]);
-	$user_id = trim($_POST["user_id"]);
-	$check_query = "
-	SELECT * FROM orders 
-	WHERE id = :id
-	";
-	$statement = $connect->prepare($check_query);
-	$check_data = array(
-		':id'		=>	$id
-	);
-	if($statement->execute($check_data))
-	{
-		if($statement->rowCount() > 0)
-		{
-			$message .= '<p>Tel&eacute;fono ya esta registrado</p>';
-		}
-		else
-		{
-			if(empty($favor))
-			{
-				$message .= '<p>Tel&eacute;fono es requerido</p>';
-			}
-			if(empty($valor))
-			{
-				$message .= '<p>Contrase���a es requerida</p>';
-			}
-		}
-			if($message == '')
-			{
-				$data = array(
-					':id'		=>	$_POST['id'],
-					':favor'		=>	$_POST['favor'],
-					':valor'		=>	$_POST['valor'],
-					':address'		=>	$_POST['address'],
-					':addressAditional'		=>	$_POST['addressAditional'],
-					':propina'		=>	$_POST['propina'],
-					':metodopago'		=>	$_POST['metodopago'],
-					':domicilio'		=>	$_POST['domicilio'],
-					':total'		=>	$_POST['total'],
-					':user_id'		=>	$_SESSION['user_id']
-				);
-	$query = "
-	INSERT INTO orders 
-	(id, favor, valor, address, addressAditional, propina, metodopago, domicilio, total, user_id) 
-	VALUES (:id, :favor, :valor, :address, :addressAditional, :propina, :metodopago, :domicilio, :total, :user_id)
-	";
-	$statement = $connect->prepare($query);
-	if($statement->execute($data))
-	{
-		$message = "<p>Registro Exitoso!</p>";
-		header('Location: indexfrom.php');
-	}
-}
-}
-}
-//FIN ENVIO
+
 ?>
 
 
@@ -105,11 +39,7 @@ if(isset($_POST["register"]))
 		<link rel="stylesheet" href="./assets/css/divocultar.css">
 		 
 		<!--nuevo-->
-		<script src="./assets/js/summary.js"></script>
 		<link rel="stylesheet" href="./assets/css/index_styles.css">
-
-
-		
 		
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   		
@@ -120,7 +50,7 @@ if(isset($_POST["register"]))
 	
 
 	</head>
-	        <!--Inicio cabecera-->	
+	       <!--Inicio cabecera-->	
 <header id="main-header">
 	<ul class="menu">
 
@@ -145,112 +75,25 @@ if(isset($_POST["register"]))
 </header>
 <!--final cabecera-->
 <body>  
-<!--PEDIDO-->
-<br>
-<div class="contenedor" id="bed">
-	<h3>Pide lo que quieras!</h3>
-	<form id="formulario" method="post">
-	<div class="form-group green-border-focus">
-    	<textarea  id="password" type="text" name="favor" required="required" class="form-control" rows="2" > </textarea>
-        <span class="lbl-error"></span>
-	</div>
 
-<!--Inicio Valor-->
-<div class="valor">
-	<span>Valor
-	<div class="col-md-5">
-	  <div class="form-group">
-		<input id="valor" type="text" class="form-control"  value="0" step="500" data-decimals="0" name="valor" class="col-md-7 form-control" required="required" Onchange ="recibir('valor');suma('valor')">
-		</span>
-	  </div>
-	</div>
-</div>
-
-	<div class="input-field col s12">
-        <input id="password" type="text" name="address" class="validate"  class="form-control" minlength="5"  value="<?php echo $_SESSION['address']; ?> " maxlength="30">
-        <label for="password">Direccion de entrega</label>
-        <span class="lbl-error"></span>
-	</div>
-	<div class="input-field col s12">
-    	<input id="password" type="text" value="<?php echo $_SESSION['addressAditional']; ?> " name="addressAditional" class="validate"  class="form-control" minlength="5" maxlength="30" >
-        <label for="password">Direccion Adicional: Barrio, Piso, Apto</label>
-        <span class="lbl-error"></span>
-        </div>
-<!--Inicio Valor-->
-<div class="valor">
-	<span>Propina
-	<div class="col-md-5">
-	  <div class="form-group">
-		<input id="propina" type="text" class="form-control"  value="0" step="500" data-decimals="0" name="propina" class="col-md-7 form-control" required="required" Onchange ="recibir('propina');suma('propina')">
-		</span>
-	  </div>
-	</div>
-</div>
-
-<h4 >Metodo de pago</h4>
-	<div class="input-field col s12">
-		<select name="metodopago"  class="form-control">
-		<option value="Efectivo" selected>Efectivo</option> 
- 		<option value="Nequi" >Nequi</option>
- 		<option value="Daviplata">Daviplata</option>
-		</select>
-    </div>
-<div style="display: none">
-<input id="domi" type="number" name="domicilio" class="form-control" class="validate">
-<input id="total" type="number" name="total" class="form-control" class="validate">
-</div>
-<br>
-  <!--Summary-->
-	<table>
-		<tr>
-			<td>Productos</td>
-			<td><div id="product" >$0</div></td>
-		</tr>
-		<tr>
-			<td>Domicilio</td>
-			<td><div id="domidiv">$0</td>
-		</tr>
-		<tr>
-			<td>Propina</td>
-			<td><div id="tip">$0</div></td>
-		</tr>
-		<tr>
-			<td>TOTAL.....</td>
-			<td><div id="totaldiv">$0</div></td>
-		</tr>
-	</table>
-	<span class="text-danger" style="color:#8E7B00;font-size: 15px;"><?php echo $message; ?></span>
-		<div class="form-group" align="center">
-			<input type="submit" name="register" class="button" value="PEDIR AHORA!"  />
+<!--CHAT-->
+<div id="bed">
+			<div class="contenedor-body">
+			<div style="width:100%;">
+			<div class="container">	
+			<br />
+			<div class="table-responsive">
+				<div id="user_details"></div>
+				<div id="user_model_details"></div>
+			</div>
+			<br />
+			<br />
 		</div>
-</form>
-  <div class="col-md-7">
-	<script>
-	  $("input[name='valor']").TouchSpin({
-
-		min: 0,
-		max: 1000000,
-		maxboostedstep: 10000000,
-		prefix: '$'
-	  });
-	</script>
-	<script>
-	  $("input[name='propina']").TouchSpin({
-
-		min: 0,
-		max: 1000000,
-		maxboostedstep: 10000000,
-		prefix: '$'
-	  });
-	</script>
 	</div>
-	<script>
-	prettyPrint();
-	</script>
-
+</div>
 </div>
 <!--fin valor-->
-		  <!---PRUEBA DE FOOTER-->
+		 		  <!---PRUEBA DE FOOTER-->
 <footer id="foot">
 <ul class="menu">
 
@@ -339,22 +182,62 @@ if(isset($_POST["register"]))
 </style>
 
 
+<style>
+.chat_message_area
+{
+	position: relative;
+	width: 100%;
+	height: auto;
+	background-color: #FFF;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+}
+
+#group_chat_message
+{
+	width: 100%;
+	height: auto;
+	min-height: 80px;
+	overflow: auto;
+	padding:6px 24px 6px 12px;
+}
+
+.image_upload
+{
+	position: absolute;
+	top:3px;
+	right:3px;
+}
+.image_upload > form > input
+{
+    display: none;
+}
+
+.image_upload img
+{
+    width: 24px;
+    cursor: pointer;
+}
+
+</style>  
+
+
 <script>  
 $(document).ready(function(){
 
-	fetch_user();
+	fetch_pedidos();
 
 	setInterval(function(){
 		update_last_activity();
-		fetch_user();
+		fetch_pedidos();
 		update_chat_history_data();
 		fetch_group_chat_history();
 	}, 5000);
 
-	function fetch_user()
+	function fetch_pedidos()
 	{
 		$.ajax({
-			url:"fetch_user.php",
+			url:"fetch_pedidos.php",
 			method:"POST",
 			success:function(data){
 				$('#user_details').html(data);
@@ -375,14 +258,14 @@ $(document).ready(function(){
 
 	function make_chat_dialog_box(to_user_id, to_user_name)
 	{
-		var modal_content = '<div id="user_dialog_'+to_user_id+'" class="user_dialog" title="You have chat with '+to_user_name+'">';
+		var modal_content = '<div id="user_dialog_'+to_user_id+'" class="user_dialog" title=" '+to_user_name+'">';
 		modal_content += '<div style="height:400px; border:1px solid #ccc; overflow-y: scroll; margin-bottom:24px; padding:16px;" class="chat_history" data-touserid="'+to_user_id+'" id="chat_history_'+to_user_id+'">';
 		modal_content += fetch_user_chat_history(to_user_id);
 		modal_content += '</div>';
 		modal_content += '<div class="form-group">';
 		modal_content += '<textarea name="chat_message_'+to_user_id+'" id="chat_message_'+to_user_id+'" class="form-control chat_message"></textarea>';
 		modal_content += '</div><div class="form-group" align="right">';
-		modal_content+= '<button type="button" name="send_chat" id="'+to_user_id+'" class="btn btn-info send_chat">Send</button></div></div>';
+		modal_content+= '<button type="button" name="send_chat" id="'+to_user_id+'" class="btn btn-info send_chat">Enviar</button></div></div>';
 		$('#user_model_details').html(modal_content);
 	}
 
@@ -421,7 +304,7 @@ $(document).ready(function(){
 		}
 		else
 		{
-			alert('Type something');
+			alert('Escribe un mensaje!');
 		}
 	});
 
@@ -535,7 +418,7 @@ $(document).ready(function(){
 
 	$(document).on('click', '.remove_chat', function(){
 		var chat_message_id = $(this).attr('id');
-		if(confirm("Are you sure you want to remove this chat?"))
+		if(confirm("Estas seguro que quieres borrar este mensaje?"))
 		{
 			$.ajax({
 				url:"remove_chat.php",
