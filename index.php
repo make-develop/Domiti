@@ -85,58 +85,88 @@ if(isset($_POST["register"]))
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-		<title>Domiti</title>  
-		<link rel="stylesheet" href="./assets/css/materialize.min.css">
+		<title>Domiti</title> 
+		
+		
+		
+		<!--sichat-->
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.rawgit.com/mervick/emojionearea/master/dist/emojionearea.min.css">
-		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="https://cdn.rawgit.com/mervick/emojionearea/master/dist/emojionearea.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
+		<!--login-->
+		<link rel="stylesheet" href="./assets/css/materialize.min.css"> <!--TEXTLAYOUT-->
+		<script type="text/javascript" src="assets/js/materialize.min.js"></script>
+		
+
 		<link rel="stylesheet" href="./assets/css/divocultar.css">
-  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  		<script src="https://cdn.rawgit.com/mervick/emojionearea/master/dist/emojionearea.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script> 
+		 
 		<!--nuevo-->
 		<script src="./assets/js/summary.js"></script>
 		<link rel="stylesheet" href="./assets/css/index_styles.css">
+
+
+		
+		
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		
+  	
+		  
+  <script src="./assets/js/jquery.bootstrap-touchspin.js"></script>
+
+	
+
 	</head>
 	        <!--Inicio cabecera-->	
 <header>
 	<ul class="menu">
+
 		<a href="login.php">
 			<img src="./assets/img/logo.png" alt="" width="50px" height="50px">
 		</a>
+		
+		<li>
+		<a href="logout.php">
+		<img src="./assets/img/salir.png" alt="" width="20px" height="30px">
+		</a>
+		</li>
 		<li>
 			<a href="contact.php">Ver mis Pedidos</a>
 			<ul>
-
+				
 			</ul>
+		</li>
+		<li>
+		<p class="hola">Hola! <?php echo $_SESSION['name']; ?></p>
 		</li>
 	</ul>   
 </header>
 <!--final cabecera-->
 <body>  
-	<div class="col-md-2 col-sm-3">
-		<div class="hola">
-		<p align="right">Hola! <?php echo $_SESSION['name']; ?></p>
-		</div>
-		<div class="salir">
-		<a href="logout.php">Salir</a>
-		</div>
-	</div>
 <!--PEDIDO-->
+<br>
 <div class="contenedor">
-	<h2>Pide lo que quieras!</h2>
+	<h3>Pide lo que quieras!</h3>
 	<form id="formulario" method="post">
-	<div class="input-field col s12">
-    	<textarea  id="password" type="text" name="favor" class="validate" required="required" class="form-control" minlength="10" > </textarea>
-        <label for="password">favor</label>
+	<div class="form-group green-border-focus">
+    	<textarea  id="password" type="text" name="favor" required="required" class="form-control" rows="2" > </textarea>
         <span class="lbl-error"></span>
 	</div>
-	<div class="input-field col s12">
-    	<input id="valor" type="number" name="valor" class="validate" required="required" class="form-control" minlength="5" maxlength="30" Onchange ="recibir('valor');suma('valor')">
-        <label for="valor">valor</label>
-        <span class="lbl-error"></span>
-	</div> 
+
+<!--Inicio Valor-->
+<div class="valor">
+	<span>Valor
+	<div class="col-md-5">
+	  <div class="form-group">
+		<input id="valor" type="text" class="form-control"  value="0" step="500" data-decimals="0" name="valor" class="col-md-7 form-control" required="required" Onchange ="recibir('valor');suma('valor')">
+		</span>
+	  </div>
+	</div>
+</div>
+
 	<div class="input-field col s12">
         <input id="password" type="text" name="address" class="validate"  class="form-control" minlength="5"  value="<?php echo $_SESSION['address']; ?> " maxlength="30">
         <label for="password">Direccion de entrega</label>
@@ -147,15 +177,22 @@ if(isset($_POST["register"]))
         <label for="password">Direccion Adicional: Barrio, Piso, Apto</label>
         <span class="lbl-error"></span>
         </div>
-	<div class="input-field col s12">
-        <input id="propina" type="number" name="propina" class="validate" required="required" class="form-control" Onchange ="recibir('propina');suma('propina')">
-        <label for="propina">propina</label>
-        <span class="lbl-error"></span>
-    </div> 
+<!--Inicio Valor-->
+<div class="valor">
+	<span>Propina
+	<div class="col-md-5">
+	  <div class="form-group">
+		<input id="propina" type="text" class="form-control"  value="0" step="500" data-decimals="0" name="propina" class="col-md-7 form-control" required="required" Onchange ="recibir('propina');suma('propina')">
+		</span>
+	  </div>
+	</div>
+</div>
+
+<h4 >Metodo de pago</h4>
 	<div class="input-field col s12">
 		<select name="metodopago"  class="form-control">
-  		<option value="Efectivo">Efectivo</option> 
- 		<option value="Nequi" selected>Nequi</option>
+		<option value="Efectivo" selected>Efectivo</option> 
+ 		<option value="Nequi" >Nequi</option>
  		<option value="Daviplata">Daviplata</option>
 		</select>
     </div>
@@ -180,7 +217,7 @@ if(isset($_POST["register"]))
 		</tr>
 		<tr>
 			<td>TOTAL.....</td>
-			<td><div id="totaldiv"></div></td>
+			<td><div id="totaldiv">$0</div></td>
 		</tr>
 	</table>
 	<span class="text-danger" style="color:#8E7B00;font-size: 15px;"><?php echo $message; ?></span>
@@ -190,7 +227,16 @@ if(isset($_POST["register"]))
 </form>
   <div class="col-md-7">
 	<script>
-	  $("input[name='demo2']").TouchSpin({
+	  $("input[name='valor']").TouchSpin({
+
+		min: 0,
+		max: 1000000,
+		maxboostedstep: 10000000,
+		prefix: '$'
+	  });
+	</script>
+	<script>
+	  $("input[name='propina']").TouchSpin({
 
 		min: 0,
 		max: 1000000,
@@ -202,6 +248,10 @@ if(isset($_POST["register"]))
 	<script>
 	prettyPrint();
 	</script>
+
+
+
+	
 </div>
 <!--fin valor-->
 		  <!---PRUEBA DE FOOTER-->
