@@ -123,3 +123,7 @@ ul.menu ul li a {
     font-size: 16px;
     margin: 4px 2px;
 }
+#contenedor{
+    padding-top: 40px; /* Relleno superior igual a la altura de la cabecera*/
+    margin: auto 20px;
+}

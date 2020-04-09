@@ -247,6 +247,16 @@ if(isset($_POST["register"]))
 	<script>
 	prettyPrint();
 	</script>
+<!--CARGAR PAGINA AJAX-->
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+		$(document).ready(function(){
+			$('#chat').click(function(){
+				$('#bed').load("indexchat.php");
+			});
+		});
+</script>
+
 
 </div>
 <!--fin valor-->
@@ -259,8 +269,8 @@ if(isset($_POST["register"]))
 </a>
 
 <li>
-<a href="indexchat.php">
-<img src="./assets/img/chat.png" alt="" width="30px" height="40px">
+<a href="#" id="chat">
+<img src="./assets/img/chat.png" alt="" width="30px" height="40px" >
 </a>
 </li>
 <li>

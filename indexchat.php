@@ -77,7 +77,7 @@ if(!isset($_SESSION['user_id']))
 <body>  
 
 <!--CHAT-->
-<div id="bed">
+<div id="contenedor">
 			<div class="contenedor-body">
 			<div style="width:100%;">
 			<div class="container">	
