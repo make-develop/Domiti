@@ -20,9 +20,8 @@ $result = $statement->fetchAll();
 $output = '
 <table class="table table-bordered table-striped">
 	<tr>
-		<th width="70%">Username</td>
-		<th width="20%">Status</td>
-		<th width="10%">Action</td>
+		<th width="70%"></td>
+		<th width="10%"></td>
 	</tr>
 ';
 
@@ -43,8 +42,7 @@ foreach($result as $row)
 	$output .= '
 	<tr>
 		<td>'.$row['username'].' '.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'</td>
-		<td>'.$status.'</td>
-		<td><button type="button" class="btn btn-info btn-xs start_chat" data-touserid="'.$row['user_id'].'" data-tousername="'.$row['username'].'">Start Chat</button></td>
+		<td><button type="button" class="btn btn-info btn-xs start_chat" data-touserid="'.$row['user_id'].'" data-tousername="'.$row['username'].'">Abrir Chat</button></td>
 	</tr>
 	';
 }
