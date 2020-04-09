@@ -121,7 +121,7 @@ if(isset($_POST["register"]))
 
 	</head>
 	        <!--Inicio cabecera-->	
-<header>
+<header id="main-header">
 	<ul class="menu">
 
 		<a href="login.php">
@@ -148,7 +148,7 @@ if(isset($_POST["register"]))
 <body>  
 <!--PEDIDO-->
 <br>
-<div class="contenedor">
+<div class="contenedor" id="bed">
 	<h3>Pide lo que quieras!</h3>
 	<form id="formulario" method="post">
 	<div class="form-group green-border-focus">
@@ -279,6 +279,7 @@ if(isset($_POST["register"]))
 
 <script type="text/javascript" src="./assets/js/ocultar.js"></script>
 <!--fIN-->
+
     </body>  
 </html>
 

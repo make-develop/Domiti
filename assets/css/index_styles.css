@@ -1,7 +1,17 @@
+#bed{
+    padding-top: 40px; /* Relleno superior igual a la altura de la cabecera*/
+    margin: auto 20px;
+}
 header{
     width: 100%;
     height: 50px;
     background: black;
+}
+#main-header{
+    
+}
+#foot{
+    position: fixed;
 }
 ul.menu li {
     position: relative;
