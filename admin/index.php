@@ -28,24 +28,40 @@ if(!isset($_SESSION['user_id']))
   		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   		<script src="https://cdn.rawgit.com/mervick/emojionearea/master/dist/emojionearea.min.js"></script>
   		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
-    </head>  
+		  <!--NUEVO-->
+		  <link rel="stylesheet" href="./assets/css/index_styles.css">
+    </head> 
+
+	   <!--Inicio cabecera-->	
+<header id="main-header">
+	<ul class="menu">
+
+		<a href="login.php">
+			<img src="./assets/img/logo.png" alt="" width="50px" height="50px">
+		</a>
+		
+		<li>
+		<a href="logout.php">
+		<img src="./assets/img/salir.png" alt="" width="20px" height="30px">
+		</a>
+		</li>
+		<li>
+			<ul>
+				
+			</ul>
+		</li>
+		<li>
+		<p class="hola">Hola! <?php echo $_SESSION['username']; ?></p>
+		</li>
+	</ul>   
+</header>
+<!--final cabecera--> 
     <body>  
         <div class="container">
 			<br />
-			
-			<h3 align="center">Chat Application using PHP Ajax Jquery</h3><br />
 			<br />
 			<div class="row">
-				<div class="col-md-8 col-sm-6">
-					<h4>Online User</h4>
-				</div>
-				<div class="col-md-2 col-sm-3">
-					<input type="hidden" id="is_active_group_chat_window" value="no" />
-					<button type="button" name="group_chat" id="group_chat" class="btn btn-warning btn-xs">Group Chat</button>
-				</div>
-				<div class="col-md-2 col-sm-3">
-					<p align="right">Hi - <?php echo $_SESSION['username']; ?> - <a href="logout.php">Logout</a></p>
-				</div>
+			
 			</div>
 			<div class="table-responsive">
 				

@@ -1,0 +1,21 @@
+
+
+#mostrarOcultar{
+	width: 100%;
+	margin: auto;
+	height: 0px;
+	background: #000;
+	box-shadow: 10px 10px 3px #D8D8D8;
+	transition: height .4s;
+  color:white;
+  text-align: center;
+}
+.btnhelp{
+	width: 100%;
+	height: 5%;
+}
+
+#centroimg{
+	text-align: center;
+	justify-content: center;
+}

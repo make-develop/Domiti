@@ -42,8 +42,9 @@ foreach($result as $row)
 	}
 	$output .= '
 	<tr>
-		<td>'.$row['username'].' '.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'</td>
-		<td>'.$status.'</td>
+		<td>'.$row['name'].' '.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'</td>
+		<td>'.$row['username'].' '.fetch_is_type_status($row['user_id'], $connect).'</td>
+
 		<td><button type="button" class="btn btn-info btn-xs start_chat" data-touserid="'.$row['user_id'].'" data-tousername="'.$row['username'].'">Start Chat</button></td>
 	</tr>
 	';
