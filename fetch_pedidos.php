@@ -27,7 +27,7 @@ $output = '
 		<th width="15%"></td>
 	</tr>
 ';
-
+if(!empty($result)){
 foreach($result as $row)
 {
 	$status = '';
@@ -56,6 +56,12 @@ foreach($result as $row)
 
 $output .= '</table>';
 
+
 echo $output;
+
+}else{
+	echo "No hay pedidos!";
+}
+
 
 ?>
