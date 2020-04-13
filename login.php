@@ -127,6 +127,7 @@ if(isset($_POST['login']))
 							<a href="register.php" class="txt">¿Aún no estás registrado? Haz click aquí para registrarte.</a>
 						</div>
 					</form>
+				
 					<br />
 					<br />
 					<br />

@@ -1,22 +1,14 @@
 <!--
 //index.php
 !-->
-
 <?php
-
 include('database_connection.php');
-
 session_start();
-
 $message = '';
-
 if(!isset($_SESSION['user_id']))
 {
 	header("location:login.php");
 }
-
-
-
 ?>
 
 
@@ -25,22 +17,41 @@ if(!isset($_SESSION['user_id']))
     <head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-		<title>Domiti</title>  
-	<!--sichat-->
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>Domiti</title> 
+		
+		
+		
+		<!--sichat-->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/mervick/emojionearea/master/dist/emojionearea.min.css">
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="https://cdn.rawgit.com/mervick/emojionearea/master/dist/emojionearea.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
 		<!--login-->
 		<link rel="stylesheet" href="./assets/css/materialize.min.css"> <!--TEXTLAYOUT-->
 		<script type="text/javascript" src="assets/js/materialize.min.js"></script>
+		
+
 		<link rel="stylesheet" href="./assets/css/divocultar.css">
-		<link rel="stylesheet" href="./assets/css/index_styles.css">
+		 
 		<!--nuevo-->
 		<script src="./assets/js/summary.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="./assets/js/jquery.bootstrap-touchspin.js"></script>
+		<link rel="stylesheet" href="./assets/css/index_styles.css">
 
-</head>
-     <!--Inicio cabecera-->	
-	 <header id="main-header">
+
+		
+		
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		
+  	
+		  
+  <script src="./assets/js/jquery.bootstrap-touchspin.js"></script>
+	</head>
+	        <!--Inicio cabecera-->	
+<header id="main-header">
 	<ul class="menu">
 
 		<a href="login.php">
@@ -62,31 +73,34 @@ if(!isset($_SESSION['user_id']))
 		</li>
 	</ul>   
 </header>
+<script type="text/javascript">
+    window.history.forward();
+    function sinVueltaAtras(){ window.history.forward(); }
+</script>
 <!--final cabecera-->
-    <body>  
+<body onload="sinVueltaAtras()" onpageshow="if (event.persisted) sinVueltaAtras()" onunload="">  
+
 <!--PEDIDO-->
-<div class="contenedor">
-	<h2>Tu pedido se ha realizado con exito!</h2>
-	<div class="input-field col s12">
-
+<section class="hero">
+        <div class="hero-title" align="center">
+			<h1 class="hero-title"> ¡Tu pedido se ha realizado con <strong>exito</strong>!</h1>
 			<br>
-			<div id="centroimg">
-			<img src="./assets/img/check.png" alt="" width="100">
-			</div>
-<div>
-<h3>Recuerda que puedes comunicarte con tu repartidor en la seccion de chats</h3>
+            </div>
+
+    </section>
+<section id="categorias" class="categorias">
+<div align="center">
+<img src="./assets/img/check.png" alt="" width="100">
 </div>
 
-			<span class="text-danger" style="color:#8E7B00;font-size: 15px;"><?php echo $message; ?></span>
-				   <div class="form-group" align="center">
-							<input type="submit" class="btn btn-info" value="Entendido!" onclick="location.href='index.php'" />
+<h2 align="center">Recuerda que puedes comunicarte con tu   <strong>repartidor</strong> en la seccion de  <strong>chats</strong></h2>
+<br>
+<div class="form-group" align="center">
+							<input type="submit" class="button" value="Entendido!" onclick="location.href='indexfavor.php'" />
 						</div>
-
-</div>
-<!--fin valor-->
+</section>
+		  <!---PRUEBA DE FOOTER-->
 <!--fIN-->
-
-
 
     </body>  
 </html>
@@ -154,49 +168,6 @@ if(!isset($_SESSION['user_id']))
 }
 </style>
 
-
-
-
-
-<style>
-
-.chat_message_area
-{
-	position: relative;
-	width: 100%;
-	height: auto;
-	background-color: #FFF;
-    border: 1px solid #CCC;
-    border-radius: 3px;
-}
-
-#group_chat_message
-{
-	width: 100%;
-	height: auto;
-	min-height: 80px;
-	overflow: auto;
-	padding:6px 24px 6px 12px;
-}
-
-.image_upload
-{
-	position: absolute;
-	top:3px;
-	right:3px;
-}
-.image_upload > form > input
-{
-    display: none;
-}
-
-.image_upload img
-{
-    width: 24px;
-    cursor: pointer;
-}
-
-</style>  
 
 <script>  
 $(document).ready(function(){

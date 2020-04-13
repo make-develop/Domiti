@@ -97,7 +97,7 @@ if(!isset($_SESSION['user_id']))
 <footer id="foot">
 <ul class="menu">
 
-<a href="login.php">
+<a href="index.php">
 	<img src="./assets/img/home.png" alt="" width="30px" height="50px" class="homeimg">
 </a>
 

@@ -9,73 +9,6 @@ if(!isset($_SESSION['user_id']))
 {
 	header("location:login.php");
 }
-//INICIO ENVIO FORM
-if(isset($_POST["register"]))
-{
-	$id = trim($_POST["id"]);
-	$favor = trim($_POST["favor"]);
-	$valor = trim($_POST["valor"]);
-	$address = trim($_POST["address"]);
-	$addressAditional = trim($_POST["addressAditional"]);
-	$propina = trim($_POST["propina"]);
-	$metodopago = trim($_POST["metodopago"]);
-	$domicilio = trim($_POST["domicilio"]);
-	$total = trim($_POST["total"]);
-	$user_id = trim($_POST["user_id"]);
-	$check_query = "
-	SELECT * FROM orders 
-	WHERE id = :id
-	";
-	$statement = $connect->prepare($check_query);
-	$check_data = array(
-		':id'		=>	$id
-	);
-	if($statement->execute($check_data))
-	{
-		if($statement->rowCount() > 0)
-		{
-			$message .= '<p>Tel&eacute;fono ya esta registrado</p>';
-		}
-		else
-		{
-			if(empty($favor))
-			{
-				$message .= '<p>Tel&eacute;fono es requerido</p>';
-			}
-			if(empty($valor))
-			{
-				$message .= '<p>Contrase���a es requerida</p>';
-			}
-		}
-			if($message == '')
-			{
-				$data = array(
-					':id'		=>	$_POST['id'],
-					':favor'		=>	$_POST['favor'],
-					':valor'		=>	$_POST['valor'],
-					':address'		=>	$_POST['address'],
-					':addressAditional'		=>	$_POST['addressAditional'],
-					':propina'		=>	$_POST['propina'],
-					':metodopago'		=>	$_POST['metodopago'],
-					':domicilio'		=>	$_POST['domicilio'],
-					':total'		=>	$_POST['total'],
-					':user_id'		=>	$_SESSION['user_id']
-				);
-	$query = "
-	INSERT INTO orders 
-	(id, favor, valor, address, addressAditional, propina, metodopago, domicilio, total, user_id) 
-	VALUES (:id, :favor, :valor, :address, :addressAditional, :propina, :metodopago, :domicilio, :total, :user_id)
-	";
-	$statement = $connect->prepare($query);
-	if($statement->execute($data))
-	{
-		$message = "<p>Registro Exitoso!</p>";
-		header('Location: indexfrom.php');
-	}
-}
-}
-}
-//FIN ENVIO
 ?>
 
 
@@ -146,115 +79,68 @@ if(isset($_POST["register"]))
 <!--final cabecera-->
 <body>  
 <!--PEDIDO-->
-<br>
-<div class="contenedor" id="bed">
-	<h3>Pide lo que quieras!</h3>
-	<form id="formulario" method="post">
-	<div class="form-group green-border-focus">
-    	<textarea  id="password" type="text" name="favor" required="required" class="form-control" rows="2" > </textarea>
-        <span class="lbl-error"></span>
-	</div>
+<section class="hero">
+        <div class="hero-title">
+			<h1 class="hero-title"> ¡Pide lo que <strong>necesites</strong>! <br> Con nuestro <strong>Servicio</strong> de<br>Entregas te lo <strong>llevamos</strong></h1>
+			<br>
+            <p class="publicity-description">Sabemos que necesitas algo, por eso queremos llevártelo a donde estés. <br><br> </p>
+            </div>
+       
+            <!---<img width="550" class="hero-image" src="img/Comida1.jpg"> --->
 
-<!--Inicio Valor-->
-<div class="valor">
-	<span>Valor
-	<div class="col-md-5">
-	  <div class="form-group">
-		<input id="valor" type="text" class="form-control"  value="0" step="500" data-decimals="0" name="valor" class="col-md-7 form-control" required="required" Onchange ="recibir('valor');suma('valor')">
-		</span>
-	  </div>
-	</div>
-</div>
+    </section>
+<section id="categorias" class="categorias">
 
-	<div class="input-field col s12">
-        <input id="password" type="text" name="address" class="validate"  class="form-control" minlength="5"  value="<?php echo $_SESSION['address']; ?> " maxlength="30">
-        <label for="password">Direccion de entrega</label>
-        <span class="lbl-error"></span>
-	</div>
-	<div class="input-field col s12">
-    	<input id="password" type="text" value="<?php echo $_SESSION['addressAditional']; ?> " name="addressAditional" class="validate"  class="form-control" minlength="5" maxlength="30" >
-        <label for="password">Direccion Adicional: Barrio, Piso, Apto</label>
-        <span class="lbl-error"></span>
-        </div>
-<!--Inicio Valor-->
-<div class="valor">
-	<span>Propina
-	<div class="col-md-5">
-	  <div class="form-group">
-		<input id="propina" type="text" class="form-control"  value="0" step="500" data-decimals="0" name="propina" class="col-md-7 form-control" required="required" Onchange ="recibir('propina');suma('propina')">
-		</span>
-	  </div>
-	</div>
-</div>
+<h2 align="center">Lo <strong>mejor</strong> de Sogamoso en <strong>Domiti</strong></h2>
+<script type="text/javascript">
+	function showAndroidToast(toast) {
+		Android.showToast(toast);
+	}
+</script>
+<ul id="categorias-list"> 
+	<li align="center">
+		<a href="" onClick="showAndroidToast('Proximamente!')">
+			<span>
+				<img width="80" src="./assets/img/res.png" alt="Restaurantes">
+			</span>
+			<p class="subtitle">Restaurantes</p>
+		</a>
+	</li>  
 
-<h4 >Metodo de pago</h4>
-	<div class="input-field col s12">
-		<select name="metodopago"  class="form-control">
-		<option value="Efectivo" selected>Efectivo</option> 
- 		<option value="Nequi" >Nequi</option>
- 		<option value="Daviplata">Daviplata</option>
-		</select>
-    </div>
-<div style="display: none">
-<input id="domi" type="number" name="domicilio" class="form-control" class="validate">
-<input id="total" type="number" name="total" class="form-control" class="validate">
-</div>
-<br>
-  <!--Summary-->
-	<table>
-		<tr>
-			<td>Productos</td>
-			<td><div id="product" >$0</div></td>
-		</tr>
-		<tr>
-			<td>Domicilio</td>
-			<td><div id="domidiv">$0</td>
-		</tr>
-		<tr>
-			<td>Propina</td>
-			<td><div id="tip">$0</div></td>
-		</tr>
-		<tr>
-			<td>TOTAL.....</td>
-			<td><div id="totaldiv">$0</div></td>
-		</tr>
-	</table>
-	<span class="text-danger" style="color:#8E7B00;font-size: 15px;"><?php echo $message; ?></span>
-		<div class="form-group" align="center">
-			<input type="submit" name="register" class="button" value="PEDIR AHORA!"  />
-		</div>
-</form>
-  <div class="col-md-7">
-	<script>
-	  $("input[name='valor']").TouchSpin({
+	<li align="center">
+		<a href="" onClick="showAndroidToast('Proximamente!')">
+			<span>
+				<img width="80" src="./assets/img/farma.png" alt="Farmacia">
+			</span>
+			<p class="subtitle">Farmacia</p>
+		</a>
 
-		min: 0,
-		max: 1000000,
-		maxboostedstep: 10000000,
-		prefix: '$'
-	  });
-	</script>
-	<script>
-	  $("input[name='propina']").TouchSpin({
+	</li>  
 
-		min: 0,
-		max: 1000000,
-		maxboostedstep: 10000000,
-		prefix: '$'
-	  });
-	</script>
-	</div>
-	<script>
-	prettyPrint();
-	</script>
+	<li align="center">
+		<a href="" onClick="showAndroidToast('Proximamente!')">
+			<span>
+				<img width="80" src="./assets/img/licor.png" alt="Licores">
+			</span>
+			<p class="subtitle">Licores</p>
+		</a>
+	</li> 
 
-</div>
-<!--fin valor-->
+	<li align="center" class="deports">
+		<a href="indexfavor.php">
+			<span>
+				<img width="80" src="./assets/img/deportes.png" alt="Deportes">
+			</span>
+			<p class="subtitle">Favores</p>
+		</a>
+	</li> 
+</ul>
+</section>
 		  <!---PRUEBA DE FOOTER-->
 <footer id="foot">
 <ul class="menu">
 
-<a href="login.php">
+<a href="index.php">
 	<img src="./assets/img/home.png" alt="" width="30px" height="50px" class="homeimg">
 </a>
 
