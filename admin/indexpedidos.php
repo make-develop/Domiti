@@ -116,29 +116,16 @@ if(!isset($_SESSION['user_id']))
 
 </style>  
 
-<div id="group_chat_dialog" title="Group Chat Window">
-	<div id="group_chat_history" style="height:400px; border:1px solid #ccc; overflow-y: scroll; margin-bottom:24px; padding:16px;">
 
-	</div>
-	<div class="form-group">
-		<!--<textarea name="group_chat_message" id="group_chat_message" class="form-control"></textarea>!-->
-		<div class="chat_message_area">
-			<div id="group_chat_message" contenteditable class="form-control">
 
-			</div>
-			<div class="image_upload">
-				<form id="uploadImage" method="post" action="upload.php">
-					<label for="uploadFile"><img src="upload.png" /></label>
-					<input type="file" name="uploadFile" id="uploadFile" accept=".jpg, .png" />
-				</form>
-			</div>
-		</div>
-	</div>
-	<div class="form-group" align="right">
-		<button type="button" name="send_group_chat" id="send_group_chat" class="btn btn-info">Send</button>
-	</div>
-</div>
+<script>
+$(document).ready(function(){
 
+		$('#c').click(function(){
+			alert("Boton");
+		});
+});
+</script>
 
 <script>  
 $(document).ready(function(){
@@ -201,6 +188,11 @@ $(document).ready(function(){
 			toneStyle: "bullet"
 		});
 	});
+
+//prueba
+
+
+
 
 	$(document).on('click', '.send_chat', function(){
 		var to_user_id = $(this).attr('id');
@@ -350,5 +342,7 @@ $(document).ready(function(){
 		}
 	});
 	
+	//intento
+
 });  
 </script>
