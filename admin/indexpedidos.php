@@ -118,14 +118,7 @@ if(!isset($_SESSION['user_id']))
 
 
 
-<script>
-$(document).ready(function(){
 
-		$('#c').click(function(){
-			alert("Boton");
-		});
-});
-</script>
 
 <script>  
 $(document).ready(function(){
@@ -192,8 +185,17 @@ $(document).ready(function(){
 //prueba
 
 
-
-
+$(document).on('click', '.label-danger', function(){
+	var id = $(this).attr('id');
+	$.ajax({
+		url:"remove_status.php",
+			method:"POST",
+			success:function()
+			{
+				alert("Boton");
+			}
+		})
+});
 	$(document).on('click', '.send_chat', function(){
 		var to_user_id = $(this).attr('id');
 		var chat_message = $.trim($('#chat_message_'+to_user_id).val());

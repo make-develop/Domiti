@@ -19,14 +19,6 @@ $statement->execute();
 $result = $statement->fetchAll();
 
 $output = '
-<script>
-$(document).ready(function(){
-
-		$(".label-danger").click(function(){
-			alert("Boton");
-		});
-});
-</script>
 <table class="table table-bordered table-striped">
 	<tr>
 		<th width="70%">Username</td>

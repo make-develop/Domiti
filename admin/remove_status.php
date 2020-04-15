@@ -4,12 +4,12 @@
 
 include('database_connection.php');
 
-if(isset($_POST["id_status"]))
+if(isset($_POST["id"]))
 {
 	$query = "
-	UPDATE orders_status 
-	SET status = '2' 
-	WHERE id_status = '".$_POST["id_status"]."'
+	UPDATE orders 
+	SET estado = '1' 
+	WHERE id = '".$_POST["id"]."'
 	";
 
 	$statement = $connect->prepare($query);
