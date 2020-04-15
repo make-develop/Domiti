@@ -9,7 +9,7 @@ session_start();
 $query = " SELECT * 
 FROM orders 
 JOIN login ON login.user_id = orders.user_id 
-WHERE orders.user_id != '".$_SESSION['user_id']."' AND orders.estado != 6
+WHERE orders.user_id != '".$_SESSION['user_id']."' AND orders.estado != 6 AND from_user_id= '".$_SESSION['user_id']."' OR from_user_id = 0
 ";
 
 $statement = $connect->prepare($query);
@@ -45,7 +45,7 @@ $(document).on("click", ".label-success", function(){
 	var estado= parseFloat(cambio)+parseFloat(uno);
 	
 	$.ajax({
-		url : "remove_status.php",
+		url : "envio_status.php",
 		method : "post",
 		data : {id : id, estado : estado},
 		success : function(response){
@@ -62,7 +62,7 @@ $(document).on("click", ".recogido", function(){
 	var estado= parseFloat(cambio)+parseFloat(uno);
 	
 	$.ajax({
-		url : "remove_status.php",
+		url : "envio_status.php",
 		method : "post",
 		data : {id : id, estado : estado},
 		success : function(response){
@@ -78,7 +78,7 @@ $(document).on("click", ".camino", function(){
 	var estado= parseFloat(cambio)+parseFloat(uno);
 	
 	$.ajax({
-		url : "remove_status.php",
+		url : "envio_status.php",
 		method : "post",
 		data : {id : id, estado : estado},
 		success : function(response){
@@ -94,7 +94,7 @@ $(document).on("click", ".cinco", function(){
 	var estado= parseFloat(cambio)+parseFloat(uno);
 	
 	$.ajax({
-		url : "remove_status.php",
+		url : "envio_status.php",
 		method : "post",
 		data : {id : id, estado : estado},
 		success : function(response){
@@ -111,7 +111,7 @@ $(document).on("click", ".afuera", function(){
 	var estado= parseFloat(cambio)+parseFloat(uno);
 	
 	$.ajax({
-		url : "remove_status.php",
+		url : "envio_status.php",
 		method : "post",
 		data : {id : id, estado : estado},
 		success : function(response){
@@ -127,7 +127,7 @@ $(document).on("click", ".entregado", function(){
 	var estado= parseFloat(cambio)+parseFloat(uno);
 	
 	$.ajax({
-		url : "remove_status.php",
+		url : "envio_status.php",
 		method : "post",
 		data : {id : id, estado : estado},
 		success : function(response){
