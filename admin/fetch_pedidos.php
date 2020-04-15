@@ -27,7 +27,16 @@ $(document).on("click", ".label-danger", function(){
 	var uno= "1";
 	var estado= parseFloat(cambio)+parseFloat(uno);
 	alert(estado);
-})
+	
+	$.ajax({
+		url : "remove_status.php",
+		method : "post",
+		data : {id : id, estado : estado},
+		success : function(response){
+			console.log(response);
+		}
+	})
+});
 });  
 </script>
 
