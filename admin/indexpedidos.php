@@ -182,20 +182,7 @@ $(document).ready(function(){
 		});
 	});
 
-//prueba
 
-
-$(document).on('click', '.label-danger', function(){
-	var id = $(this).attr('id');
-	$.ajax({
-		url:"remove_status.php",
-			method:"POST",
-			success:function()
-			{
-				alert("Boton");
-			}
-		})
-});
 	$(document).on('click', '.send_chat', function(){
 		var to_user_id = $(this).attr('id');
 		var chat_message = $.trim($('#chat_message_'+to_user_id).val());
@@ -220,6 +207,7 @@ $(document).on('click', '.label-danger', function(){
 		}
 	});
 
+
 	function fetch_user_chat_history(to_user_id)
 	{
 		$.ajax({
@@ -228,6 +216,7 @@ $(document).on('click', '.label-danger', function(){
 			data:{to_user_id:to_user_id},
 			success:function(data){
 				$('#chat_history_'+to_user_id).html(data);
+			
 			}
 		})
 	}
@@ -343,8 +332,7 @@ $(document).on('click', '.label-danger', function(){
 			})
 		}
 	});
-	
-	//intento
+	//prueb
 
 });  
 </script>

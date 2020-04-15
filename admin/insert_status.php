@@ -8,11 +8,11 @@ session_start();
 
 $data = array(
 	':id_order'		=>	$_POST['id'],
-	':status'			=>	'1'
+	':status'			=>	'3'
 );
 
 $query = "
-INSERT INTO orders_status 
+INSERT INTO orders 
 (id_order, status) 
 VALUES (:id_order, :status)
 ";
