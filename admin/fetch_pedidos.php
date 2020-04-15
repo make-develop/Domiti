@@ -36,6 +36,105 @@ $(document).on("click", ".label-danger", function(){
 		}
 	})
 });
+
+$(document).on("click", ".label-success", function(){
+	var id= $(this).data("id");
+	var cambio = $("#"+id).children("td[data-target=estado]").text();
+	var uno= "1";
+	var estado= parseFloat(cambio)+parseFloat(uno);
+	
+	$.ajax({
+		url : "remove_status.php",
+		method : "post",
+		data : {id : id, estado : estado},
+		success : function(response){
+			console.log(response);
+		}
+	})
+});
+
+
+$(document).on("click", ".recogido", function(){
+	var id= $(this).data("id");
+	var cambio = $("#"+id).children("td[data-target=estado]").text();
+	var uno= "1";
+	var estado= parseFloat(cambio)+parseFloat(uno);
+	
+	$.ajax({
+		url : "remove_status.php",
+		method : "post",
+		data : {id : id, estado : estado},
+		success : function(response){
+			console.log(response);
+		}
+	})
+});
+
+$(document).on("click", ".camino", function(){
+	var id= $(this).data("id");
+	var cambio = $("#"+id).children("td[data-target=estado]").text();
+	var uno= "1";
+	var estado= parseFloat(cambio)+parseFloat(uno);
+	
+	$.ajax({
+		url : "remove_status.php",
+		method : "post",
+		data : {id : id, estado : estado},
+		success : function(response){
+			console.log(response);
+		}
+	})
+});
+
+$(document).on("click", ".cinco", function(){
+	var id= $(this).data("id");
+	var cambio = $("#"+id).children("td[data-target=estado]").text();
+	var uno= "1";
+	var estado= parseFloat(cambio)+parseFloat(uno);
+	
+	$.ajax({
+		url : "remove_status.php",
+		method : "post",
+		data : {id : id, estado : estado},
+		success : function(response){
+			console.log(response);
+		}
+	})
+});
+
+
+$(document).on("click", ".afuera", function(){
+	var id= $(this).data("id");
+	var cambio = $("#"+id).children("td[data-target=estado]").text();
+	var uno= "1";
+	var estado= parseFloat(cambio)+parseFloat(uno);
+	
+	$.ajax({
+		url : "remove_status.php",
+		method : "post",
+		data : {id : id, estado : estado},
+		success : function(response){
+			console.log(response);
+		}
+	})
+});
+
+$(document).on("click", ".entregado", function(){
+	var id= $(this).data("id");
+	var cambio = $("#"+id).children("td[data-target=estado]").text();
+	var uno= "1";
+	var estado= parseFloat(cambio)+parseFloat(uno);
+	
+	$.ajax({
+		url : "remove_status.php",
+		method : "post",
+		data : {id : id, estado : estado},
+		success : function(response){
+			console.log(response);
+		}
+	})
+});
+
 });  
 </script>
 
@@ -60,7 +159,17 @@ foreach($result as $row)
 	else if($es == '1')
 	{
 		$es = '<button class="label label-success" data-id="' . $row['id'] . '" >Tomado</button>';
-	}
+	}else if($es=='2'){
+		$es = '<button class="recogido" data-id="' . $row['id'] . '" >Pedido Recogido</button>';
+	}else if($es=='3'){
+	$es = '<button class="camino" data-id="' . $row['id'] . '" >Voy en camino</button>';
+	}else if($es=='4'){
+		$es = '<button class="cinco" data-id="' . $row['id'] . '" >Cinco Minutos</button>';
+	}else if($es=='5'){
+			$es = '<button class="afuera" data-id="' . $row['id'] . '" >Estoy Afuera</button>';
+	}else if($es=='6'){
+		$es = '<button class="entregado" data-id="' . $row['id'] . '" >Entregado</button>';
+	}	
 	$output .= '
 	<tr id="' . $row['id'] . '">
 	<td>'.$row['favor'].'</td>

@@ -10,7 +10,7 @@ if(isset($_POST["id"]))
 
 	$query = "
 	UPDATE orders 
-	SET estado = '$estado' 
+	SET estado = '$estado', updated_at = now() 
 	WHERE id = '".$_POST["id"]."'
 	";
 

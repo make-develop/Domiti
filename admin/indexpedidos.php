@@ -130,7 +130,7 @@ $(document).ready(function(){
 		fetch_pedidos();
 		update_chat_history_data();
 		fetch_group_chat_history();
-	}, 5000);
+	}, 2000);
 
 	function fetch_pedidos()
 	{
