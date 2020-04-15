@@ -7,9 +7,9 @@ include('database_connection.php');
 session_start();
 
 $query = " SELECT * 
-    FROM orders 
-    JOIN login ON login.user_id = orders.user_id 
-    WHERE orders.user_id != '".$_SESSION['user_id']."' 
+FROM orders 
+JOIN login ON login.user_id = orders.user_id 
+WHERE orders.user_id != '".$_SESSION['user_id']."' AND orders.estado != 6
 ";
 
 $statement = $connect->prepare($query);
