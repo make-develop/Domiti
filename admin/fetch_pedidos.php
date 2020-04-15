@@ -26,11 +26,12 @@ $(document).on("click", ".label-danger", function(){
 	var cambio = $("#"+id).children("td[data-target=estado]").text();
 	var uno= "1";
 	var estado= parseFloat(cambio)+parseFloat(uno);
+	var sesion = $("#"+id).children("td[data-target=sesionid]").text();
 	
 	$.ajax({
 		url : "remove_status.php",
 		method : "post",
-		data : {id : id, estado : estado},
+		data : {id : id, estado : estado, sesion :sesion},
 		success : function(response){
 			console.log(response);
 		}
@@ -148,6 +149,7 @@ $(document).on("click", ".entregado", function(){
 
 foreach($result as $row)
 {
+	$sesion=$_SESSION['user_id'];
 	$es = $row['estado'];
 	$current_timestamp = strtotime(date("Y-m-d H:i:s") . '- 10 second');
 	$current_timestamp = date('Y-m-d H:i:s', $current_timestamp);
@@ -177,6 +179,7 @@ foreach($result as $row)
 	<td>'.'$'.$row['valor'].'</td>
 	<td>'.$row['name'].' '.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'</td>
 	<td>'.$es.'</td>
+	<td data-target="sesionid">'.$sesion.'</td>
 	<td data-target="estado">'.$row['estado'].'</td>
 		<td><button type="button" class="btn btn-info btn-xs start_chat" data-touserid="'.$row['user_id'].'" data-tousername="'.$row['username'].'">Start Chat</button></td>
 	</tr>
