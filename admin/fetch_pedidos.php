@@ -22,7 +22,11 @@ $output = '
 <script>
 $(document).ready(function(){
 $(document).on("click", ".label-danger", function(){
-	alert($(this).data("id"));
+	var id= $(this).data("id");
+	var cambio = $("#"+id).children("td[data-target=estado]").text();
+	var uno= "1";
+	var estado= parseFloat(cambio)+parseFloat(uno);
+	alert(estado);
 })
 });  
 </script>
@@ -56,7 +60,7 @@ foreach($result as $row)
 	<td>'.'$'.$row['valor'].'</td>
 	<td>'.$row['name'].' '.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'</td>
 	<td>'.$es.'</td>
-	<td class="est">'.$row['estado'].'</td>
+	<td data-target="estado">'.$row['estado'].'</td>
 		<td><button type="button" class="btn btn-info btn-xs start_chat" data-touserid="'.$row['user_id'].'" data-tousername="'.$row['username'].'">Start Chat</button></td>
 	</tr>
 	';
