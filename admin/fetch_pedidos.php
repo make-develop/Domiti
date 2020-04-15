@@ -26,7 +26,6 @@ $(document).on("click", ".label-danger", function(){
 	var cambio = $("#"+id).children("td[data-target=estado]").text();
 	var uno= "1";
 	var estado= parseFloat(cambio)+parseFloat(uno);
-	alert(estado);
 	
 	$.ajax({
 		url : "remove_status.php",
