@@ -95,6 +95,7 @@ if(!isset($_SESSION['user_id']))
 <script type="text/javascript">
 	function showAndroidToast(toast) {
 		Android.showToast(toast);
+		
 	}
 </script>
 <ul id="categorias-list"> 

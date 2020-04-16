@@ -27,13 +27,23 @@ if(isset($_POST["register"]))
 	{
 		if($statement->rowCount() > 0)
 		{
-			$message .= '<p>Tel&eacute;fono ya esta registrado</p>';
+			$message .= '<script type="text/javascript">
+			function showAndroidToast(toast) {
+				Android.showToast(toast);
+			}
+			showAndroidToast("Telefono existente!");
+		</script>';
 		}
 		else
 		{
 			if(empty($phone))
 			{
-				$message .= '<p>Tel&eacute;fono es requerido</p>';
+				$message .= '<script type="text/javascript">
+				function showAndroidToast(toast) {
+					Android.showToast(toast);
+				}
+				showAndroidToast("Telefono requerido!");
+			</script>';
 			}
 			}
 			if($message == '')
@@ -88,26 +98,25 @@ if(isset($_POST["register"]))
     </ul>   
 </header>
 <!--final cabecera-->
-    <body>  
+    <body >  
         <div class="container">
 		<br />
 			<div class="panel panel-default">
   				<div class="panel-heading"><h2>¿Tienes un establecimiento?</h2></div>
 				<div class="panel-body">
 				<form method="post">
-				<br>
 				<div class="input-field col s12">
-                    <input id="password" type="text" name="nombrelocal" class="validate" required="required" class="form-control" minlength="2" maxlength="40">
+                    <input id="password" type="text" name="nombrelocal"  required="required" class="form-control" minlength="2" maxlength="40">
                     <label for="password">Nombre del establecimiento</label>
 				<span class="lbl-error"></span>
 				</div>
 				<div class="input-field col s12">
-                    <input id="password" type="text" name="mensaje" class="validate"  class="form-control" minlength="0" maxlength="200">
+                    <input id="password" type="text" name="mensaje"   class="form-control" minlength="0" maxlength="200">
                     <label for="password">Mensaje</label>
                     <span class="lbl-error"></span>
 				</div>
 				<div class="input-field col s12">
-                    <input id="password" type="number" name="phone" class="validate"  class="form-control" minlength="10" maxlength="10" >
+                    <input id="password" type="number" name="phone"  class="form-control" minlength="10" maxlength="10" >
                     <label for="password">Telefono</label>
                     <span class="lbl-error"></span>
                 </div>	
@@ -118,7 +127,7 @@ if(isset($_POST["register"]))
 			</div>
 			<br>
 			<div align="center">
-			<a href="login.php" class="txt">&iquest;Ya tienes una cuenta&#63; Haz click aqu&iacute; para iniciar sesi&oacute;n.</a>
+			<h6>&iquest;Ya tienes una cuenta&#63;<a href="login.php" class="txt"> Haz click aqu&iacute; para iniciar sesi&oacute;n.</a></h6>
 			</div>
 				</form>
 				</div>

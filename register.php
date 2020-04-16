@@ -30,23 +30,43 @@ if(isset($_POST["register"]))
 	{
 		if($statement->rowCount() > 0)
 		{
-			$message .= '<p>Tel&eacute;fono ya esta registrado</p>';
+			$message .= '<script type="text/javascript">
+			function showAndroidToast(toast) {
+				Android.showToast(toast);
+			}
+			showAndroidToast("Teléfono existente!");
+		</script>';
 		}
 		else
 		{
 			if(empty($username))
 			{
-				$message .= '<p>Tel&eacute;fono es requerido</p>';
+				$message .= '<script type="text/javascript">
+				function showAndroidToast(toast) {
+					Android.showToast(toast);
+				}
+				showAndroidToast("Teléfono requerido!");
+			</script>';
 			}
 			if(empty($password))
 			{
-				$message .= '<p>Contrase���a es requerida</p>';
+				$message .='<script type="text/javascript">
+				function showAndroidToast(toast) {
+					Android.showToast(toast);
+				}
+				showAndroidToast("Contraseña requerida!");
+			</script>';
 			}
 			else
 			{
 				if($password != $_POST['confirm_password'])
 				{
-					$message .= '<p>Las contrase���as no coinciden</p>';
+					$message .= '<script type="text/javascript">
+					function showAndroidToast(toast) {
+						Android.showToast(toast);
+					}
+					showAndroidToast("Contraseñas no coinciden!");
+				</script>';
 				}
 			}
 			
@@ -71,6 +91,7 @@ if(isset($_POST["register"]))
 				if($statement->execute($data))
 				{
 					$message = "<p>Registro Exitoso!</p>";
+					header('location:register-success.php');
 				}
 			}
 		}
@@ -109,53 +130,67 @@ if(isset($_POST["register"]))
 <!--final cabecera-->
 <body>  
 	<div class="container">
-	<br />
+	
 		<div class="panel panel-default">
-  			<div class="panel-heading"><h2>Regístrate</h2></div>
-				<div class="panel-body">
+  			<div class="panel-heading"><h3 align="center">Regístrate</h3></div>
+				<div class="panel-body" >
 				<form method="post">
-	            <div class="input-field col s12">
-                	<input id="password" type="tel" name="username" class="validate" required="required" class="form-control" minlength="10" maxlength="10">
+				<h6 >Datos Basicos</h6>
+				<div class="divborde" style="border-radius: 20px; border: 1px solid; ">
+	            <div class="input-field col s12" style="margin:20px;">
+                	<input id="password" type="tel" name="username" required="required" class="form-control" minlength="10" maxlength="10">
                 	<label for="password">Tel&eacute;fono</label>
                 	<span class="lbl-error"></span>
 				</div>
-				<div class="input-field col s12">
-                	<input id="password" type="text" name="name" class="validate" required="required" class="form-control" minlength="5" maxlength="30">
+				<div class="input-field col s12" style="margin:20px;">
+                	<input id="password" type="text" name="name" required="required" class="form-control" minlength="5" maxlength="30">
                 	<label for="password">Nombres</label>
 					<span class="lbl-error"></span>
 				</div>
-				<div class="input-field col s12">
-                	<input id="password" type="text" name="address" class="validate"  class="form-control" minlength="5" maxlength="30">
+</div>
+<h6 >Ubicacion</h6>
+				<div class="divborde" style="border-radius: 20px; border: 1px solid; ">
+				<div class="input-field col s12" style="margin:20px;">
+                	<input id="password" type="text" name="address"   class="form-control" minlength="5" maxlength="30">
                 	<label for="password">Direccion de entrega</label>
                 	<span class="lbl-error"></span>
 				</div>
-				<div class="input-field col s12">
-                	<input id="password" type="text" name="addressAditional" class="validate"  class="form-control" minlength="5" maxlength="30" >
+				<div class="input-field col s12" style="margin:20px;">
+                	<input id="password" type="text" name="addressAditional"   class="form-control" minlength="5" maxlength="30" >
                 	<label for="password">Direccion Adicional: Barrio, Piso, Apto</label>
                 	<span class="lbl-error"></span>
-                </div>
-					<div class="input-field col s12">
-                    <input id="password" type="password" name="password" class="validate" required="required" class="form-control">
+				</div>
+</div>
+<h6 >Contraseña</h6>
+				<div class="divborde" style="border-radius: 20px; border: 1px solid; ">
+					<div class="input-field col s12" style="margin:20px;">
+                    <input id="password" type="password" name="password"  required="required" class="form-control">
                     <label for="password">Contraseña</label>
                 	<span class="lbl-error"></span>
                 </div>                          
-				<div class="input-field col s12">
-                    <input id="password" type="password" name="confirm_password" class="validate" required="required" class="form-control">
+				<div class="input-field col s12" style="margin:20px;">
+                    <input id="password" type="password" name="confirm_password"  required="required" class="form-control">
                     <label for="password">Confirme contraseña</label>
                     <span class="lbl-error"></span>
-                </div>
+				</div>
+</div>
+<div align="left">
+				<p>Ver los<a href="terminos.php" class="txt"> Terminos y Condiciones</a></p>
+				</div>
 				<br>
 				<span class="text-danger" style="color:#8E7B00;font-size: 15px;"><?php echo $message; ?></span>
 				<div class="form-group" align="center">
 					<input type="submit" name="register" class="button" value="Registrarme"  />
 				</div>
-				<br>
-				<div align="center">
-					<a href="login.php" class="txt">&iquest;Ya tienes una cuenta&#63; Haz click aqu&iacute; para iniciar sesi&oacute;n.</a>
-				</div>
+			
 				</form>
 			</div>
 		</div>
+<br>
+		<div align="center">
+				<h6>&iquest;Ya tienes una cuenta&#63; 	<a href="login.php" class="txt"> Haz click aqu&iacute; para iniciar sesi&oacute;n.</a></h6>
+				</div>
 	</div>
+
 </body>  
 </html>

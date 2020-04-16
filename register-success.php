@@ -68,7 +68,7 @@ if(isset($_SESSION['user_id']))
 				<img src="./assets/img/check.png" alt="" width="100">
 				</div>
 				<br>
-					<h5 align="center">En breve nos <strong>comunicaremos contigo</strong> !</h5>
+					<h5 align="center">Ingresa a tu cuenta <strong>ahora mismo</strong> !</h5>
 					<br>
 					<div class="form-group" align="center">
 							<input type="submit" class="button" value="Entendido!" onclick="location.href='login.php'" />

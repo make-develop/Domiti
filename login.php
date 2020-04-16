@@ -53,13 +53,23 @@ if(isset($_POST['login']))
 			}
 			else
 			{
-				$message = '<label>Contraseña incorrecta</label>';
+				$message = '<script type="text/javascript">
+				function showAndroidToast(toast) {
+					Android.showToast(toast);
+				}
+				showAndroidToast("Contraseña incorrecta!");
+			</script>';
 			}
 		}
 	}
 	else
 	{
-		$message = '<label>Teléfono incorrecto</label>';
+		$message = '<script type="text/javascript">
+		function showAndroidToast(toast) {
+			Android.showToast(toast);
+		}
+		showAndroidToast("Teléfono incorrecto!");
+	</script>';
 	}
 }
 ?>
@@ -99,41 +109,37 @@ if(isset($_POST['login']))
         <div class="container">
 		<br/>
 		<br>
-			<div class="panel panel-default">
+		<div class="divborde" style="border-radius: 20px; border: 1px solid; ">
+			<div class="panel panel-default" style="margin:20px;">
   				<div class="panel-heading"><h2>Ingresar a mi cuenta</h2></div>
 					<div class="panel-body">
 						<form method="post">
-					    <br>
 					    <div class="input-field col s12">
-                    		<input id="password" type="tel" name="username" class="validate" required="required" class="form-control" minlength="10" maxlength="10">
+                    		<input id="password" type="tel" name="username"  required="required" class="form-control" minlength="10" maxlength="10">
                     		<label for="password">Tel&eacute;fono</label>
                    			<span class="lbl-error"></span>
 							<br>
                    		</div>
 						<div class="input-field col s12">
-                    		<input id="password" type="password" name="password" class="validate" required="required" class="form-control">
+                    		<input id="password" type="password" name="password" required="required" class="form-control">
                     		<label for="password">Contraseña</label>
 							  <span class="lbl-error"></span>
 						</div>
 						<br>
 						<span class="text-danger" style="color:#8E7B00;font-size: 12px;"><?php echo $message; ?></span>
-						<br>
 						<div class="form-group" align="center">
 							<input type="submit" name="login" class="button" value="Ingresar"  />
 						</div>
-						<br>
-						<br>
-						<div align="center">
-							<a href="register.php" class="txt">¿Aún no estás registrado? Haz click aquí para registrarte.</a>
-						</div>
+					
 					</form>
 				
-					<br />
-					<br />
-					<br />
-					<br />
 				</div>
 			</div>
 		</div>
+		</div>
+		<br>
+		<div align="center">
+							<h6> ¿Aún no estás registrado?<a href="register.php" class="txt"> Haz click aquí para registrarte.</a></h6>
+						</div>
     </body>  
 </html>
