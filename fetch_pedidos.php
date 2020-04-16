@@ -59,12 +59,13 @@ foreach($result as $row)
 	}	
 	$output .= '
 	<tr>
+	<td>'.$es.'</td>
 		<td>'.$row['favor'].' '.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'</td>
 		<td>'.$row['address'].' '.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'</td>
 		<td>'.$row['addressAditional'].' '.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'</td>
 		<td>'.$row['metodopago'].' '.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'</td>
 		<td>'.'$'.$row['valor'].' '.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'</td>
-		<td>'.$es.'</td>
+
 	</tr>
 	';
 }
