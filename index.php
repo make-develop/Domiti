@@ -99,6 +99,15 @@ if(!isset($_SESSION['user_id']))
 	}
 </script>
 <ul id="categorias-list"> 
+	
+<li align="center" class="deports">
+		<a href="indexfavor.php">
+			<span>
+				<img width="80" src="./assets/img/deportes.png" alt="Deportes">
+			</span>
+			<p class="subtitle">Favores</p>
+		</a>
+	</li> 
 	<li align="center">
 		<a href="" onClick="showAndroidToast('Proximamente!')">
 			<span>
@@ -127,14 +136,6 @@ if(!isset($_SESSION['user_id']))
 		</a>
 	</li> 
 
-	<li align="center" class="deports">
-		<a href="indexfavor.php">
-			<span>
-				<img width="80" src="./assets/img/deportes.png" alt="Deportes">
-			</span>
-			<p class="subtitle">Favores</p>
-		</a>
-	</li> 
 </ul>
 </section>
 		  <!---PRUEBA DE FOOTER-->

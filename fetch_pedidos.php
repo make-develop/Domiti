@@ -18,14 +18,18 @@ $statement->execute();
 $result = $statement->fetchAll();
 
 $output = '
-<table class="table table-bordered table-striped">
+<table class="rwd-table">
+<thead>
 	<tr>
-		<th width="15%"></td>
-		<th width="15%"></td>
-		<th width="15%"></td>
-		<th width="15%"></td>
-		<th width="15%"></td>
+		<td >Pedido</td>
+		<td ></td>
+		<td ></td>
+		<td ></td>
+		<td></td>
+		<td></td>
 	</tr>
+	</thead>
+	<tbody>
 ';
 if(!empty($result)){
 foreach($result as $row)
@@ -65,7 +69,7 @@ foreach($result as $row)
 	';
 }
 
-$output .= '</table>';
+$output .= '</tbody></table>';
 
 
 echo $output;

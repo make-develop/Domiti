@@ -24,23 +24,19 @@ if(!isset($_SESSION['user_id']))
 		
 		
 		<!--sichat-->
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.rawgit.com/mervick/emojionearea/master/dist/emojionearea.min.css">
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<script src="https://cdn.rawgit.com/mervick/emojionearea/master/dist/emojionearea.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
 		<!--login-->
-		<link rel="stylesheet" href="./assets/css/materialize.min.css"> <!--TEXTLAYOUT-->
-		<script type="text/javascript" src="assets/js/materialize.min.js"></script>
 		
 
 		<link rel="stylesheet" href="./assets/css/divocultar.css">
+		
 		 
 		<!--nuevo-->
+		<link rel="stylesheet" href="./assets/css/materialize.min.css">
 		<link rel="stylesheet" href="./assets/css/index_styles.css">
-		
+		<link rel="stylesheet" href="./assets/css/tabla.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   		
   	
@@ -79,17 +75,15 @@ if(!isset($_SESSION['user_id']))
 <!--CHAT-->
 <div id="bed">
 			<div class="contenedor-body">
-			<div style="width:100%;">
-			<div class="container">	
 			<br />
-			<div class="table-responsive">
-				<div id="user_details"></div>
-				<div id="user_model_details"></div>
+				<div id="user_details" class="datos">
+
+
+				</div>
+
 			</div>
 			<br />
 			<br />
-		</div>
-	</div>
 </div>
 </div>
 <!--fin valor-->
