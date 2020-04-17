@@ -6,9 +6,13 @@ include('database_connection.php');
 
 session_start();
 
+$sesion = $_SESSION['user_id'];
+
 $query = "
-SELECT * FROM orders 
-WHERE user_id = '".$_SESSION['user_id']."' 
+SELECT * 
+FROM orders 
+JOIN loginAdmin ON loginAdmin.user_id= orders.from_user_id
+WHERE orders.user_id = $sesion ORDER BY  estado ASC
 ";
 
 $statement = $connect->prepare($query);
@@ -21,7 +25,7 @@ $output = '
 <table class="rwd-table">
 <thead>
 	<tr>
-		<td >Pedido</td>
+		<td ></td>
 		<td ></td>
 		<td ></td>
 		<td ></td>
@@ -35,9 +39,10 @@ if(!empty($result)){
 foreach($result as $row)
 {
 	$es = $row['estado'];
+	$repartidornombre = $row['username'];
 	$status = '';
-	$current_timestamp = strtotime(date("Y-m-d H:i:s") . '- 10 second');
-	$current_timestamp = date('Y-m-d H:i:s', $current_timestamp);
+	$time = $row['updated_at'];
+	$hora = date('H:i:s',strtotime($time)); 
 	$user_last_activity = fetch_user_last_activity($row['user_id'], $connect);
 	if($es == '0')
 	{
@@ -57,15 +62,17 @@ foreach($result as $row)
 	}else if($es=='6'){
 		$es = '<span class="entregado" data-id="' . $row['id'] . '" >Entregado</span>';
 	}	
+
 	$output .= '
 	<tr>
+	<th>'.$hora.'</th>
 	<td>'.$es.'</td>
 		<td>'.$row['favor'].' '.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'</td>
 		<td>'.$row['address'].' '.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'</td>
 		<td>'.$row['addressAditional'].' '.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'</td>
 		<td>'.$row['metodopago'].' '.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'</td>
-		<td>'.'$'.$row['valor'].' '.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'</td>
-
+		<td>'.'$'.$row['total'].' '.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'</td>
+		<td>'.$repartidornombre.'</td>
 	</tr>
 	';
 }
