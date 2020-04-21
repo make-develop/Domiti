@@ -15,6 +15,9 @@ if(isset($_POST["register"]))
 	$username = trim($_POST["username"]);
 	$name = trim($_POST["name"]);
 	$address = trim($_POST["address"]);
+	$address2 = trim($_POST["address2"]);
+	$address3 = trim($_POST["address3"]);
+	$address4 = trim($_POST["address4"]);
 	$addressAditional = trim($_POST["addressAditional"]);
 	$password = trim($_POST["password"]);
 	$check_query = "
@@ -74,14 +77,17 @@ if(isset($_POST["register"]))
 					':username'		=>	$username,
 					':name'		=>	$name,
 					':address'		=>	$address,
+					':address2'		=>	$address2,
+					':address3'		=>	$address3,
+					':address4'		=>	$address4,
 					':addressAditional'		=>	$addressAditional,
 					':password'		=>	password_hash($password, PASSWORD_DEFAULT)
 				);
 
 				$query = "
 				INSERT INTO login
-				(username, name, address, addressAditional, password) 
-				VALUES (:username,:name,:address,:addressAditional, :password)
+				(username, name, address, address2, address3, address4, addressAditional, password) 
+				VALUES (:username,:name,:address,:address2,:address3,:address4,:addressAditional, :password)
 				";
 				$statement = $connect->prepare($query);
 				if($statement->execute($data))
@@ -146,16 +152,25 @@ if(isset($_POST["register"]))
 				</div>
 				<h6 >Ubicacion</h6>
 				<div class="divborde" style="border-radius: 20px; border: 1px solid; ">
+				<label style="margin:20px;">Direccion de entrega</label>
 				<div class="input-field col s12" style="margin:20px;">
-                	<input id="password" type="text" name="address"   class="form-control" minlength="5" maxlength="30">
-                	<label for="password">Direccion de entrega</label>
-                	<span class="lbl-error"></span>
+					<select name="address"  class="form-control" style="width: 30%; display: inline; margin-right: 5px;">
+					<option value="Calle" selected>Calle</option> 
+					<option value="Carrera" >Carrera</option>
+					</select>
+                	<input  type="text" name="address2"  class="form-control" minlength="1" maxlength="4" style="width: 15%;     margin-right: 20px;"> 
+					<input  type="text" name="address3"   class="form-control" placeholder="#" minlength="1" maxlength="4" style="width: 15%;    margin-right: 10px;"> 
+					<input  type="text" name="address4"  class="form-control" minlength="1" maxlength="4" placeholder="-" style="width: 15%;    margin-right: 10px;"> 
+            
+					
 				</div>
+			
 				<div class="input-field col s12" style="margin:20px;">
                 	<input id="password" type="text" name="addressAditional"   class="form-control" minlength="5" maxlength="30" >
                 	<label for="password">Direccion Adicional: Barrio, Piso, Apto</label>
                 	<span class="lbl-error"></span>
 				</div>
+
 				</div>
 				<h6 >Contraseña</h6>
 				<div class="divborde" style="border-radius: 20px; border: 1px solid; ">
@@ -173,6 +188,8 @@ if(isset($_POST["register"]))
 				<div align="left">
 				<p>Ver los<a href="terminos.php" class="txt"> Terminos y Condiciones</a></p>
 				</div>
+
+
 				<br>
 				<span class="text-danger" style="color:#8E7B00;font-size: 15px;"><?php echo $message; ?></span>
 				<div class="form-group" align="center">

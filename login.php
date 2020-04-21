@@ -35,6 +35,9 @@ if(isset($_POST['login']))
 				$_SESSION['username'] = $row['username'];
 				$_SESSION['name'] = $row['name'];
 				$_SESSION['address'] = $row['address'];
+				$_SESSION['address2'] = $row['address2'];
+				$_SESSION['address3'] = $row['address3'];
+				$_SESSION['address4'] = $row['address4'];
 				$_SESSION['addressAditional'] = $row['addressAditional'];
 				
 				$sub_query = "

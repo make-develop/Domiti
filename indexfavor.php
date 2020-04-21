@@ -16,6 +16,9 @@ if(isset($_POST["register"]))
 	$favor = trim($_POST["favor"]);
 	$valor = trim($_POST["valor"]);
 	$address = trim($_POST["address"]);
+	$address2 = trim($_POST["address2"]);
+	$address3 = trim($_POST["address3"]);
+	$address4 = trim($_POST["address4"]);
 	$addressAditional = trim($_POST["addressAditional"]);
 	$propina = trim($_POST["propina"]);
 	$metodopago = trim($_POST["metodopago"]);
@@ -60,6 +63,9 @@ if(isset($_POST["register"]))
 					':favor'		=>	$_POST['favor'],
 					':valor'		=>	$_POST['valor'],
 					':address'		=>	$_POST['address'],
+					':address2'		=>	$_POST['address2'],
+					':address3'		=>	$_POST['address3'],
+					':address4'		=>	$_POST['address4'],
 					':addressAditional'		=>	$_POST['addressAditional'],
 					':propina'		=>	$_POST['propina'],
 					':metodopago'		=>	$_POST['metodopago'],
@@ -69,8 +75,8 @@ if(isset($_POST["register"]))
 				);
 	$query = "
 	INSERT INTO orders 
-	(id, favor, valor, address, addressAditional, propina, metodopago, domicilio, total, user_id) 
-	VALUES (:id, :favor, :valor, :address, :addressAditional, :propina, :metodopago, :domicilio, :total, :user_id)
+	(id, favor, valor, address, address2, address3, address4, addressAditional, propina, metodopago, domicilio, total, user_id) 
+	VALUES (:id, :favor, :valor, :address,:address2,:address3,:address4, :addressAditional, :propina, :metodopago, :domicilio, :total, :user_id)
 	";
 	$statement = $connect->prepare($query);
 	
@@ -152,16 +158,34 @@ if(isset($_POST["register"]))
 				</div>
 				</div>
 			</div>
-			<div class="input-field col s12">
-				<input id="password" type="text" name="address"  class="form-control" minlength="5"  value="<?php echo $_SESSION['address']; ?> " maxlength="30">
-				<label for="password">Direccion de entrega</label>
-				<span class="lbl-error"></span>
-			</div>
-			<div class="input-field col s12">
+			
+			<h5 >Ubicacion</h5>
+				<div class="divborde" style="border-radius: 20px; border: 1px solid; ">
+				<label style="margin-left: 20px;margin-top: 5px;">Direccion de entrega</label>
+				<div class="input-field col s12" style="margin:20px;">
+					<select name="address"  class="form-control" style="width: 30%; display: inline; 
+					margin-right: 5px;">
+					<option value="<?php echo $_SESSION['address']; ?> "  selected><?php echo $_SESSION['address']; ?></option> 
+					<option value="Calle">Calle</option> 
+					<option value="Carrera" >Carrera</option>
+					</select>
+                	<input  type="text" name="address2"  class="form-control" minlength="1" maxlength="4" style="width: 15%;     margin-right: 20px;     display: inline;"
+					value="<?php echo $_SESSION['address2']; ?> " > 
+
+					<input  type="text" name="address3"   class="form-control" placeholder="#" minlength="1" maxlength="4" style="width: 15%;    margin-right: 10px;     display: inline;"
+					value="<?php echo $_SESSION['address3']; ?> " > 
+
+					<input  type="text" name="address4"  class="form-control" minlength="1" maxlength="4" placeholder="-" style="width: 15%;    margin-right: 10px;      display: inline;" value="<?php echo $_SESSION['address4']; ?> " > 
+
+				</div>
+				<div class="input-field col s12" style="margin:20px;">
 				<input id="password" type="text" value="<?php echo $_SESSION['addressAditional']; ?> " name="addressAditional"  class="form-control" minlength="5" maxlength="30" >
 				<label for="password">Direccion Adicional: Barrio, Piso, Apto</label>
 				<span class="lbl-error"></span>
 			</div>
+				</div>
+
+		
 			<!--Inicio Valor-->
 			<div class="valor">
 				<span>Propina
