@@ -5,7 +5,6 @@
 include('database_connection.php');
 session_start();
 $message = '';
-
 if(isset($_SESSION['user_id']))
 {
 	header('location:index.php');
@@ -84,7 +83,8 @@ if(isset($_POST["register"]))
 		<script type="text/javascript" src="assets/js/materialize.min.js"></script>
 		<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
 	</head> 
-    <!--Inicio cabecera-->	
+
+<!--Inicio cabecera-->	
 <header>
 	<ul class="menu"> 
 		<a href="login.php">
@@ -98,6 +98,7 @@ if(isset($_POST["register"]))
     </ul>   
 </header>
 <!--final cabecera-->
+
     <body >  
         <div class="container">
 		<br />

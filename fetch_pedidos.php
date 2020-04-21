@@ -12,7 +12,7 @@ $query = "
 SELECT * 
 FROM orders 
 JOIN loginAdmin ON loginAdmin.user_id= orders.from_user_id
-WHERE orders.user_id = $sesion ORDER BY  estado ASC
+WHERE orders.user_id = 20 AND estado != 6 ORDER BY  updated_at ASC
 ";
 
 $statement = $connect->prepare($query);
@@ -50,7 +50,7 @@ foreach($result as $row)
 	}
 	else if($es == '1')
 	{
-		$es = '<span class="label label-success" data-id="' . $row['id'] . '" > Tu pedido ha sido Tomado</span>';
+		$es = '<span class="label label-success" data-id="' . $row['id'] . '" > '.$repartidornombre.' ha tomado tu pedido </span>';
 	}else if($es=='2'){
 		$es = '<span class="recogido" data-id="' . $row['id'] . '" >Pedido Recogido</span>';
 	}else if($es=='3'){

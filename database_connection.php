@@ -1,13 +1,8 @@
 <?php
 
 //database_connection.php
-
 // ** MySQL Settings ** //
-
-
 $connect = new PDO("mysql:host=127.0.0.1;dbname=makedeve_domi", "makedeve_mike", "Proyectox1116");
-
-
 
 date_default_timezone_set('Asia/Kolkata');
 

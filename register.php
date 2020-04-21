@@ -4,7 +4,6 @@
 <?php
 include('database_connection.php');
 session_start();
-
 $message = '';
 if(isset($_SESSION['user_id']))
 {
@@ -69,9 +68,6 @@ if(isset($_POST["register"]))
 				</script>';
 				}
 			}
-			
-	
-			
 			if($message == '')
 			{
 				$data = array(
@@ -113,14 +109,14 @@ if(isset($_POST["register"]))
 		<script type="text/javascript" src="assets/js/materialize.min.js"></script>
 		<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
 	</head> 
-    <!--Inicio cabecera-->	
+<!--Inicio cabecera-->	
 <header>
 	<ul class="menu">
 		<a href="login.php">
 			<img src="./assets/img/logo.png" alt="" width="50px" height="50px">
 		</a>
         <li>
-			<a href="contact.php">Unete a nosotros!</a>
+			<a href="login.php">Ingresar a mi cuenta</a>
 			<ul>
 
 			</ul>
@@ -128,9 +124,9 @@ if(isset($_POST["register"]))
 	</ul>   
 </header>
 <!--final cabecera-->
+
 <body>  
 	<div class="container">
-	
 		<div class="panel panel-default">
   			<div class="panel-heading"><h3 align="center">Regístrate</h3></div>
 				<div class="panel-body" >
@@ -147,8 +143,8 @@ if(isset($_POST["register"]))
                 	<label for="password">Nombres</label>
 					<span class="lbl-error"></span>
 				</div>
-</div>
-<h6 >Ubicacion</h6>
+				</div>
+				<h6 >Ubicacion</h6>
 				<div class="divborde" style="border-radius: 20px; border: 1px solid; ">
 				<div class="input-field col s12" style="margin:20px;">
                 	<input id="password" type="text" name="address"   class="form-control" minlength="5" maxlength="30">
@@ -160,8 +156,8 @@ if(isset($_POST["register"]))
                 	<label for="password">Direccion Adicional: Barrio, Piso, Apto</label>
                 	<span class="lbl-error"></span>
 				</div>
-</div>
-<h6 >Contraseña</h6>
+				</div>
+				<h6 >Contraseña</h6>
 				<div class="divborde" style="border-radius: 20px; border: 1px solid; ">
 					<div class="input-field col s12" style="margin:20px;">
                     <input id="password" type="password" name="password"  required="required" class="form-control">
@@ -173,8 +169,8 @@ if(isset($_POST["register"]))
                     <label for="password">Confirme contraseña</label>
                     <span class="lbl-error"></span>
 				</div>
-</div>
-<div align="left">
+				</div>
+				<div align="left">
 				<p>Ver los<a href="terminos.php" class="txt"> Terminos y Condiciones</a></p>
 				</div>
 				<br>
@@ -186,11 +182,10 @@ if(isset($_POST["register"]))
 				</form>
 			</div>
 		</div>
-<br>
-		<div align="center">
+	<br>
+				<div align="center">
 				<h6>&iquest;Ya tienes una cuenta&#63; 	<a href="login.php" class="txt"> Haz click aqu&iacute; para iniciar sesi&oacute;n.</a></h6>
 				</div>
 	</div>
-
 </body>  
 </html>

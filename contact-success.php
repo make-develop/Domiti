@@ -3,19 +3,13 @@
 !-->
 
 <?php
-
 include('database_connection.php');
-
 session_start();
-
 $message = '';
-
 if(isset($_SESSION['user_id']))
 {
 	header('location:index.php');
 }
-
-
 ?>
 
 <html>  
@@ -27,35 +21,36 @@ if(isset($_SESSION['user_id']))
   		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   		<link rel="stylesheet" href="./assets/css/estilos.css">
   		<script src="./assets/css/jquery.min.js"></script>
-  		
   		<!--nuevo-->
-  			<link rel="stylesheet" href="./assets/css/materialize.min.css">
-	<link rel="stylesheet" href="./assets/css/style.css">
+  		<link rel="stylesheet" href="./assets/css/materialize.min.css">
+		<link rel="stylesheet" href="./assets/css/style.css">
 		<!--JavaScript at end of body for optimized loading-->
-	<script type="text/javascript" src="assets/js/materialize.min.js"></script>
-<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
-    </head> 
-    <!--Inicio cabecera-->	
+		<script type="text/javascript" src="assets/js/materialize.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+	</head> 
+	
+<!--Inicio cabecera-->	
 <header>
-                     <ul class="menu">
-					 <a href="login.php">
-					 <img src="./assets/img/logo.png" alt="" width="50px" height="50px">
-					</a>
-                      <li><a href="login.php">Iniciar Sesion!</a>
+        <ul class="menu">
+			<a href="login.php">
+				<img src="./assets/img/logo.png" alt="" width="50px" height="50px">
+			</a>
+            <li>
+				<a href="login.php">Iniciar Sesion!
+				</a>
 
-                          <ul>
-                          </ul>
-                      </li>
-                  </ul>   
-
-
+        <ul>
+        </ul>
+            </li>
+        </ul>   
 </header>
 <script type="text/javascript">
     window.history.forward();
     function sinVueltaAtras(){ window.history.forward(); }
 </script>
+
 <!--final cabecera-->
-    <body onload="sinVueltaAtras()" onpageshow="if (event.persisted) sinVueltaAtras()" onunload="">  
+<body onload="sinVueltaAtras()" onpageshow="if (event.persisted) sinVueltaAtras()" onunload="">  
         <div class="container">
 			<br />
 			<div class="hero-title" align="center">

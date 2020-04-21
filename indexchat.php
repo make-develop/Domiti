@@ -12,17 +12,12 @@ if(!isset($_SESSION['user_id']))
 
 ?>
 
-
-
 <html>  
     <head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<title>Domiti</title> 
-		
-		
-		
 		<!--sichat-->
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -34,50 +29,37 @@ if(!isset($_SESSION['user_id']))
 		<!--login-->
 		<link rel="stylesheet" href="./assets/css/materialize.min.css"> <!--TEXTLAYOUT-->
 		<script type="text/javascript" src="assets/js/materialize.min.js"></script>
-		
-
 		<link rel="stylesheet" href="./assets/css/divocultar.css">
-		 
 		<!--nuevo-->
 		<link rel="stylesheet" href="./assets/css/index_styles.css">
-		
+		<link rel="stylesheet" href="./assets/css/tabla.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  		
-  	
-		  
-  <script src="./assets/js/jquery.bootstrap-touchspin.js"></script>
-
-	
-
+ 		<script src="./assets/js/jquery.bootstrap-touchspin.js"></script>
 	</head>
-	       <!--Inicio cabecera-->	
+<!--Inicio cabecera-->	
 <header id="main-header">
 	<ul class="menu">
-
-		<a href="login.php">
-			<img src="./assets/img/logo.png" alt="" width="50px" height="50px">
-		</a>
-		
-		<li>
+	<a href="login.php">
+			<img src="./assets/img/logo.png" alt="" width="45px" height="45px" class="logoimg">
+	</a>
+	<li>
 		<a href="logout.php">
-		<img src="./assets/img/salir.png" alt="" width="20px" height="30px">
+			<img src="./assets/img/salir.png" alt="" width="20px" height="30px">
 		</a>
-		</li>
+	</li>
+	<li>
+		<ul>		
+		</ul>
+	</li>
 		<li>
-			<ul>
-				
-			</ul>
-		</li>
-		<li>
-		<p class="hola">Hola! <?php echo $_SESSION['name']; ?></p>
+			<p class="hola">Hola! <?php echo $_SESSION['name']; ?></p>
 		</li>
 	</ul>   
 </header>
 <!--final cabecera-->
 <body>  
-
 <!--CHAT-->
-<div id="bed">
+		<div id="bed">
 			<div class="contenedor-body">
 			<div style="width:100%;">
 			<div class="container">	
@@ -86,29 +68,34 @@ if(!isset($_SESSION['user_id']))
 				<div id="user_details"></div>
 				<div id="user_model_details"></div>
 			</div>
-			<br />
-			<br />
+				<br />
+				<br />
+			</div>
 		</div>
 	</div>
-</div>
-</div>
+	</div>
 <!--fin valor-->
 		 		  <!---PRUEBA DE FOOTER-->
 <footer id="foot">
 <ul class="menu">
 
 <a href="index.php">
-	<img src="./assets/img/home.png" alt="" width="30px" height="50px" class="homeimg">
+	<img src="./assets/img/home.png" alt="" width="45px" height="45px" class="homeimg">
 </a>
 
 <li>
 <a href="indexchat.php">
-<img src="./assets/img/chat.png" alt="" width="30px" height="40px">
+<img src="./assets/img/chatstart.png" alt="" width="35px" height="35px" class="imgicon" >
 </a>
 </li>
 <li>
 <a href="pedidos.php">
-<img src="./assets/img/pedidos.png" alt="" width="30px" height="40px">
+<img src="./assets/img/orderhistory.png" alt="" width="35px" height="35px" class="imgicon" >
+</a>
+</li>
+<li>
+<a href="pedidoscomplete.php">
+<img src="./assets/img/orderpurchase.png" alt="" width="40px" height="40px" class="imgiconp" >
 </a>
 </li>
 </ul>  
@@ -232,7 +219,7 @@ $(document).ready(function(){
 		fetch_user();
 		update_chat_history_data();
 		fetch_group_chat_history();
-	}, 5000);
+	}, 2000);
 
 	function fetch_user()
 	{

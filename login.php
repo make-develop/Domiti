@@ -3,13 +3,9 @@
 !-->
 
 <?php
-
 include('database_connection.php');
-
 session_start();
-
 $message = '';
-
 if(isset($_SESSION['user_id']))
 {
 	header('location:index.php');
@@ -101,10 +97,9 @@ if(isset($_POST['login']))
 			</ul>
 		</li>
 	</ul>   
-
-
 </header>
 <!--final cabecera-->
+
 	<body>  
         <div class="container">
 		<br/>

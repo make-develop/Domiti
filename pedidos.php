@@ -49,11 +49,9 @@ if(!isset($_SESSION['user_id']))
 	       <!--Inicio cabecera-->	
 <header id="main-header">
 	<ul class="menu">
-
-		<a href="login.php">
-			<img src="./assets/img/logo.png" alt="" width="50px" height="50px">
+	<a href="login.php">
+			<img src="./assets/img/logo.png" alt="" width="45px" height="45px" class="logoimg">
 		</a>
-		
 		<li>
 		<a href="logout.php">
 		<img src="./assets/img/salir.png" alt="" width="20px" height="30px">
@@ -90,19 +88,23 @@ if(!isset($_SESSION['user_id']))
 		 		  <!---PRUEBA DE FOOTER-->
 <footer id="foot">
 <ul class="menu">
-
 <a href="index.php">
-	<img src="./assets/img/home.png" alt="" width="30px" height="50px" class="homeimg">
+	<img src="./assets/img/home.png" alt="" width="45px" height="45px" class="homeimg">
 </a>
 
 <li>
 <a href="indexchat.php">
-<img src="./assets/img/chat.png" alt="" width="30px" height="40px">
+<img src="./assets/img/chat.png" alt="" width="35px" height="35px" class="imgicon" >
 </a>
 </li>
 <li>
 <a href="pedidos.php">
-<img src="./assets/img/pedidos.png" alt="" width="30px" height="40px">
+<img src="./assets/img/orderhistorystart.png" alt="" width="35px" height="35px" class="imgicon" >
+</a>
+</li>
+<li>
+<a href="pedidoscomplete.php">
+<img src="./assets/img/orderpurchase.png" alt="" width="40px" height="40px" class="imgiconp" >
 </a>
 </li>
 </ul>  
@@ -226,7 +228,7 @@ $(document).ready(function(){
 		fetch_pedidos();
 		update_chat_history_data();
 		fetch_group_chat_history();
-	}, 5000);
+	}, 2000);
 
 	function fetch_pedidos()
 	{
