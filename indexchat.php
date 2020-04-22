@@ -212,19 +212,19 @@ if(!isset($_SESSION['user_id']))
 <script>  
 $(document).ready(function(){
 
-	fetch_user();
+	fetch_userchat();
 
 	setInterval(function(){
 		update_last_activity();
-		fetch_user();
+		fetch_userchat();
 		update_chat_history_data();
 		fetch_group_chat_history();
 	}, 2000);
 
-	function fetch_user()
+	function fetch_userchat()
 	{
 		$.ajax({
-			url:"fetch_user.php",
+			url:"fetch_userchat.php",
 			method:"POST",
 			success:function(data){
 				$('#user_details').html(data);

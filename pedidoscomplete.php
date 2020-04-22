@@ -137,7 +137,11 @@ if(!isset($_SESSION['user_id']))
                 <td><button class="button"  data-role="update" data-id="<?php echo $row['id']; ?>">Ver pedido</button></td>
             </tr>
             <?php  }}else{
-                    echo "No hay pedidos!";
+                    echo '<h3 align="center">No tienes pedidos entregados. <br>
+                    <div align="center">
+                    <img src="./assets/img/comprar.png" alt="" width="60%" height="60%" class="outimg">
+                    </div>
+                    <strong>¿Que esperas para pedir algo?</strong></h3>';
                 } ?>
             </tbody>
         </table>

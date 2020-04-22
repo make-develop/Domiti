@@ -3,6 +3,14 @@
 !-->
 <?php
 include('database_connection.php');
+/* establecer el limitador de caché a 'private' */
+
+session_cache_limiter('private');
+$cache_limiter = session_cache_limiter();
+
+/* establecer la caducidad de la caché a 30 minutos */
+session_cache_expire(30);
+$cache_expire = session_cache_expire();
 session_start();
 $message = '';
 if(!isset($_SESSION['user_id']))

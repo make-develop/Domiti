@@ -67,7 +67,7 @@ if(!isset($_SESSION['user_id']))
 			<img src="./assets/img/check.png" alt="" width="100">
 		</div>
 
-		<h2 align="center">Recuerda que puedes comunicarte con tu   <strong>repartidor</strong> en la seccion de  <strong>chats</strong></h2>
+		<h2 align="center">Recuerda que puedes comunicarte con tu   <strong>repartidor</strong> en la seccion de  <strong>pedidos</strong></h2>
 		<br>
 		<div class="form-group" align="center">
 			<input type="submit" class="button" value="Entendido!" onclick="location.href='indexfavor.php'" />
