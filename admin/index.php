@@ -30,6 +30,7 @@ if(!isset($_SESSION['user_id']))
   		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
 		  <!--NUEVO-->
 		  <link rel="stylesheet" href="./assets/css/index_styles.css">
+		  <link rel="stylesheet" href="./assets/css/tabla.css">
     </head> 
 
 	   <!--Inicio cabecera-->	
@@ -60,18 +61,15 @@ if(!isset($_SESSION['user_id']))
         <div class="container">
 			<br />
 			<br />
-			<div class="row">
-			
-			</div>
-			<div class="table-responsive">
+
 				
+			<div class="table-responsive">
 				<div id="user_details"></div>
 				<div id="user_model_details"></div>
 			</div>
 			<br />
 			<br />
-			
-		</div>
+
 		
     </body>  
 </html>
@@ -116,46 +114,26 @@ if(!isset($_SESSION['user_id']))
 
 </style>  
 
-<div id="group_chat_dialog" title="Group Chat Window">
-	<div id="group_chat_history" style="height:400px; border:1px solid #ccc; overflow-y: scroll; margin-bottom:24px; padding:16px;">
 
-	</div>
-	<div class="form-group">
-		<!--<textarea name="group_chat_message" id="group_chat_message" class="form-control"></textarea>!-->
-		<div class="chat_message_area">
-			<div id="group_chat_message" contenteditable class="form-control">
 
-			</div>
-			<div class="image_upload">
-				<form id="uploadImage" method="post" action="upload.php">
-					<label for="uploadFile"><img src="upload.png" /></label>
-					<input type="file" name="uploadFile" id="uploadFile" accept=".jpg, .png" />
-				</form>
-			</div>
-		</div>
-	</div>
-	<div class="form-group" align="right">
-		<button type="button" name="send_group_chat" id="send_group_chat" class="btn btn-info">Send</button>
-	</div>
-</div>
 
 
 <script>  
 $(document).ready(function(){
 
-	fetch_user();
+	fetch_pedidos();
 
 	setInterval(function(){
 		update_last_activity();
-		fetch_user();
+		fetch_pedidos();
 		update_chat_history_data();
 		fetch_group_chat_history();
-	}, 5000);
+	}, 2000);
 
-	function fetch_user()
+	function fetch_pedidos()
 	{
 		$.ajax({
-			url:"fetch_user.php",
+			url:"fetch_pedidos.php",
 			method:"POST",
 			success:function(data){
 				$('#user_details').html(data);
@@ -202,6 +180,7 @@ $(document).ready(function(){
 		});
 	});
 
+
 	$(document).on('click', '.send_chat', function(){
 		var to_user_id = $(this).attr('id');
 		var chat_message = $.trim($('#chat_message_'+to_user_id).val());
@@ -226,6 +205,7 @@ $(document).ready(function(){
 		}
 	});
 
+
 	function fetch_user_chat_history(to_user_id)
 	{
 		$.ajax({
@@ -234,6 +214,7 @@ $(document).ready(function(){
 			data:{to_user_id:to_user_id},
 			success:function(data){
 				$('#chat_history_'+to_user_id).html(data);
+			
 			}
 		})
 	}
@@ -349,6 +330,7 @@ $(document).ready(function(){
 			})
 		}
 	});
-	
+	//prueb
+
 });  
 </script>

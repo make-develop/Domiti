@@ -139,7 +139,7 @@ $(document).on("click", ".entregado", function(){
 });  
 </script>
 
-<table class="table table-bordered table-striped">
+<table class="rwd-table">
 	<tr>
 		<th width="40%">Username</td>
 		<th width="20%">Status</td>
