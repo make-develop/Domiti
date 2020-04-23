@@ -115,8 +115,8 @@ if(isset($_POST['login']))
 					<div class="panel-body">
 						<form method="post">
 					    <div class="input-field col s12">
-                    		<input id="password" type="tel" name="username"  required="required" class="form-control" >
-                    		<label for="password">Username</label>
+                    		<input id="password" type="text" name="username"  required="required" class="form-control" >
+                    		<label for="password">Nombres</label>
                    			<span class="lbl-error"></span>
 							<br>
                    		</div>

@@ -141,9 +141,9 @@ $(document).on("click", ".entregado", function(){
 
 <table class="rwd-table">
 	<tr>
-		<th width="40%">Username</td>
-		<th width="20%">Status</td>
-		<th width="10%">Action</td>
+		<th ></td>
+		<th ></td>
+		<th ></td>
 	</tr>
 ';
 

@@ -1,11 +1,12 @@
 #bed{
     padding-top: 40px; /* Relleno superior igual a la altura de la cabecera*/
     margin: auto 20px;
+    margin-bottom: 50px;
 }
 header{
     width: 100%;
     height: 50px;
-    background: black;
+    background: #0b1016;
 }
 #main-header{
     position: fixed;
@@ -14,9 +15,12 @@ header{
     position: fixed;
     width: 100%;
     height: 50px;
-    background: black;
+    background: #2a3139;
     left:0px;
    bottom:0px;
+   border-top: 2px solid white;
+   border-top-right-radius: 15px;
+   border-top-left-radius: 15px;
 }
 ul.menu li {
     position: relative;
@@ -39,7 +43,7 @@ ul.menu li a {
     font-size: 16px;
  
     color: #f3f3f3;
-    text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+    text-shadow: 1px 1px 1px #0b1016;
  
     -webkit-transition: color .2s ease-in-out;
     -moz-transition: color .2s ease-in-out;
@@ -97,6 +101,7 @@ ul.menu ul li a {
 .hola{
     text-align: left;
     float: left;
+
 }
 .salir{
     text-align:right;
@@ -107,10 +112,28 @@ ul.menu ul li a {
     box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);
 }
 .hola{
-    color: white;    
+    color: white;  
+    margin-top: 10px;  
+    margin-right: 5px;
 }
 .homeimg{
     margin-left: 10px;
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+.imgicon{
+    margin-left: 5px;
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+.imgiconp{
+    margin-top: 0px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+.logoimg{
+    margin-top: 2px;
+    margin-left: 5px;
 }
 .button{
     background-color: #4CAF50; /* Green */
@@ -127,6 +150,7 @@ ul.menu ul li a {
 
 .menu {
     height: inherit;
+    padding-inline-start: 0px;
 }
 
 ol {
@@ -134,7 +158,7 @@ ol {
 }
 
 #categorias-list a {
-    color: black;
+    color: #0b1016;
     list-style: none;
     text-decoration: none;
 
@@ -180,13 +204,13 @@ ol {
 .inscribirse,
 .hero{
     border-top: 40px solid white;
-    margin-left: 10px;
+    margin-left: 20px;
     border-bottom: 0px solid white;  
-    margin-right: 10px;
+    margin-right: 20px;
 }
 .categorias{
     border-top: 10px solid white;
-    border-bottom: 20px solid white;  
+    border-bottom: 50px solid white;  
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -194,30 +218,29 @@ ol {
 
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: 'Fjalla One', sans-serif;
     font-weight: normal;
 }
 
 
 h1 {
-    font-size: 40px;
+    font-size: 35px;
     line-height: 1.5;
     letter-spacing: -.2px;
 }
 
 
 h1 strong {
-    color: rgba(248, 37, 0, 0.904);
+    color:#c1392b;
 }
 
 
 h2 strong, h3 strong, h4 strong{
-    color: rgba(248, 37, 0, 0.904);
+    color:#c1392b;
 }
 
 
  h2 {
-    font-size: 34px;
+    font-size: 30px;
     line-height: 1.5;
     letter-spacing: -.2px;
 } 

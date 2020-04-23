@@ -76,44 +76,81 @@ if(isset($_POST["register"]))
 
 <html>  
     <head>  
-        <title>Chat Application using PHP Ajax Jquery</title>  
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <title>Domiti</title>  
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    </head>  
+  		<link rel="stylesheet" href="./assets/css/estilos.css">
+  		<script src="./assets/css/jquery.min.js"></script>
+  		<!--nuevo-->
+  		<link rel="stylesheet" href="./assets/css/materialize.min.css">
+		<link rel="stylesheet" href="./assets/css/style.css">
+		<!--JavaScript at end of body for optimized loading-->
+		<script type="text/javascript" src="assets/js/materialize.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+	</head>  
+	<!--Inicio cabecera-->	
+<header>
+	<ul class="menu">
+		<a href="login.php">
+			<img src="./assets/img/logo.png" alt="" width="50px" height="50px">
+		</a>
+        <li>
+			<a href="login.php">Ingresar a mi cuenta</a>
+			<ul>
+
+			</ul>
+		</li>
+	</ul>   
+</header>
+<!--final cabecera-->
     <body>  
-        <div class="container">
-			<br />
-			
-			<h3 align="center">Chat Application using PHP Ajax Jquery</a></h3><br />
-			<br />
-			<div class="panel panel-default">
-  				<div class="panel-heading">Chat Application Register</div>
-				<div class="panel-body">
-					<form method="post">
-						<span class="text-danger"><?php echo $message; ?></span>
-						<div class="form-group">
-							<label>Enter Username</label>
-							<input type="text" name="username" class="form-control" />
-						</div>
-						<div class="form-group">
-							<label>Enter Password</label>
-							<input type="password" name="password" class="form-control" />
-						</div>
-						<div class="form-group">
-							<label>Re-enter Password</label>
-							<input type="password" name="confirm_password" class="form-control" />
-						</div>
-						<div class="form-group">
-							<input type="submit" name="register" class="btn btn-info" value="Register" />
-						</div>
-						<div align="center">
-							<a href="login.php">Login</a>
-						</div>
-					</form>
+ <div class="container">
+		<div class="panel panel-default">
+  			<div class="panel-heading"><h3 align="center">Regístrate</h3></div>
+				<div class="panel-body" >
+				<form method="post">
+				<h6 >Datos Basicos</h6>
+				<div class="divborde" style="border-radius: 20px; border: 1px solid; ">
+	            <div class="input-field col s12" style="margin:20px;">
+                	<input id="password" type="text" name="username" required="required" class="form-control">
+                	<label for="password">Nombres</label>
+                	<span class="lbl-error"></span>
 				</div>
+
+				</div>
+
+				<h6 >Contraseña</h6>
+				<div class="divborde" style="border-radius: 20px; border: 1px solid; ">
+					<div class="input-field col s12" style="margin:20px;">
+                    <input id="password" type="password" name="password"  required="required" class="form-control">
+                    <label for="password">Contraseña</label>
+                	<span class="lbl-error"></span>
+                </div>                          
+				<div class="input-field col s12" style="margin:20px;">
+                    <input id="password" type="password" name="confirm_password"  required="required" class="form-control">
+                    <label for="password">Confirme contraseña</label>
+                    <span class="lbl-error"></span>
+				</div>
+				</div>
+				<div align="left">
+				<p>Ver los<a href="terminos.php" class="txt"> Terminos y Condiciones</a></p>
+				</div>
+
+
+				<br>
+				<span class="text-danger" style="color:#8E7B00;font-size: 15px;"><?php echo $message; ?></span>
+				<div class="form-group" align="center">
+					<input type="submit" name="register" class="button" value="Registrarme"  />
+				</div>
+			
+				</form>
 			</div>
 		</div>
-    </body>  
+	<br>
+				<div align="center">
+				<h6>&iquest;Ya tienes una cuenta&#63; 	<a href="login.php" class="txt"> Haz click aqu&iacute; para iniciar sesi&oacute;n.</a></h6>
+				</div>
+	</div>
+</body>  
 </html>
