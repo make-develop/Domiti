@@ -55,6 +55,42 @@ if(isset($_POST["register"]))
 				showAndroidToast("Por favor, escribe que necesitas!");
 			</script>';
 			}
+			if(empty($address))
+			{
+				$message .='<script type="text/javascript">
+				function showAndroidToast(toast) {
+					Android.showToast(toast);
+				}
+				showAndroidToast("Por favor, completa tu direccion!");
+			</script>';
+			}
+			if(empty($address2))
+			{
+				$message .='<script type="text/javascript">
+				function showAndroidToast(toast) {
+					Android.showToast(toast);
+				}
+				showAndroidToast("Por favor, completa tu direccion!");
+			</script>';
+			}
+			if(empty($address3))
+			{
+				$message .='<script type="text/javascript">
+				function showAndroidToast(toast) {
+					Android.showToast(toast);
+				}
+				showAndroidToast("Por favor, completa tu direccion!");
+			</script>';
+			}
+			if(empty($address4))
+			{
+				$message .='<script type="text/javascript">
+				function showAndroidToast(toast) {
+					Android.showToast(toast);
+				}
+				showAndroidToast("Por favor, completa tu direccion!");
+			</script>';
+			}
 		}
 			if($message == '')
 			{

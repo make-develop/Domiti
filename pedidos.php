@@ -240,7 +240,7 @@ $(document).ready(function(){
 	function make_chat_dialog_box(to_user_id, to_user_name)
 	{
 		var modal_content = '<div id="user_dialog_'+to_user_id+'" class="user_dialog" title=" '+to_user_name+'">';
-		modal_content += '<div style="height:400px; border:1px solid #ccc; overflow-y: scroll; margin-bottom:24px; padding:16px;" class="chat_history" data-touserid="'+to_user_id+'" id="chat_history_'+to_user_id+'">';
+		modal_content += '<div style="height:350px; border:1px solid #ccc; overflow-y: scroll; margin-bottom:24px; padding:16px;" class="chat_history" data-touserid="'+to_user_id+'" id="chat_history_'+to_user_id+'">';
 		modal_content += fetch_user_chat_history(to_user_id);
 		modal_content += '</div>';
 		modal_content += '<div class="form-group">';
@@ -256,7 +256,7 @@ $(document).ready(function(){
 		make_chat_dialog_box(to_user_id, to_user_name);
 		$("#user_dialog_"+to_user_id).dialog({
 			autoOpen:false,
-			width:400
+			width:'100%'
 		});
 		$('#user_dialog_'+to_user_id).dialog('open');
 		$('#chat_message_'+to_user_id).emojioneArea({

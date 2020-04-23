@@ -166,7 +166,7 @@ if(!isset($_SESSION['user_id']))
 </a>
 </li>
 <li>
-<a href="pedidos.php">
+<a href="pedidoscomplete.php">
 <img src="./assets/img/orderpurchasestart.png" alt="" width="40px" height="40px" class="imgiconp" >
 </a>
 </li>

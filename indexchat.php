@@ -62,12 +62,12 @@ if(!isset($_SESSION['user_id']))
 		<div id="bed">
 			<div class="contenedor-body">
 			<div style="width:100%;">
-			<div class="container">	
+			
 			<br />
 			<div class="table-responsive">
 				<div id="user_details"></div>
 				<div id="user_model_details"></div>
-			</div>
+			
 				<br />
 				<br />
 			</div>
@@ -262,7 +262,7 @@ $(document).ready(function(){
 		make_chat_dialog_box(to_user_id, to_user_name);
 		$("#user_dialog_"+to_user_id).dialog({
 			autoOpen:false,
-			width:400
+			width:-webkit-fill-available
 		});
 		$('#user_dialog_'+to_user_id).dialog('open');
 		$('#chat_message_'+to_user_id).emojioneArea({
