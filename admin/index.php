@@ -29,8 +29,8 @@ if(!isset($_SESSION['user_id']))
   		<script src="https://cdn.rawgit.com/mervick/emojionearea/master/dist/emojionearea.min.js"></script>
   		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
 		  <!--NUEVO-->
-		  <link rel="stylesheet" href="./assets/css/index_styles.css">
-		  <link rel="stylesheet" href="./assets/css/tabla.css">
+		  <link rel="stylesheet" href="assets/css/index_styles.css">
+		  <link rel="stylesheet" href="assets/css/tabla.css">
     </head> 
 
 	   <!--Inicio cabecera-->	
@@ -61,19 +61,42 @@ if(!isset($_SESSION['user_id']))
   
 	<div id="bed">
 			<br />
-			<div class="table-responsive">
+		
 				<div id="user_details"></div>
 				<div id="user_model_details"></div>
-			</div>
+	
 				<br />
 				<br />
 	</div>
-		
+		<!---PRUEBA DE FOOTER-->
+ <footer id="foot">
+<ul class="menu">
+<a href="index.php">
+	<img src="./assets/img/homestart.png" alt="" width="45px" height="45px" class="homeimg">
+</a>
+
+<li>
+
+</li>
+<li>
+</li>
+<li>
+<a href="pedidosrepartidor.php">
+<img src="./assets/img/orderpurchase.png" alt="" width="40px" height="40px" class="imgiconp" >
+</a>
+</li>
+</ul>  
+</footer>
+<!--fIN-->
     </body>  
 </html>
 
 <style>
-
+#bed{
+    padding-top: 40px; /* Relleno superior igual a la altura de la cabecera*/
+    margin: auto 5px;
+    margin-bottom: 50px;
+}
 .chat_message_area
 {
 	position: relative;
@@ -126,7 +149,7 @@ $(document).ready(function(){
 		fetch_pedidos();
 		update_chat_history_data();
 		fetch_group_chat_history();
-	}, 2000);
+	}, 3000);
 
 	function fetch_pedidos()
 	{
@@ -153,7 +176,7 @@ $(document).ready(function(){
 	function make_chat_dialog_box(to_user_id, to_user_name)
 	{
 		var modal_content = '<div id="user_dialog_'+to_user_id+'" class="user_dialog" title="You have chat with '+to_user_name+'">';
-		modal_content += '<div style="height:400px; border:1px solid #ccc; overflow-y: scroll; margin-bottom:24px; padding:16px;" class="chat_history" data-touserid="'+to_user_id+'" id="chat_history_'+to_user_id+'">';
+		modal_content += '<div style="height:350px; border:1px solid #ccc; overflow-y: scroll; margin-bottom:24px; padding:16px;" class="chat_history" data-touserid="'+to_user_id+'" id="chat_history_'+to_user_id+'">';
 		modal_content += fetch_user_chat_history(to_user_id);
 		modal_content += '</div>';
 		modal_content += '<div class="form-group">';
@@ -169,7 +192,7 @@ $(document).ready(function(){
 		make_chat_dialog_box(to_user_id, to_user_name);
 		$("#user_dialog_"+to_user_id).dialog({
 			autoOpen:false,
-			width:400
+			width:'100%'
 		});
 		$('#user_dialog_'+to_user_id).dialog('open');
 		$('#chat_message_'+to_user_id).emojioneArea({
@@ -329,6 +352,8 @@ $(document).ready(function(){
 		}
 	});
 	//prueb
+
+	
 
 });  
 </script>

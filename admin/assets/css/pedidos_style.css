@@ -4,8 +4,8 @@ header{
     height: 50px;
     background: #0b1016;
 }
-#main-header{
-    position: fixed;
+#bed{
+    margin-bottom: 70px;
 }
 #foot{
     position: fixed;

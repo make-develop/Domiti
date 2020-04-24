@@ -1,6 +1,6 @@
 @import "https://fonts.googleapis.com/css?family=Montserrat:300,400,700";
        .rwd-table {
-        width:80%;
+        width:100%;
         margin: 0 auto;
        }
        .rwd-table thead {
@@ -44,9 +44,23 @@ h1 {
 }
 .rwd-table tr {
   border-color: #46637f;
+  
 }
 .rwd-table th, .rwd-table td {
   margin: .5em 1em;
+}
+.blancoliena{
+    border-bottom: 10px solid white;
+}
+#totaltr{
+    text-align: center;
+    width: 100%;
+    border-bottom: 2px solid;
+    vertical-align: middle;
+}
+#favorth{
+    border-top: 5px solid;
+    width: auto;
 }
 @media screen and (max-width: 600px) {
        .rwd-table {
@@ -83,4 +97,50 @@ h1 {
 }
 .principal{
     text-align:center;
+}
+
+.no{
+    background-color: #e74e3e;
+    border: 2px;
+    border-radius: 5px;
+}
+.tomado{
+    background-color: #008ecc;
+    border: 2px;
+    border-radius: 5px;
+}
+.recogido{
+    background-color: #8363a6;
+    border: 2px;
+    border-radius: 5px;
+}
+.camino{
+    background-color: #fee101;
+    border: 2px;
+    border-radius: 5px;
+    color: black;
+}
+.cinco{
+    background-color: #ff8000;
+    border: 2px;
+    border-radius: 5px;
+}
+.afuera{
+    background-color: #f4f4f4;
+    border: 2px;
+    border-radius: 5px;
+    color: black;
+}
+.entregado{
+    background-color: #119c43;
+    border: 2px;
+    border-radius: 5px;
+}
+.valordomi{
+    border-bottom: 2px solid #b4b6b5;
+}
+.favorarea{
+    background-color:  #34495E;
+    width: 95%;
+    height: 150px;
 }
