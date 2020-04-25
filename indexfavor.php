@@ -242,7 +242,7 @@ if(isset($_POST["register"]))
 				</select>
 			</div>
 			<div style="display: none">
-				<input id="domi" type="number" name="domicilio" class="form-control" >
+				<input id="domi" type="number" value="2000" name="domicilio" class="form-control" >
 				<input id="total" type="number" name="total" class="form-control" >
 			</div>
 			<br>
@@ -254,7 +254,7 @@ if(isset($_POST["register"]))
 		</tr>
 		<tr>
 			<td>Domicilio</td>
-			<td><div id="domidiv">$0</td>
+			<td><div id="domidiv">$2000</td>
 		</tr>
 		<tr>
 			<td>Propina</td>

@@ -85,6 +85,9 @@ if(!isset($_SESSION['user_id']))
                     $favor = $row['favor'];
                     $valor = $row['valor'];
                     $address = $row['address'];
+                    $address2 = $row['address2'];
+                    $address3 = $row['address3'];
+                    $address4 = $row['address4'];
                     $addressAditional = $row['addressAditional'];
                     $propina = $row['propina'];
                     $metodopago = $row['metodopago'];
@@ -120,7 +123,7 @@ if(!isset($_SESSION['user_id']))
                 <tr id="<?php echo $row['id']; ?>">
                 <th data-target="create_at" ><?php echo $create_at; ?></th>
                 <td data-target="favor"><?php echo $favor; ?></td>
-                <td data-target="address"><?php echo $address; ?></td>
+                <td data-target="address"><?php echo $address.' '.$address2.' # '.$address3.'-'.$address4; ?></td>
 
                 <td data-target="estado" style="display:none;"><?php echo $es; ?></td>
                 <td data-target="repartidornombre" ><?php echo $repartidornombre; ?></td>
