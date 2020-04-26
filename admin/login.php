@@ -37,6 +37,7 @@ if(isset($_POST['login']))
 			{
 				$_SESSION['user_id'] = $row['user_id'];
 				$_SESSION['username'] = $row['username'];
+				$_SESSION['name'] = $row['name'];
 				$sub_query = "
 				INSERT INTO login_details 
 	     		(user_id) 
@@ -116,7 +117,7 @@ if(isset($_POST['login']))
 						<form method="post">
 					    <div class="input-field col s12">
                     		<input id="password" type="text" name="username"  required="required" class="form-control" >
-                    		<label for="password">Nombres</label>
+                    		<label for="password">Telefono</label>
                    			<span class="lbl-error"></span>
 							<br>
                    		</div>

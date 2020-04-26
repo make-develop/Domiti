@@ -52,7 +52,7 @@ if(!isset($_SESSION['user_id']))
 			</ul>
 		</li>
 		<li>
-		<p class="hola">Hola! <?php echo $_SESSION['username']; ?></p>
+		<p class="hola">Hola! <?php echo $_SESSION['name']; ?></p>
 		</li>
 	</ul>   
 </header>

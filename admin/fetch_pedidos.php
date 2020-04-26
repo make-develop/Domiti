@@ -142,7 +142,7 @@ $(document).on("click", ".entregado", function(){
 <table class="rwd-table" >
 
 ';
-
+if(!empty($result)){
 foreach($result as $row)
 {
 	$sesion=$_SESSION['user_id'];
@@ -219,5 +219,12 @@ foreach($result as $row)
 $output .= '</table>';
 
 echo $output;
+}else{
+	echo '<h3 align="center">No tienes pedidos entregados. <br>
+	<div align="center">
+	<img src="./assets/img/deportes.png" alt="" width="60%" height="60%" class="outimg">
+	</div>
+	<strong>¿Que esperas para realizar pedidos!?</strong></h3>';
+} 
 
 ?>

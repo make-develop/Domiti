@@ -18,6 +18,7 @@ if(isset($_SESSION['user_id']))
 if(isset($_POST["register"]))
 {
 	$username = trim($_POST["username"]);
+	$name = trim($_POST["name"]);
 	$password = trim($_POST["password"]);
 	$check_query = "
 	SELECT * FROM loginAdmin
@@ -54,13 +55,14 @@ if(isset($_POST["register"]))
 			{
 				$data = array(
 					':username'		=>	$username,
+					':name'		=>	$name,
 					':password'		=>	password_hash($password, PASSWORD_DEFAULT)
 				);
 
 				$query = "
 				INSERT INTO loginAdmin
-				(username, password) 
-				VALUES (:username, :password)
+				(username, name, password) 
+				VALUES (:username, :name, :password)
 				";
 				$statement = $connect->prepare($query);
 				if($statement->execute($data))
@@ -112,8 +114,13 @@ if(isset($_POST["register"]))
 				<form method="post">
 				<h6 >Datos Basicos</h6>
 				<div class="divborde" style="border-radius: 20px; border: 1px solid; ">
+				<div class="input-field col s12" style="margin:20px;">
+                	<input id="password" type="tel" name="username" required="required" class="form-control">
+                	<label for="password">Telefono</label>
+                	<span class="lbl-error"></span>
+				</div>
 	            <div class="input-field col s12" style="margin:20px;">
-                	<input id="password" type="text" name="username" required="required" class="form-control">
+                	<input id="password" type="text" name="name" required="required" class="form-control">
                 	<label for="password">Nombres</label>
                 	<span class="lbl-error"></span>
 				</div>
