@@ -81,7 +81,8 @@ if(!isset($_SESSION['user_id']))
                 {
                     $id = $row['id'];
                     $es = $row['estado'];
-                    $repartidornombre = $row['username'];
+                  	$repartidornombre = $row['name'];
+	$repartidorcelular = $row['username'];
                     $favor = $row['favor'];
                     $valor = $row['valor'];
                     $address = $row['address'];
@@ -126,6 +127,7 @@ if(!isset($_SESSION['user_id']))
                 <td data-target="address"><?php echo $address.' '.$address2.' # '.$address3.'-'.$address4; ?></td>
 
                 <td data-target="estado" style="display:none;"><?php echo $es; ?></td>
+                <td data-target="repartidorcelular" style="display:none;"><?php echo $repartidorcelular; ?></td>
                 <td data-target="repartidornombre" ><?php echo $repartidornombre; ?></td>
                 <td data-target="valor" style="display:none;"><?php echo $valor; ?></td>
                 <td data-target="addressAditional" style="display:none;"><?php echo $addressAditional; ?></td>
@@ -192,7 +194,7 @@ if(!isset($_SESSION['user_id']))
            <h4 id="favor" class="favor"></h4>
         </div>
         <div class="form-group">
-        <h5>Domitendero: <h4 id="repartidornombre"></h4></h5> 
+        <h5>Domitendero: <h4 id="repartidornombre"></h4><h4 id="repartidorcelular"></h4></h5> 
         </div>
         <div class="form-group">
         <h5>Direccion<h4 id="address"></h4></h5> 
@@ -244,6 +246,7 @@ if(!isset($_SESSION['user_id']))
             var id = $(this).data('id');
             var favor = $('#'+id).children('td[data-target=favor]').text();
             var repartidornombre = $('#'+id).children('td[data-target=repartidornombre]').text();
+            var repartidorcelular = $('#'+id).children('td[data-target=repartidorcelular]').text();
             var address = $('#'+id).children('td[data-target=address]').text();
             var addressAditional = $('#'+id).children('td[data-target=addressAditional]').text();
             var create_at = $('#'+id).children('th[data-target=create_at]').text();
@@ -259,6 +262,7 @@ if(!isset($_SESSION['user_id']))
 
             $('#favor').text(favor);
             $('#repartidornombre').text(repartidornombre);
+            $('#repartidorcelular').text("-"+repartidorcelular);
             $('#address').text(address);
             $('#addressAditional').text(addressAditional);
             $('#create_at').text(create_at);

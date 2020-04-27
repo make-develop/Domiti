@@ -38,7 +38,8 @@ foreach($result as $row)
 	$current_timestamp = date('Y-m-d H:i:s', $current_timestamp);
 	$user_last_activity = fetch_user_last_activity($row['user_id'], $connect);
 	$es = $row['estado'];
-	$repartidornombre = $row['username'];
+	$repartidornombre = $row['name'];
+	$repartidorcelular = $row['username'];
 	$repartidorid = $row['user_id'];
 	$repartidorid = $row['user_id'];
 	$celularpedido = $row['username'];
@@ -90,7 +91,7 @@ foreach($result as $row)
 	</tr>
 	<tr id="favorth">
 	<th ><textarea readonly="readonly" class="favorarea">'.$favor.'</textarea></th>
-	<th width="30%" >'.$repartidornombre.''.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'<a href="tel:'.$celularpedido.'"><img src="assets/img/phone.png" alt="Llamar" width="50px" height="50px" /></a>
+	<th width="30%" >'.$repartidornombre.''.count_unseen_message($row['user_id'], $_SESSION['user_id'], $connect).' '.fetch_is_type_status($row['user_id'], $connect).'<a href="tel:'.$repartidorcelular.'"><img src="assets/img/phone.png" alt="Llamar" width="50px" height="50px" /></a>
 	<h5>'.$address.' '.$address2.' # '.$address3.'-'.$address4.' '.$addressAditional.'</h5>
 	<button style="margin-top: 10px;" type="button" class="btn btn-info btn-xs start_chat" data-touserid="'.$row['user_id'].'" data-tousername="'.$row['username'].'">'.$chat.'</button>
 	</th>
