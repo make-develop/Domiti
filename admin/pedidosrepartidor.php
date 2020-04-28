@@ -65,6 +65,7 @@ if(!isset($_SESSION['user_id']))
                 $query = "
                 SELECT * 
                 FROM orders 
+                JOIN order_details ON order_details.to_id = orders.id
                 JOIN login ON login.user_id = orders.user_id 
                 WHERE orders.user_id != '".$_SESSION['user_id']."' AND orders.estado = 6 AND from_user_id= '".$_SESSION['user_id']."' OR from_user_id = 0  ORDER BY updated_at DESC
                 ";
@@ -100,10 +101,10 @@ if(!isset($_SESSION['user_id']))
                     setlocale(LC_TIME, 'spanish');       
                     setlocale(LC_TIME, 'es_ES.UTF-8');      
                     $timeupdate = $row['updated_at'];  
-                    $update_at = strftime("%H:%m el %A <br> %d de %B",strtotime($timeupdate));
+                    $update_at = strftime("%H:%M, el %A <br> %d de %B",strtotime($timeupdate));
                     $timecreate = $row['created_at'];
                     $create_at = strftime("%A <br> %d de %B",strtotime($timecreate));
-                    $create_athora = strftime("%H:%m",strtotime($timecreate));
+                    $create_athora = strftime("%H:%M",strtotime($timecreate));
                     $create_atfecha = strftime("%d de %B del %Y",strtotime($timecreate));
                     
 

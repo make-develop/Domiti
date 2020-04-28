@@ -8,6 +8,7 @@ session_start();
 
 $query = " SELECT * 
 FROM orders 
+JOIN order_details ON order_details.to_id = orders.id
 JOIN login ON login.user_id = orders.user_id 
 WHERE orders.user_id != '".$_SESSION['user_id']."' AND orders.estado != 6 AND from_user_id= '".$_SESSION['user_id']."' OR from_user_id = 0 ORDER BY created_at ASC
 ";
@@ -166,7 +167,7 @@ foreach($result as $row)
                     setlocale(LC_TIME, 'spanish');       
                     setlocale(LC_TIME, 'es_ES.UTF-8');      
                     $timecreate = $row['created_at'];
-                    $create_at = strftime("%d de %B %H:%m",strtotime($timecreate));
+                    $create_at = strftime("%d de %B %H:%M",strtotime($timecreate));
                     $create_athora = strftime("%H:%m",strtotime($timecreate));
                     
 
