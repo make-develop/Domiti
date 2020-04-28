@@ -12,6 +12,7 @@ if(isset($_SESSION['user_id']))
 
 if(isset($_POST["register"]))
 {
+
 	$username = trim($_POST["username"]);
 	$name = trim($_POST["name"]);
 	$address = trim($_POST["address"]);
@@ -86,9 +87,14 @@ if(isset($_POST["register"]))
 
 				$query = "
 				INSERT INTO login
-				(username, name, address, address2, address3, address4, addressAditional, password) 
-				VALUES (:username,:name,:address,:address2,:address3,:address4,:addressAditional, :password)
+				(username, name, password) 
+				VALUES (:username, :name, :password);
+
+				INSERT INTO loginaddress
+				( address, address2, address3, address4, addressAditional) 
+				VALUES (:address,:address2,:address3,:address4,:addressAditional);
 				";
+				
 				$statement = $connect->prepare($query);
 				if($statement->execute($data))
 				{

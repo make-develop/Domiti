@@ -66,6 +66,7 @@ if(!isset($_SESSION['user_id']))
                 $query = "
                 SELECT * 
                 FROM orders 
+                JOIN order_details ON order_details.to_id= orders.id
                 JOIN loginAdmin ON loginAdmin.user_id= orders.from_user_id
                 WHERE orders.user_id = $sesion AND estado = 6 ORDER BY updated_at DESC
                 ";
@@ -95,12 +96,12 @@ if(!isset($_SESSION['user_id']))
                     $domicilio = $row['domicilio'];
                     $total = $row['total'];
                     $timeupdate = $row['updated_at'];      
-                    setlocale(LC_TIME, 'spanish');       
-                    setlocale(LC_TIME, 'es_ES.UTF-8');      
-                    $update_at = strftime("%H:%m el %A <br> %d de %B",strtotime($timeupdate));
+
+                    setlocale(LC_ALL, "es_CO.UTF-8");     
+                    $update_at = strftime("%H:%M el %A <br> %d de %B",strtotime($timeupdate));
                     $timecreate = $row['created_at'];
                     $create_at = strftime("%A <br> %d de %B",strtotime($timecreate));
-                    $create_athora = strftime("%H:%m",strtotime($timecreate));
+                    $create_athora = strftime("%H:%M",strtotime($timecreate));
                     $create_atfecha = strftime("%d de %B del %Y",strtotime($timecreate));
                     if($es == '0')
 	{
@@ -246,7 +247,6 @@ if(!isset($_SESSION['user_id']))
             var id = $(this).data('id');
             var favor = $('#'+id).children('td[data-target=favor]').text();
             var repartidornombre = $('#'+id).children('td[data-target=repartidornombre]').text();
-            var repartidorcelular = $('#'+id).children('td[data-target=repartidorcelular]').text();
             var address = $('#'+id).children('td[data-target=address]').text();
             var addressAditional = $('#'+id).children('td[data-target=addressAditional]').text();
             var create_at = $('#'+id).children('th[data-target=create_at]').text();
@@ -262,7 +262,6 @@ if(!isset($_SESSION['user_id']))
 
             $('#favor').text(favor);
             $('#repartidornombre').text(repartidornombre);
-            $('#repartidorcelular').text("-"+repartidorcelular);
             $('#address').text(address);
             $('#addressAditional').text(addressAditional);
             $('#create_at').text(create_at);

@@ -14,8 +14,10 @@ if(isset($_SESSION['user_id']))
 if(isset($_POST['login']))
 {
 	$query = "
-		SELECT * FROM login 
-  		WHERE username = :username
+	SELECT * 
+    FROM login 
+    JOIN loginaddress ON loginaddress.to_user_id = login.user_id 
+    WHERE login.username=:username
 	";
 	$statement = $connect->prepare($query);
 	$statement->execute(

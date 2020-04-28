@@ -111,8 +111,12 @@ if(isset($_POST["register"]))
 				);
 	$query = "
 	INSERT INTO orders 
-	(id, favor, valor, address, address2, address3, address4, addressAditional, propina, metodopago, domicilio, total, user_id) 
-	VALUES (:id, :favor, :valor, :address,:address2,:address3,:address4, :addressAditional, :propina, :metodopago, :domicilio, :total, :user_id)
+	(id, favor, valor,  user_id) 
+	VALUES (:id, :favor, :valor,  :user_id);
+
+	INSERT INTO order_details
+	(address, address2, address3, address4, addressAditional, metodopago, propina,  domicilio, total, user_id) 
+	VALUES (:address,:address2,:address3,:address4, :addressAditional, :metodopago, :propina, :domicilio, :total, :user_id);
 	";
 	$statement = $connect->prepare($query);
 	

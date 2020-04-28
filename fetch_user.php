@@ -14,7 +14,10 @@ $query = "
 SELECT * 
 FROM orders 
 JOIN loginAdmin ON loginAdmin.user_id= orders.from_user_id
+JOIN order_details ON order_details.to_id= orders.id
 WHERE orders.user_id = $sesion AND estado != 6 ORDER BY  updated_at ASC
+
+
 ";
 
 $statement = $connect->prepare($query);
@@ -53,11 +56,12 @@ foreach($result as $row)
                     $propina = $row['propina'];
                     $metodopago = $row['metodopago'];
                     $domicilio = $row['domicilio'];
-                    $total = $row['total'];     
-                    setlocale(LC_TIME, 'spanish');       
-                    setlocale(LC_TIME, 'es_ES.UTF-8');      
-                    $timeupdate = $row['updated_at'];
-                    $update_at = strftime("%d de %B %H:%m",strtotime($timeupdate));
+                    $total = $row['total'];          
+					setlocale(LC_ALL, 'es_CO.UTF-8');     
+					$timeupdate = $row['updated_at'];
+					$update_at = strftime("%d de %B, %H:%M",strtotime($timeupdate));
+
+
                     
                     
 
