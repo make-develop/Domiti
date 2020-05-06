@@ -1,0 +1,131 @@
+@import "https://fonts.googleapis.com/css?family=Montserrat:300,400,700";
+       .rwd-table {
+        width:80%;
+        margin: 0 auto;
+       }
+       .rwd-table thead {
+           display: none;
+       }
+       .rwd-table tr:nth-of-type(2n) {
+           background-color: inherit;
+       }
+       .rwd-table tr td:first-child {
+           font-weight:bold;
+           font-size:1.3em;
+       }
+       .rwd-table tbody td {
+           display: block;
+           text-align:center;
+       }
+      
+       .rwd-table tbody td:before {
+           content: attr(data-th);
+           display: block;
+           text-align:center;
+       }
+       label{
+        display: block;
+        padding-left: -15px;
+        text-indent: 340px;
+}
+
+
+h1 {
+  font-weight: normal;
+  letter-spacing: -1px;
+  color: #34495E;
+}
+
+.rwd-table {
+  background: #34495E;
+  color: #fff;
+  border-radius: .4em;
+  overflow: hidden;
+}
+.rwd-table tr {
+  border-color: #46637f;
+}
+.rwd-table th, .rwd-table td {
+  margin: .5em 1em;
+}
+@media screen and (max-width: 600px) {
+       .rwd-table {
+           width:100%;
+       }
+       .rwd-table thead {
+           display: none;
+       }
+       .rwd-table tr:nth-of-type(2n) {
+           background-color: inherit;
+       }
+       .rwd-table tr td:first-child {
+           font-weight:bold;
+           font-size:1.3em;
+       }
+       .rwd-table tbody td {
+           display: block;
+           text-align:center;
+       }
+       .rwd-table tbody td:before {
+           content: attr(data-th);
+           display: block;
+           text-align:center;
+       }
+       label{
+ display: block;
+    padding-left: -15px;
+    text-indent: 115px;
+}
+}
+
+.datos{
+    text-align:center;
+}
+.principal{
+    text-align:center;
+}
+.no{
+    background-color: #e74e3e;
+    border: 2px;
+    border-radius: 5px;
+}
+.tomado{
+    background-color: #008ecc;
+    border: 2px;
+    border-radius: 5px;
+}
+.recogido{
+    background-color: #8363a6;
+    border: 2px;
+    border-radius: 5px;
+}
+.camino{
+    background-color: #fee101;
+    border: 2px;
+    border-radius: 5px;
+    color: black;
+}
+.cinco{
+    background-color: #ff8000;
+    border: 2px;
+    border-radius: 5px;
+}
+.afuera{
+    background-color: #f4f4f4;
+    border: 2px;
+    border-radius: 5px;
+    color: black;
+}
+.entregado{
+    background-color: #119c43;
+    border: 2px;
+    border-radius: 5px;
+}
+.valordomi{
+    border-bottom: 2px solid #b4b6b5;
+}
+.favorarea{
+    background-color:  #34495E;
+    width: 95%;
+    height: 150px;
+}

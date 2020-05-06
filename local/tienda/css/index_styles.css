@@ -1,0 +1,247 @@
+#bed{
+    padding-top: 40px; /* Relleno superior igual a la altura de la cabecera*/
+    margin: auto 5px;
+    margin-bottom: 50px;
+}
+header{
+    width: 100%;
+    height: 50px;
+    background: #0b1016;
+}
+#main-header{
+    position: fixed;
+}
+#foot{
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    background: #2a3139;
+    left:0px;
+   bottom:0px;
+   border-top: 2px solid white;
+   border-top-right-radius: 15px;
+   border-top-left-radius: 15px;
+}
+ul.menu li {
+    position: relative;
+    float: right;
+    display: block;
+    height: 10px;
+}
+ul.menu li a {
+    display: block;
+    padding: 0 14px;
+    margin: 6px 0;
+    line-height: 36px;
+    text-decoration: none;
+ 
+    border-left: 1px solid #393942;
+    border-right: 1px solid #4f5058;
+ 
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+ 
+    color: #f3f3f3;
+    text-shadow: 1px 1px 1px #0b1016;
+ 
+    -webkit-transition: color .2s ease-in-out;
+    -moz-transition: color .2s ease-in-out;
+    -o-transition: color .2s ease-in-out;
+    -ms-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out;
+}
+ul.menu li:hover > a { color: #caad16; }
+ul.menu ul {
+    position: absolute;
+    top: 40px;
+    left: 0;
+ 
+    opacity: 0;
+    background: rgba(245,70,26,0.904);
+ 
+    -webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+ 
+    -webkit-transition: opacity .25s ease .1s;
+    -moz-transition: opacity .25s ease .1s;
+    -o-transition: opacity .25s ease .1s;
+    -ms-transition: opacity .25s ease .1s;
+    transition: opacity .25s ease .1s;
+}
+ 
+ul.menu li:hover > ul { opacity: 1; }
+ 
+ul.menu ul li {
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+ 
+    -webkit-transition: height .25s ease .1s;
+    -moz-transition: height .25s ease .1s;
+    -o-transition: height .25s ease .1s;
+    -ms-transition: height .25s ease .1s;
+    transition: height .25s ease .1s;
+}
+ 
+ul.menu li:hover > ul li {
+    height: 36px;
+    overflow: visible;
+    padding: 0;
+}
+ul.menu ul li a {
+    width: 130px;
+    padding: 0 10px;
+    font-size: 14px;
+    border: none;
+    border-bottom: 0px solid #353539;
+}
+
+.hola{
+    text-align: left;
+    float: left;
+
+}
+.salir{
+    text-align:right;
+    float: right;
+}
+.green-border-focus .form-control:focus {
+    border: 1px solid #8bc34a;
+    box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);
+}
+.hola{
+    color: white;  
+    margin-top: 10px;  
+    margin-right: 5px;
+}
+.homeimg{
+    margin-left: 10px;
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+.imgicon{
+    margin-left: 5px;
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+.imgiconp{
+    margin-top: 0px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+.logoimg{
+    margin-top: 2px;
+    margin-left: 5px;
+}
+.button{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+
+
+.menu {
+    height: inherit;
+    padding-inline-start: 0px;
+}
+
+ol {
+    list-style: none;
+}
+
+#categorias-list a {
+    color: #0b1016;
+    list-style: none;
+    text-decoration: none;
+
+}
+#categorias-list {
+    list-style: none;
+    display: flex; 
+    flex-wrap:wrap ; 
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+.categorias li {
+    margin: 10px 20px 10px 20px;
+    flex-shrink: 0;
+}
+
+.subtitle {
+    margin-top: 1px;
+    margin-bottom: 5px;
+
+}
+
+.list13 {
+    margin-left: 65px;
+    margin-right: 60px;
+}
+.list14{        
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.deports{
+    margin-right: 50px;
+}
+.servicios {
+    margin-right: 28px;
+}
+
+
+
+.inscribirse,
+.hero{
+    border-top: 40px solid white;
+    margin-left: 20px;
+    border-bottom: 0px solid white;  
+    margin-right: 20px;
+}
+.categorias{
+    border-top: 10px solid white;
+    border-bottom: 50px solid white;  
+    margin-left: 10px;
+    margin-right: 10px;
+}
+ 
+
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: normal;
+}
+
+
+h1 {
+    font-size: 35px;
+    line-height: 1.5;
+    letter-spacing: -.2px;
+}
+
+
+h1 strong {
+    color:#c1392b;
+}
+
+
+h2 strong, h3 strong, h4 strong{
+    color:#c1392b;
+}
+
+
+ h2 {
+    font-size: 30px;
+    line-height: 1.5;
+    letter-spacing: -.2px;
+} 
+

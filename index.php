@@ -91,7 +91,7 @@ if(!isset($_SESSION['user_id']))
 			</a>
 		</li> 
 	<li align="center">
-		<a href="" onClick="showAndroidToast('Proximamente!')">
+		<a href="./local/index.php">
 			<span>
 				<img width="80" src="./assets/img/res.png" alt="Restaurantes">
 			</span>
