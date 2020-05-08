@@ -42,6 +42,7 @@
                           $order_id = $connect->lastInsertId(); 
                      }  
                      $_SESSION["order_id"] = $order_id;  
+
                      $order_details = "";  
                      foreach($_SESSION["shopping_cart"] as $keys => $values)  
                      {  
@@ -50,14 +51,15 @@
                               ':order_id'		=>	$order_id,
 	                         ':product_name'	=>	$values["product_id"],
 	                         ':product_price'	=>	$values["product_price"],
-                              ':product_quantity' =>	$values["product_quantity"]
+                              ':product_quantity' =>	$values["product_quantity"],
+                              ':address2' =>	$values['address2']
                          );
      
                          
 
                           $order_details .= "  
-                          INSERT INTO tbl_order_details(order_id, product_name, product_price, product_quantity)  
-                          VALUES('".$order_id."', '".$values["product_id"]."', '".$values["product_price"]."', '".$values["product_quantity"]."');  
+                          INSERT INTO tbl_order_details(order_id, product_name, product_price, product_quantity , address2)  
+                          VALUES('".$order_id."', '".$values["product_id"]."', '".$values["product_price"]."', '".$values["product_quantity"]."','".$values['address2']."');  
                           ";  
                      }  
 

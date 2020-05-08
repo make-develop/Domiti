@@ -64,7 +64,8 @@
                                <img src="images/<?php echo $row["image"]; ?>" class="img-responsive" /><br />  
                                <h4 class="text-info"><?php echo $row["name"]; ?></h4>  
                                <h4 class="text-danger">$ <?php echo $row["price"]; ?></h4>  
-                               <input type="text" name="quantity" id="quantity<?php echo $row["id"]; ?>" class="form-control" value="1" />  
+                               <input type="number" name="quantity" id="quantity<?php echo $row["id"]; ?>" class="form-control" value="1" />  
+                               <input type="number" name="address2" id="address2<?php echo $row["id"]; ?>" class="form-control" value="<?php echo $_SESSION["address2"]; ?>" />  
                                <input type="hidden" name="hidden_name" id="name<?php echo $row["id"]; ?>" value="<?php echo $row["name"]; ?>" />  
                                <input type="hidden" name="hidden_price" id="price<?php echo $row["id"]; ?>" value="<?php echo $row["price"]; ?>" />  
                                <input type="button" name="add_to_cart" id="<?php echo $row["id"]; ?>" style="margin-top:5px;" class="btn btn-warning form-control add_to_cart" value="Add to Cart" />  
@@ -90,12 +91,15 @@
                                          foreach($_SESSION["shopping_cart"] as $keys => $values)  
                                          {                                               
                                     ?>  
+
                                     <tr>  
+                                    
                                          <td><?php echo $values["product_name"]; ?></td>  
                                          <td><input type="text" name="quantity[]" id="quantity<?php echo $values["product_id"]; ?>" value="<?php echo $values["product_quantity"]; ?>" data-product_id="<?php echo $values["product_id"]; ?>" class="form-control quantity" /></td>  
                                          <td align="right">$ <?php echo $values["product_price"]; ?></td>  
                                          <td align="right">$ <?php echo number_format($values["product_quantity"] * $values["product_price"], 2); ?></td>  
                                          <td><button name="delete" class="btn btn-danger btn-xs delete" id="<?php echo $values["product_id"]; ?>">Remove</button></td>  
+                                       
                               
                                     </tr>  
                                     <?php  
@@ -106,6 +110,11 @@
                                          <td colspan="3" align="right">Total</td>  
                                          <td align="right">$ <?php echo number_format($total, 2); ?></td>  
                                          <td></td>  
+                                    </tr>  
+                                    <tr>  
+                                   <td>
+                         <input type="text" name="address2[]" id="address2<?php echo $values["product_id"]; ?>" value="<?php echo $values["address2"]; ?>" data-product_id="<?php echo $values["product_id"]; ?>" class="form-control address2" />
+                          </td> 
                                     </tr>  
                                     <tr>  
                                          <td colspan="5" align="center">  
@@ -158,6 +167,8 @@
            var product_name = $('#name'+product_id).val();  
            var product_price = $('#price'+product_id).val();  
            var product_quantity = $('#quantity'+product_id).val();  
+
+           var address2 = $('#address2'+product_id).val();  
            var action = "add";  
            if(product_quantity > 0)  
            {  
@@ -170,6 +181,7 @@
                           product_name:product_name,   
                           product_price:product_price,   
                           product_quantity:product_quantity,   
+                          address2:address2,   
                           action:action  
                      },  
                      success:function(data)  
@@ -206,7 +218,7 @@
                 return false;  
            }  
       });  
-      $(document).on('keyup', '.quantity', function(){  
+      $(document).on('change', '.quantity', function(){  
            var product_id = $(this).data("product_id");  
            var quantity = $(this).val();  
            var action = "quantity_change";  
@@ -217,6 +229,24 @@
                      method:"POST",  
                      dataType:"json",  
                      data:{product_id:product_id, quantity:quantity, action:action},  
+                     success:function(data){  
+                          $('#order_table').html(data.order_table);  
+                     }  
+                });  
+           }  
+      });  
+
+      $(document).on('change', '.address2', function(){  
+           var product_id = $(this).data("product_id");  
+           var address2 = $(this).val();  
+           var action = "address2_change";  
+           if(address2 != '')  
+           {  
+                $.ajax({  
+                     url :"action.php",  
+                     method:"POST",  
+                     dataType:"json",  
+                     data:{product_id:product_id, address2:address2, action:action},  
                      success:function(data){  
                           $('#order_table').html(data.order_table);  
                      }  
