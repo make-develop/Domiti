@@ -100,7 +100,7 @@
                           <td align="right">$ '.$values["product_price"].'</td>  
                           <td align="right">$ '.number_format($values["product_quantity"] * $values["product_price"], 2).'</td>  
                           <td><button name="delete" class="btn btn-danger btn-xs delete" id="'.$values["product_id"].'">Remove</button></td>  
-                    
+                          <input type="number" name="address2[]" id="address2'.$values["product_id"].'" value="'.$values["address2"].'" class="form-control address2" data-product_id="'.$values["product_id"].'" />
                      </tr>  
                 ';  
                 $total = $total + ($values["product_quantity"] * $values["product_price"]);  
@@ -113,7 +113,7 @@
                 </tr>  
                 <tr>
                 <td> 
-                <input type="number" name="address2[]" id="address2'.$values["product_id"].'" value="'.$values["address2"].'" class="form-control address2" data-product_id="'.$values["product_id"].'" />
+              
                 
                 </td>
                 </tr>

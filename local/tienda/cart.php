@@ -1,4 +1,3 @@
-
 <?php  
  //cart.php  
  session_start();  
@@ -41,6 +40,7 @@
                      {  
                           $order_id = $connect->lastInsertId(); 
                      }  
+        
                      $_SESSION["order_id"] = $order_id;  
 
                      $order_details = "";  
@@ -58,8 +58,9 @@
                          
 
                           $order_details .= "  
-                          INSERT INTO tbl_order_details(order_id, product_name, product_price, product_quantity , address2)  
-                          VALUES('".$order_id."', '".$values["product_id"]."', '".$values["product_price"]."', '".$values["product_quantity"]."','".$values['address2']."');  
+
+                          INSERT INTO tbl_order_details(order_id, product_name, product_price, product_quantity )  
+                          VALUES('".$order_id."', '".$values["product_id"]."', '".$values["product_price"]."', '".$values["product_quantity"]."');  
                           ";  
                      }  
 
@@ -83,11 +84,14 @@
                      SELECT * FROM tbl_order  
                      INNER JOIN tbl_order_details  
                      ON tbl_order_details.order_id = tbl_order.order_id  
+                     INNER JOIN order_direction
+                     ON order_direction.order_id= tbl_order.order_id
                      INNER JOIN tbl_product  
                      ON tbl_product.id = tbl_order_details.product_name 
                      INNER JOIN login  
                      ON login.user_id = tbl_order.customer_id  
-                     WHERE tbl_order.order_id = "'.$_SESSION["order_id"].'"  
+                     WHERE tbl_order.order_id = "'.$_SESSION["order_id"].'"
+                     
                      ';  
                      $statement = $connect->prepare($query);
                      $statement->execute();
@@ -96,16 +100,17 @@
                      {  
                           $customer_details = '  
                           <label>'.$row["username"].'</label>  
-                          <p>'.$row["names"].'</p>  
+                          <p>'.$row["names"].'</p>   
                          
                           ';  
                           $order_details .= "  
                                <tr>  
                                     <td>".$row["name"]."</td>  
-                                    <td>".$row["product_quantity"]."</td>  
+                                    <td>".$row["product_quantity"]."</td>   
                                     
                                     <td>".$row["product_price"]."</td>  
                                     <td>".number_format($row["product_quantity"] * $row["product_price"], 2)."</td>  
+                                    <td>".$row["address2"]."</td> 
                                </tr>  
                           ";  
                           $total = $total + ($row["product_quantity"] * $row["product_price"]);  
