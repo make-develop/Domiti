@@ -52,15 +52,21 @@
 	                         ':product_name'	=>	$values["product_id"],
 	                         ':product_price'	=>	$values["product_price"],
                               ':product_quantity' =>	$values["product_quantity"],
-                              ':address2' =>	$values['address2']
+                              ':address' =>	$values['address'],
+                              ':address2' =>	$values['address2'],
+                              ':address3' =>	$values['address3'],
+                              ':address4' =>	$values['address4'],
+                              ':addressAditional' =>	$values['addressAditional'],
+                              ':propina' =>	$values['propina'],
+                              ':metodopago' =>	$values['metodopago']
                          );
      
                          
 
                           $order_details .= "  
 
-                          INSERT INTO tbl_order_details(order_id, product_name, product_price, product_quantity )  
-                          VALUES('".$order_id."', '".$values["product_id"]."', '".$values["product_price"]."', '".$values["product_quantity"]."');  
+                          INSERT INTO tbl_order_details(order_id, product_name, product_price, product_quantity, address, address2,address3, address4, addressAditional, propina, metodopago )  
+                          VALUES('".$order_id."', '".$values["product_id"]."', '".$values["product_price"]."', '".$values["product_quantity"]."','".$values["address"]."','".$values["address2"]."','".$values["address3"]."','".$values["address4"]."','".$values["addressAditional"]."','".$values["propina"]."','".$values["metodopago"]."');  
                           ";  
                      }  
 
@@ -84,8 +90,6 @@
                      SELECT * FROM tbl_order  
                      INNER JOIN tbl_order_details  
                      ON tbl_order_details.order_id = tbl_order.order_id  
-                     INNER JOIN order_direction
-                     ON order_direction.order_id= tbl_order.order_id
                      INNER JOIN tbl_product  
                      ON tbl_product.id = tbl_order_details.product_name 
                      INNER JOIN login  

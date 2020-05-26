@@ -64,11 +64,25 @@
                                <img src="images/<?php echo $row["image"]; ?>" class="img-responsive" /><br />  
                                <h4 class="text-info"><?php echo $row["name"]; ?></h4>  
                                <h4 class="text-danger">$ <?php echo $row["price"]; ?></h4>  
-                               <input type="number" name="quantity" id="quantity<?php echo $row["id"]; ?>" class="form-control" value="1" />  
-                               <input type="number" name="address2" id="address2<?php echo $row["id"]; ?>" class="form-control" value="<?php echo $_SESSION["address2"]; ?>" />  
+                               <input type="number" name="quantity" id="quantity<?php echo $row["id"]; ?>" class="form-control" value="1" />
+                        
+                               <input type="hidden" name="address2" id="address2<?php echo $row["id"]; ?>" class="form-control" value="<?php echo $_SESSION["address2"]; ?>" />  
+                               <input  type="hidden" name="address3" id="address3<?php echo $row["id"]; ?>"  class="form-control"	value="<?php echo $_SESSION['address3']; ?> " > 
+                               <input  type="hidden" name="address4" id="address4<?php echo $row["id"]; ?>"  class="form-control"	value="<?php echo $_SESSION['address4']; ?> " > 
+                               <input  type="hidden" name="addressAditional" id="addressAditional<?php echo $row["id"]; ?>"  class="form-control"  value="<?php echo $_SESSION['addressAditional']; ?> "  >
+                               <input  type="hidden" name="propina" id="propina<?php echo $row["id"]; ?>" class="form-control"  value="0">
+                     
+
                                <input type="hidden" name="hidden_name" id="name<?php echo $row["id"]; ?>" value="<?php echo $row["name"]; ?>" />  
                                <input type="hidden" name="hidden_price" id="price<?php echo $row["id"]; ?>" value="<?php echo $row["price"]; ?>" />  
                                <input type="button" name="add_to_cart" id="<?php echo $row["id"]; ?>" style="margin-top:5px;" class="btn btn-warning form-control add_to_cart" value="Add to Cart" />  
+                               
+                               <select name="address"  class="form-control" id="address<?php echo $row["id"]; ?>" style="visibility:hidden">
+					          <option value="<?php echo $_SESSION["address"]; ?> "  selected><?php echo $_SESSION['address']; ?></option> 
+					          </select> 
+                               <select name="metodopago"  class="form-control" id="metodopago<?php echo $row["id"]; ?>" style="visibility:hidden">
+					          <option value="Efectivo "  selected>Efectivo</option> 
+					          </select> 
                           </div>  
                      </div>  
                      <?php  
@@ -98,6 +112,7 @@
                                          <td><input type="text" name="quantity[]" id="quantity<?php echo $values["product_id"]; ?>" value="<?php echo $values["product_quantity"]; ?>" data-product_id="<?php echo $values["product_id"]; ?>" class="form-control quantity" /></td>  
                                          <td align="right">$ <?php echo $values["product_price"]; ?></td>  
                                          <td align="right">$ <?php echo number_format($values["product_quantity"] * $values["product_price"], 2); ?></td>  
+                           
                                          <td><button name="delete" class="btn btn-danger btn-xs delete" id="<?php echo $values["product_id"]; ?>">Remove</button></td>  
                                        
                               
@@ -112,10 +127,44 @@
                                          <td></td>  
                                     </tr>  
                                     <tr>  
-                                   <td>
-                         <input type="text" name="address2[]" id="address2<?php echo $values["product_id"]; ?>" value="<?php echo $values["address2"]; ?>" data-product_id="<?php echo $values["product_id"]; ?>" class="form-control address2" />
-                          </td> 
+                                    <td>
+                                   <select   name="address"   id="address<?php echo $values["product_id"]; ?>" data-product_id="<?php echo $values["product_id"]; ?>" class="form-control address" >
+					          <option  value="<?php echo $values["address"]; ?>"><?php echo $values["address"]; ?></option> 
+					          <option value="Calle">Calle</option> 
+					          <option value="Carrera">Carrera</option>
+					          </select>
+                                   </td>
+                                    <td>
+                                   <input type="number" name="address2[]" id="address2<?php echo $values["product_id"]; ?>" value="<?php echo $values["address2"]; ?>" data-product_id="<?php echo $values["product_id"]; ?>" class="form-control address2" />
+                                   </td> 
+                                 <td>
+                                 <input type="text" name="address3[]" id="address3<?php echo $values["product_id"]; ?>" value="<?php echo $values["address3"]; ?>" data-product_id="<?php echo $values["product_id"]; ?>" class="form-control address3" />
+                                 </td>
+                                 <td>
+                                 <input type="text" name="address4[]" id="address4<?php echo $values["product_id"]; ?>" value="<?php echo $values["address4"]; ?>" data-product_id="<?php echo $values["product_id"]; ?>" class="form-control address4" />
+                                 </td>
                                     </tr>  
+                                    <tr>
+                                    <td>
+                                 <input type="text" name="addressAditional[]" id="addressAditional<?php echo $values["product_id"]; ?>" value="<?php echo $values["addressAditional"]; ?>" data-product_id="<?php echo $values["product_id"]; ?>" class="form-control addressAditional" />
+                                 </td>
+                                    </tr>
+                                    <tr>
+                                    <td>
+                                 <input type="number" name="propina[]" id="propina<?php echo $values["product_id"]; ?>" value="<?php echo $values["propina"]; ?>" data-product_id="<?php echo $values["product_id"]; ?>" class="form-control propina" />
+                                 </td>
+                                    </tr>
+                                    <tr>
+                                    <td>
+                                    <select   name="metodopago"   id="metodopago<?php echo $values["product_id"]; ?>" data-product_id="<?php echo $values["product_id"]; ?>" class="form-control metodopago" >
+					          <option  value="<?php echo $values["metodopago"]; ?>"><?php echo $values["metodopago"]; ?></option> 
+					          <option value="Daviplata">Daviplata</option> 
+					          <option value="Nequi">Nequi</option>
+                                   <option value="Efectivo">Efectivo</option> 
+					          </select>
+                                   
+                                   </td>
+                                    </tr>
                                     <tr>  
                                          <td colspan="5" align="center">  
                                               <form method="post" action="cart.php">  
@@ -124,6 +173,8 @@
                                          </td>  
                                     </tr>  
                                     <?php  
+                                    }else{
+                                         echo "Que esperas para comprar";
                                     }  
                                     ?>  
 
@@ -135,28 +186,7 @@
                 </div>  
            </div>  
            <!---PRUEBA DE FOOTER-->
-<footer id="foot">
-	<ul class="menu">
-		<a href="index.php">
-			<img src="./images/homestart.png" alt="" width="45px" height="45px" class="homeimg">
-		</a>
-		<li>
-			<a href="indexchat.php">
-				<img src="./images/chat.png" alt="" width="35px" height="35px" class="imgicon" >
-			</a>
-		</li>
-		<li>
-			<a href="pedidos.php">
-				<img src="./images/orderhistory.png" alt="" width="35px" height="35px" class="imgicon" >
-			</a>
-		</li>
-		<li>
-			<a href="pedidoscomplete.php">
-				<img src="./images/orderpurchase.png" alt="" width="40px" height="40px" class="imgiconp" >
-			</a>
-		</li>
-	</ul>  
-</footer>
+
 <!--FIN FOOTER-->
       </body>  
  </html>  
@@ -168,7 +198,16 @@
            var product_price = $('#price'+product_id).val();  
            var product_quantity = $('#quantity'+product_id).val();  
 
+           var address = $('#address'+product_id).val();  
            var address2 = $('#address2'+product_id).val();  
+           var address3 = $('#address3'+product_id).val(); 
+           var address4 = $('#address4'+product_id).val();  
+           var addressAditional = $('#addressAditional'+product_id).val();   
+
+           var propina = $('#propina'+product_id).val();   
+           var metodopago = $('#metodopago'+product_id).val();   
+
+
            var action = "add";  
            if(product_quantity > 0)  
            {  
@@ -181,7 +220,13 @@
                           product_name:product_name,   
                           product_price:product_price,   
                           product_quantity:product_quantity,   
-                          address2:address2,   
+                          address:address,   
+                          address2:address2,  
+                          address3:address3,  
+                          address4:address4,   
+                          addressAditional:addressAditional, 
+                          propina:propina,  
+                          metodopago:metodopago,
                           action:action  
                      },  
                      success:function(data)  
@@ -253,5 +298,119 @@
                 });  
            }  
       });  
+      $(document).on('change', 'select[name=address]', function(){  
+           var product_id = $(this).data("product_id");  
+           var optionSelected = $(this).find("option:selected");
+     var address  = optionSelected.val();
+     var textSelected   = optionSelected.text();
+           var action = "address_change";  
+           console.log(address);
+           if(address != '')  
+           {  
+                $.ajax({  
+                     url :"action.php",  
+                     method:"POST",  
+                     dataType:"json",  
+                     data:{product_id:product_id, address:address, action:action},  
+                     success:function(data){  
+                          $('#order_table').html(data.order_table);  
+                     }  
+                });  
+           }  
+      });  
+
+      $(document).on('change', '.address3', function(){  
+           var product_id = $(this).data("product_id");  
+           var address3 = $(this).val();  
+           var action = "address3_change";  
+           if(address3 != '')  
+           {  
+                $.ajax({  
+                     url :"action.php",  
+                     method:"POST",  
+                     dataType:"json",  
+                     data:{product_id:product_id, address3:address3, action:action},  
+                     success:function(data){  
+                          $('#order_table').html(data.order_table);  
+                     }  
+                });  
+           }  
+      });  
+      $(document).on('change', '.address4', function(){  
+           var product_id = $(this).data("product_id");  
+           var address4 = $(this).val();  
+           var action = "address4_change";  
+           if(address4 != '')  
+           {  
+                $.ajax({  
+                     url :"action.php",  
+                     method:"POST",  
+                     dataType:"json",  
+                     data:{product_id:product_id, address4:address4, action:action},  
+                     success:function(data){  
+                          $('#order_table').html(data.order_table);  
+                     }  
+                });  
+           }  
+      });  
+      $(document).on('change', '.addressAditional', function(){  
+           var product_id = $(this).data("product_id");  
+           var addressAditional = $(this).val();  
+           var action = "addressAditional_change";  
+           if(addressAditional != '')  
+           {  
+                $.ajax({  
+                     url :"action.php",  
+                     method:"POST",  
+                     dataType:"json",  
+                     data:{product_id:product_id, addressAditional:addressAditional, action:action},  
+                     success:function(data){  
+                          $('#order_table').html(data.order_table);  
+                     }  
+                });  
+           }  
+      });  
+      $(document).on('change', '.propina', function(){  
+           var product_id = $(this).data("product_id");  
+           var propina = $(this).val();  
+           var action = "propina_change";  
+           if(propina != '')  
+           {  
+                $.ajax({  
+                     url :"action.php",  
+                     method:"POST",  
+                     dataType:"json",  
+                     data:{product_id:product_id, propina:propina, action:action},  
+                     success:function(data){  
+                          $('#order_table').html(data.order_table);  
+                     }  
+                });  
+           }  
+      });  
+
+
+
+      $(document).on('change', 'select[name=metodopago]', function(){  
+           var product_id = $(this).data("product_id");  
+           var optionSelected = $(this).find("option:selected");
+     var metodopago  = optionSelected.val();
+     var textSelected   = optionSelected.text();
+           var action = "metodopago_change";  
+           console.log(metodopago);
+           if(metodopago != '')  
+           {  
+                $.ajax({  
+                     url :"action.php",  
+                     method:"POST",  
+                     dataType:"json",  
+                     data:{product_id:product_id, metodopago:metodopago, action:action},  
+                     success:function(data){  
+                          $('#order_table').html(data.order_table);  
+                     }  
+                });  
+           }  
+      });  
+
+
  });  
  </script>
