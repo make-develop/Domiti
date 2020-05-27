@@ -58,15 +58,16 @@
                               ':address4' =>	$values['address4'],
                               ':addressAditional' =>	$values['addressAditional'],
                               ':propina' =>	$values['propina'],
-                              ':metodopago' =>	$values['metodopago']
+                              ':metodopago' =>	$values['metodopago'],
+                              ':domicilio' =>	$values['domicilio']
                          );
      
                          
 
                           $order_details .= "  
 
-                          INSERT INTO tbl_order_details(order_id, product_name, product_price, product_quantity, address, address2,address3, address4, addressAditional, propina, metodopago )  
-                          VALUES('".$order_id."', '".$values["product_id"]."', '".$values["product_price"]."', '".$values["product_quantity"]."','".$values["address"]."','".$values["address2"]."','".$values["address3"]."','".$values["address4"]."','".$values["addressAditional"]."','".$values["propina"]."','".$values["metodopago"]."');  
+                          INSERT INTO tbl_order_details(order_id, product_name, product_price, product_quantity, address, address2,address3, address4, addressAditional, propina, metodopago, domicilio )  
+                          VALUES('".$order_id."', '".$values["product_id"]."', '".$values["product_price"]."', '".$values["product_quantity"]."','".$values["address"]."','".$values["address2"]."','".$values["address3"]."','".$values["address4"]."','".$values["addressAditional"]."','".$values["propina"]."','".$values["metodopago"]."','".$values["domicilio"]."');  
                           ";  
                      }  
 
@@ -144,7 +145,7 @@
                                               '.$order_details.'  
                                               <tr>  
                                                    <td colspan="3" align="right"><label>Total</label></td>  
-                                                   <td>'.number_format($total, 2).'</td>  
+                                                   <td>'.number_format($total).'</td>  
                                               </tr>  
                                          </table>  
                                     </td>  

@@ -34,7 +34,7 @@
                           'addressAditional'          =>     $_POST["addressAditional"],  
                           'propina'          =>     $_POST["propina"],
                           'metodopago'          =>     $_POST["metodopago"],
-                          'domicilio'          =>     $_POST["domicilio"],
+                          'domicilio'          =>     $_POST["domicilio"]
 
 
                      );  
@@ -195,7 +195,7 @@
            <tr>
            <td colspan="3" align="right">Domicilio</td>  
                 
-                <td align="right">$ '.$values["domicilio"].'</td>
+                <td align="right"></td>
                 <td></td>  
            </tr>
            <tr>
@@ -210,7 +210,13 @@
 
                      <td></td>  
                 </tr>  
-               
+                <tr>
+                <td>
+                <div style="display: none">
+                <input id="valor" type="number" name="valor" class="form-control valor" value="'.$total.'">
+                </div>
+                </td>
+                </tr>
                 <tr>
                 <td>
                 <select name="address"  class="form-control address" id="address'.$values["product_id"].'" class="form-control address" data-product_id="'.$values["product_id"].'" >
@@ -240,12 +246,10 @@
                 </select>
                 </td>
                <td>
-               <div>
-               <input type="number" name="domicilio[]" id="domicilio'.$values["product_id"].'" value="'.$values["domicilio"].'" class="form-control domicilio" data-product_id="'.$values["product_id"].'" />
-          
-               </div>
-               </td>
-                
+                </tr>
+                <tr>
+                <td>
+                <input type="number" name="domicilio[]" id="domicilio'.$values["product_id"].'" value="'.$values["domicilio"].'" class="form-control domicilio" data-product_id="'.$values["product_id"].'"  />
                 </td>
                 </tr>
                 <tr>  

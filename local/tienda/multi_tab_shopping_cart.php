@@ -125,7 +125,7 @@
                                      <tr>
                                     <td colspan="3" align="right">Domicilio</td>  
                                          
-                                         <td align="right">$ <?php  $values["domicilio"]; ?></td>
+                                         <td align="right"></td>
                                          <td></td>  
                                     </tr>
                                     <tr>
@@ -140,6 +140,13 @@
                                          <td align="right">$ <?php echo number_format($total + $values["domicilio"] + $values["propina"]); ?></td>
                                          <td></td>  
                                     </tr>  
+                                    <tr>
+                                    <td>
+                                    <div style="display: none">
+                                    <input id="valor" type="number" name="valor" class="form-control valor" value="<?php echo $total; ?>">
+                                    </div>
+                                    </td>
+                                    </tr>
                                    
                                     <tr>  
                                     <td>
@@ -179,16 +186,13 @@
 					          </select>
                                    
                                    </td>
+                                    </tr>
+                                    <tr>
                                    <td>
-                                   <div>
-                                  
-                                   <input type="number" name="domicilio[]" id="domicilio<?php echo $values["product_id"]; ?>" value="<?php echo $values["domicilio"]; ?>" data-product_id="<?php echo $values["product_id"]; ?>" class="form-control domicilio" />
-                        
-                                   </div>
+                                   <input type="number" name="domicilio[]" id="domicilio<?php echo $values["product_id"]; ?>" value="<?php echo $values["domicilio"]; ?>" data-product_id="<?php echo $values["product_id"]; ?>" class="form-control domicilio"  />
                                   
                                    </td>
-
-                                    </tr>
+                                   </tr>
                                     <tr>  
                                          <td colspan="5" align="center">  
                                               <form method="post" action="cart.php">  
@@ -233,6 +237,7 @@
 
            var domicilio = $('#domicilio'+product_id).val();   
 
+           var valor = $("input[name=valor]").val();
 
            var action = "add";  
            if(product_quantity > 0)  
@@ -261,6 +266,54 @@
                           $('#order_table').html(data.order_table);  
                           $('.badge').text(data.cart_item);  
                           alert("Product has been Added into Cart");  
+
+                           console.log(valor); 
+                          if(valor<=2000) {
+                              $(".domicilio").val(2000);
+                              } else if(valor>=2500 & valor<=3500){
+     $(".domicilio").val(2500);
+    }else if(valor>=4000 & valor<=5500){
+      $(".domicilio").val(2600);
+    }else if(valor>=6000 & valor<=7000){
+     $(".domicilio").val(2600);
+    }else if(valor>=7500 & valor<=8500){
+     $(".domicilio").val(2800);
+    }else if(valor>=9000 & valor<=10500){
+      $(".domicilio").val(2900);
+    }else if(valor>=11000 & valor<=12500){
+      $(".domicilio").val(3000);
+    }else if(valor>=13000 & valor<=14500){
+      $(".domicilio").val(3200);
+    }else if(valor>=15000 & valor<=16500){
+      $(".domicilio").val(3400);
+    }else if(valor>=17000 & valor<=18500){
+      $(".domicilio").val(3600);
+    }else if(valor>=19000 & valor<=20500){
+      $(".domicilio").val(3800);
+    }else if(valor>=21000 & valor<=23500){
+
+      $(".domicilio").val(4000);
+    }else if(valor>=24000 & valor<=28500){
+
+      $(".domicilio").val(4200);
+    }else if(valor>=29000 & valor<=31500){
+      $(".domicilio").val(4400);
+    }else if(valor>=32000 & valor<=38500){
+      $(".domicilio").val(4600);
+    }else if(valor>=39000 & valor<=43500){
+      $(".domicilio").val(4800);
+    }else if(valor>=44000 & valor<=50000){
+
+      $(".domicilio").val(5000);
+    }else if(valor>=50500 & valor<=80000){
+
+      $(".domicilio").val(5500);
+    }else if(valor>=80500 & valor<=100000){
+
+      $(".domicilio").val(8000);
+    }else if(valor>=100500){
+      $(".domicilio").val(10000);
+    }
                      }  
                 });  
            }  
@@ -293,6 +346,11 @@
       $(document).on('change', '.quantity', function(){  
            var product_id = $(this).data("product_id");  
            var quantity = $(this).val();  
+
+           var valor = $("input[name=valor]").val();
+          
+       
+
            var action = "quantity_change";  
            if(quantity != '')  
            {  
@@ -302,11 +360,63 @@
                      dataType:"json",  
                      data:{product_id:product_id, quantity:quantity, action:action},  
                      success:function(data){  
-                          $('#order_table').html(data.order_table);  
+                          $('#order_table').html(data.order_table); 
+
+                          console.log(valor); 
+                          if(valor<=2000) {
+                              $(".domicilio").val(2000);
+                              } else if(valor>=2500 & valor<=3500){
+     $(".domicilio").val(2500);
+    }else if(valor>=4000 & valor<=5500){
+      $(".domicilio").val(2600);
+    }else if(valor>=6000 & valor<=7000){
+     $(".domicilio").val(2600);
+    }else if(valor>=7500 & valor<=8500){
+     $(".domicilio").val(2800);
+    }else if(valor>=9000 & valor<=10500){
+      $(".domicilio").val(2900);
+    }else if(valor>=11000 & valor<=12500){
+      $(".domicilio").val(3000);
+    }else if(valor>=13000 & valor<=14500){
+      $(".domicilio").val(3200);
+    }else if(valor>=15000 & valor<=16500){
+      $(".domicilio").val(3400);
+    }else if(valor>=17000 & valor<=18500){
+      $(".domicilio").val(3600);
+    }else if(valor>=19000 & valor<=20500){
+      $(".domicilio").val(3800);
+    }else if(valor>=21000 & valor<=23500){
+
+      $(".domicilio").val(4000);
+    }else if(valor>=24000 & valor<=28500){
+
+      $(".domicilio").val(4200);
+    }else if(valor>=29000 & valor<=31500){
+      $(".domicilio").val(4400);
+    }else if(valor>=32000 & valor<=38500){
+      $(".domicilio").val(4600);
+    }else if(valor>=39000 & valor<=43500){
+      $(".domicilio").val(4800);
+    }else if(valor>=44000 & valor<=50000){
+
+      $(".domicilio").val(5000);
+    }else if(valor>=50500 & valor<=80000){
+
+      $(".domicilio").val(5500);
+    }else if(valor>=80500 & valor<=100000){
+
+      $(".domicilio").val(8000);
+    }else if(valor>=100500){
+      $(".domicilio").val(10000);
+    }
                      }  
+                     
+                  
                 });  
+                
            }  
       });  
+ 
 
       $(document).on('change', '.address2', function(){  
            var product_id = $(this).data("product_id");  
@@ -442,6 +552,7 @@
            var product_id = $(this).data("product_id");  
            var domicilio = $(this).val();  
            var action = "domicilio_change";  
+           console.log(domicilio);
            if(domicilio != '')  
            {  
                 $.ajax({  
@@ -451,6 +562,7 @@
                      data:{product_id:product_id, domicilio:domicilio, action:action},  
                      success:function(data){  
                           $('#order_table').html(data.order_table);  
+                          console.log(domicilio);
                      }  
                 });  
            }  
