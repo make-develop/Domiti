@@ -33,7 +33,9 @@
                           'address4'          =>     $_POST["address4"], 
                           'addressAditional'          =>     $_POST["addressAditional"],  
                           'propina'          =>     $_POST["propina"],
-                          'metodopago'          =>     $_POST["metodopago"]
+                          'metodopago'          =>     $_POST["metodopago"],
+                          'domicilio'          =>     $_POST["domicilio"],
+
 
                      );  
                      $_SESSION["shopping_cart"][] = $item_array;  
@@ -52,7 +54,8 @@
                      'address4'          =>     $_POST["address4"],  
                      'addressAditional'          =>     $_POST["addressAditional"],  
                      'propina'          =>     $_POST["propina"], 
-                     'metodopago'          =>     $_POST["metodopago"]  
+                     'metodopago'          =>     $_POST["metodopago"],
+                     'domicilio'          =>     $_POST["domicilio"]  
                 );  
                 $_SESSION["shopping_cart"][] = $item_array;  
            }  
@@ -148,6 +151,16 @@
                 }  
            }  
       }  
+      if($_POST["action"] == "domicilio_change")  
+      {  
+           foreach($_SESSION["shopping_cart"] as $keys => $values)  
+           {  
+                if($_SESSION["shopping_cart"][$keys])  
+                {  
+                     $_SESSION["shopping_cart"][$keys]['domicilio'] = $_POST["domicilio"];  
+                }  
+           }  
+      }  
       $order_table .= '  
            '.$message.'  
            <table class="table table-bordered">  
@@ -171,19 +184,33 @@
                           <td><input type="number" name="quantity[]" id="quantity'.$values["product_id"].'" value="'.$values["product_quantity"].'" class="form-control quantity" data-product_id="'.$values["product_id"].'" /></td>  
                           
                           <td align="right">$ '.$values["product_price"].'</td>  
-                          <td align="right">$ '.number_format($values["product_quantity"] * $values["product_price"], 2).'</td>  
+                          <td align="right">$ '.number_format($values["product_quantity"] * $values["product_price"]).'</td>  
                           <td><button name="delete" class="btn btn-danger btn-xs delete" id="'.$values["product_id"].'">Remove</button></td>  
                          
                      </tr>  
                 ';  
-                $total = $total + ($values["product_quantity"] * $values["product_price"]);  
+                $total = $total + ($values["product_quantity"] * $values["product_price"]) ;  
            }  
            $order_table .= '  
+           <tr>
+           <td colspan="3" align="right">Domicilio</td>  
+                
+                <td align="right">$ '.$values["domicilio"].'</td>
+                <td></td>  
+           </tr>
+           <tr>
+           <td colspan="3" align="right">Propina</td>  
+                
+                <td align="right">$ '.$values["propina"].'</td>
+                <td></td>  
+           </tr>
                 <tr>  
                      <td colspan="3" align="right">Total</td>  
-                     <td align="right">$ '.number_format($total, 2).'</td>  
+                     <td align="right">$ '.number_format($total + $values["domicilio"] + $values["propina"]).'</td>  
+
                      <td></td>  
                 </tr>  
+               
                 <tr>
                 <td>
                 <select name="address"  class="form-control address" id="address'.$values["product_id"].'" class="form-control address" data-product_id="'.$values["product_id"].'" >
@@ -212,7 +239,12 @@
                 <option value="Efectivo" >Efectivo</option>
                 </select>
                 </td>
-               
+               <td>
+               <div>
+               <input type="number" name="domicilio[]" id="domicilio'.$values["product_id"].'" value="'.$values["domicilio"].'" class="form-control domicilio" data-product_id="'.$values["product_id"].'" />
+          
+               </div>
+               </td>
                 
                 </td>
                 </tr>

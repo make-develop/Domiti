@@ -245,7 +245,7 @@ if(isset($_POST["register"]))
 				<option value="Daviplata">Daviplata</option>
 				</select>
 			</div>
-			<div style="display: none">
+			domicilio
 				<input id="domi" type="number" value="2000" name="domicilio" class="form-control" >
 				<input id="total" type="number" name="total" class="form-control" >
 			</div>

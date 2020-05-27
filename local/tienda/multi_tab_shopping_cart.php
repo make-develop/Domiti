@@ -17,6 +17,7 @@
            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
            <link rel="stylesheet" href="./css/index_styles.css">	
+
       </head>  
 
       <!--Inicio cabecera-->	
@@ -71,6 +72,7 @@
                                <input  type="hidden" name="address4" id="address4<?php echo $row["id"]; ?>"  class="form-control"	value="<?php echo $_SESSION['address4']; ?> " > 
                                <input  type="hidden" name="addressAditional" id="addressAditional<?php echo $row["id"]; ?>"  class="form-control"  value="<?php echo $_SESSION['addressAditional']; ?> "  >
                                <input  type="hidden" name="propina" id="propina<?php echo $row["id"]; ?>" class="form-control"  value="0">
+                               <input  type="hidden" name="domicilio" id="domicilio<?php echo $row["id"]; ?>" class="form-control"  value="2000">
                      
 
                                <input type="hidden" name="hidden_name" id="name<?php echo $row["id"]; ?>" value="<?php echo $row["name"]; ?>" />  
@@ -111,21 +113,34 @@
                                          <td><?php echo $values["product_name"]; ?></td>  
                                          <td><input type="text" name="quantity[]" id="quantity<?php echo $values["product_id"]; ?>" value="<?php echo $values["product_quantity"]; ?>" data-product_id="<?php echo $values["product_id"]; ?>" class="form-control quantity" /></td>  
                                          <td align="right">$ <?php echo $values["product_price"]; ?></td>  
-                                         <td align="right">$ <?php echo number_format($values["product_quantity"] * $values["product_price"], 2); ?></td>  
+                                         <td align="right">$ <?php echo number_format($values["product_quantity"] * $values["product_price"]); ?></td>  
                            
                                          <td><button name="delete" class="btn btn-danger btn-xs delete" id="<?php echo $values["product_id"]; ?>">Remove</button></td>  
-                                       
                               
                                     </tr>  
                                     <?php  
-                                              $total = $total + ($values["product_quantity"] * $values["product_price"]);  
+                                              $total = $total + ($values["product_quantity"] * $values["product_price"]) ;  
                                          }  
                                     ?>  
+                                     <tr>
+                                    <td colspan="3" align="right">Domicilio</td>  
+                                         
+                                         <td align="right">$ <?php  $values["domicilio"]; ?></td>
+                                         <td></td>  
+                                    </tr>
+                                    <tr>
+                                    <td colspan="3" align="right">Propina</td>  
+                                         
+                                         <td align="right">$ <?php  $values["propina"]; ?></td>
+                                         <td></td>  
+                                    </tr>
                                     <tr>  
                                          <td colspan="3" align="right">Total</td>  
-                                         <td align="right">$ <?php echo number_format($total, 2); ?></td>  
+                                         
+                                         <td align="right">$ <?php echo number_format($total + $values["domicilio"] + $values["propina"]); ?></td>
                                          <td></td>  
                                     </tr>  
+                                   
                                     <tr>  
                                     <td>
                                    <select   name="address"   id="address<?php echo $values["product_id"]; ?>" data-product_id="<?php echo $values["product_id"]; ?>" class="form-control address" >
@@ -164,6 +179,15 @@
 					          </select>
                                    
                                    </td>
+                                   <td>
+                                   <div>
+                                  
+                                   <input type="number" name="domicilio[]" id="domicilio<?php echo $values["product_id"]; ?>" value="<?php echo $values["domicilio"]; ?>" data-product_id="<?php echo $values["product_id"]; ?>" class="form-control domicilio" />
+                        
+                                   </div>
+                                  
+                                   </td>
+
                                     </tr>
                                     <tr>  
                                          <td colspan="5" align="center">  
@@ -207,6 +231,8 @@
            var propina = $('#propina'+product_id).val();   
            var metodopago = $('#metodopago'+product_id).val();   
 
+           var domicilio = $('#domicilio'+product_id).val();   
+
 
            var action = "add";  
            if(product_quantity > 0)  
@@ -227,6 +253,7 @@
                           addressAditional:addressAditional, 
                           propina:propina,  
                           metodopago:metodopago,
+                          domicilio:domicilio,
                           action:action  
                      },  
                      success:function(data)  
@@ -404,6 +431,24 @@
                      method:"POST",  
                      dataType:"json",  
                      data:{product_id:product_id, metodopago:metodopago, action:action},  
+                     success:function(data){  
+                          $('#order_table').html(data.order_table);  
+                     }  
+                });  
+           }  
+      });  
+
+      $(document).on('change', '.domicilio', function(){  
+           var product_id = $(this).data("product_id");  
+           var domicilio = $(this).val();  
+           var action = "domicilio_change";  
+           if(domicilio != '')  
+           {  
+                $.ajax({  
+                     url :"action.php",  
+                     method:"POST",  
+                     dataType:"json",  
+                     data:{product_id:product_id, domicilio:domicilio, action:action},  
                      success:function(data){  
                           $('#order_table').html(data.order_table);  
                      }  
